@@ -4,4 +4,4 @@ title: Contact
 permalink: /contact/
 ---
 
-Page under contsruction
+Page under construction
