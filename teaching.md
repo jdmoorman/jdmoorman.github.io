@@ -7,12 +7,7 @@ layout: page
     <article class="post">
 
       <h1><a href="{{ site.baseurl }}{{ course.url }}">{{ course.title }}</a></h1>
-<!-- 
-      <div class="entry">
-        {{ course.excerpt }}
-      </div> -->
-
-      <!-- <a href="{{ site.baseurl }}{{ course.url }}" class="read-more">Read More</a> -->
+      
     </article>
   {% endfor %}
 </div>

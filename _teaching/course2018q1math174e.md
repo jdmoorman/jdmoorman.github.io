@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Spring 2018 MATH 174E Dis 2A
+title: Spring 2018 Math 174E
 ---
 
 ###### Office Hours:

@@ -18,6 +18,10 @@ collections:
     output: true
   teaching:
     output: true
+  notes2018q1math171:
+    output: true
+    course: MATH 171
+    quarter: Spring 2018
 
 #
 # Flags below are optional
