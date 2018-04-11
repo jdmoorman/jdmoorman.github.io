@@ -37,12 +37,12 @@ title: Contact
 	}
 </style>
 
-<form method="POST" action="https://formspree.io/jdmoorman@math.ucla.edu">
+<form method="POST" action="https://formspree.io/{{ site.footer-links.email }}">
   <input type="text" name="name" placeholder="Your Name (Optional)">
   <input type="email" name="email" placeholder="Your Email (Optional)">
-  <input type="text" name="_subject" placeholder="Subject (Optional)" />
+  <input type="text" name="subject" placeholder="Subject (Optional)" />
   <textarea name="message" placeholder="Your message"></textarea>
-  <input type="hidden" name="_next" value="//jacob.moorman.me" />
+  <!-- <input type="hidden" name="_next" value="//{{ site.url }}" /> -->
   <input type="text" name="_gotcha" style="display:none" />
   <button type="submit">Send</button>
 </form>
