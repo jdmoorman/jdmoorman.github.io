@@ -2,12 +2,17 @@
 layout: page
 ---
 
-<div class="courses">
-  {% for course in site.teaching reversed %}
-    <article class="post">
+###### Courses
+{% for course in site.teaching reversed %}
+{% if course.layout == 'course_info' %}
 
-      <h1><a href="{{ site.baseurl }}{{ course.url }}">{{ course.title }}</a></h1>
-      
-    </article>
-  {% endfor %}
-</div>
+{% capture course_listing %}{{ course.quarter }}, {{ course.number }}, {{ course.name }}{% endcapture %}
+
+{% if course.quarter == site.quarter %}
+* [{{ course_listing }}]({{ site.baseurl }}{{ course.url }})
+{% else %}
+* {{ course_listing }}
+{% endif %}
+
+{% endif %}
+{% endfor %}

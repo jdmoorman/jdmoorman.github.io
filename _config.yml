@@ -12,16 +12,13 @@ description: Applied Math PhD Student at UCLA
 avatar: https://images2.imgbox.com/65/ca/3u9LAz0B_o.png
 
 office: MS 3921
+quarter: Spring 2018
 
 collections:
   research:
     output: true
   teaching:
     output: true
-  notes2018q1math171:
-    output: true
-    course: MATH 171
-    quarter: Spring 2018
 
 #
 # Flags below are optional

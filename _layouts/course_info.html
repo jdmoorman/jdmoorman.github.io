@@ -1,0 +1,12 @@
+---
+layout: course
+---
+
+<h6>Office Hours:</h6>
+<ul>
+	{% for hour in page.hours %}
+	<li> {{ hour }}, {{ site.office }} </li>
+	{% endfor %}
+</ul>
+
+{{ content }}

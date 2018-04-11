@@ -1,6 +1,6 @@
 ---
 layout: course_notes
-course: Math 171
+number: Math 171
 quarter: Spring 2018
 week: 1
 ---
