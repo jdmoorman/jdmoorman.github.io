@@ -13,6 +13,12 @@ avatar: https://images2.imgbox.com/65/ca/3u9LAz0B_o.png
 
 office: MS 3921
 
+collections:
+  research:
+    output: true
+  teaching:
+    output: true
+
 #
 # Flags below are optional
 #
@@ -75,7 +81,7 @@ sass:
   style: :expanded # You might prefer to minify using :compressed
 
 # Use the following plug-ins
-gems:
+plugins:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
 

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+permalink: /index.html
 ---
 
 I am a second year PhD student in the [Department of Mathematics](https://www.math.ucla.edu/) at UCLA.
