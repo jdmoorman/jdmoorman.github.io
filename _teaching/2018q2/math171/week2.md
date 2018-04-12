@@ -21,19 +21,19 @@ topics:
 
 1. **{{ page.topics[1] }}**
 
-    2. Let \\(T\_1, T\_2\\) be stopping times for some Markov Chain \\(\\{X\_n:n \ge 0\\}\\). Which of the following will also necessarily be stopping times? Prove your claims.
-
-        3. \\(T\_1 + T\_2\\)
-        3. \\(T\_1 - T\_2\\)
-        3. \\(\min(T\_1, T\_2)\\)
-        3. \\(\max(T\_1, T\_2)\\)
-
     2. Let \\(\\{X\_n:n \ge 0\\}\\) be a Markov Chain. Which of the following will necessarily be stopping times? Prove your claims.
 
         3. \\(T=\min\\{n \ge 0: X\_n = x\\}\\)
         3. \\(T=\max\\{n \ge 0: X\_n = x\\}\\)
         3. \\(T=\min\\{n \ge 0: X\_n = X\_{n-1}\\}\\)
         3. \\(T=\min\\{n \ge 0: X\_{n+1} = X\_{n}\\}\\)
+
+    2. Let \\(T\_1, T\_2\\) be stopping times for some Markov Chain \\(\\{X\_n:n \ge 0\\}\\). Which of the following will also necessarily be stopping times? Prove your claims.
+
+        3. \\(T\_1 + T\_2\\)
+        3. \\(T\_1 - T\_2\\)
+        3. \\(\min(T\_1, T\_2)\\)
+        3. \\(\max(T\_1, T\_2)\\)
 
 1. **{{ page.topics[2] }}**
 
