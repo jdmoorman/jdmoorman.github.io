@@ -17,7 +17,7 @@ topics:
 
     2. Example 1.6 from the book (Inventory Chain)
 
-    2. Let \\(\\{X\_n:n \ge 0\\}\\) be a Markov Chain on the state space \\(\mathcal{S}=\\{0, 1, 2\\}\\). Define \\[Y\_n=I\_{\[X\_n \ge 1\]} = \begin{cases}1 &\text{if } X\_n =1,2  \cr 0 &\text{if } X\_n = 0\end{cases}\\] Under what circumstances if any is \\(\\{Y\_n:n \ge 0\\}\\) a Markov Chain?
+    2. Let \\(\\{X\_n:n \ge 0\\}\\) be a Markov Chain on the state space \\(\mathcal{S}=\\{0, 1, 2\\}\\). Define \\[Y\_n=I\_{\[X\_n \ge 1\]} = \begin{cases}1 &\text{if } X\_n =1,2  \cr 0 &\text{if } X\_n = 0\end{cases}\\] Under what circumstances, if any, is \\(\\{Y\_n:n \ge 0\\}\\) a Markov Chain?
 
 1. **{{ page.topics[1] }}**
 
@@ -39,4 +39,6 @@ topics:
 
 	2. Compute or write down the inverse of the matrix \\[A = \begin{bmatrix} a & b \cr c & d \end{bmatrix}\\]
 
-	2. Compute the inverse of the matrix \\[A = \begin{bmatrix} a & 0 & 0 \cr b & c & 0 \cr 0 & d & e \end{bmatrix}\\]
+	2. Under what circumstances is the following matrix invertible? Under these circumstances, compute its inverse. \\[A = \begin{bmatrix} a & 0 & 0 \cr b & c & 0 \cr 0 & d & e \end{bmatrix}\\]
+
+    2. Compute the left eigenvector of \\[P = \begin{bmatrix} 1-r & 0 & r \cr p & 1-p & 0 \cr 0 & q & 1-q \end{bmatrix}\\] corresponding to eigenvalue \\(1\\)
