@@ -11,9 +11,9 @@ topics:
 
 1. **{{ page.topics[0] }}**
 
-    2. Example 1.2 from the book (Ehrenfest Chain)
+    2. (<font color="green">Discussed</font>) Example 1.2 from the book (Ehrenfest Chain)
 
-    2. At \\(t=0\\) an urn contains \\(N\\) balls, \\(M\\) of which are red, \\(N-M\\) of which are green. Each day (\\(t = 1, 2, \dots\\)) a ball is drawn without replacement. Let \\(X\_n\\) be the color of the ball drawn at \\(t=n\\). Is \\(\\{X\_n:N \ge n \ge 1\\}\\) a Markov Chain? Prove your claim.
+    2. (<font color="green">Discussed</font>) At \\(t=0\\) an urn contains \\(N\\) balls, \\(M\\) of which are red, \\(N-M\\) of which are green. Each day (\\(t = 1, 2, \dots\\)) a ball is drawn without replacement. Let \\(X\_n\\) be the color of the ball drawn at \\(t=n\\). Is \\(\\{X\_n:N \ge n \ge 1\\}\\) a Markov Chain? Prove your claim.
 
     2. Example 1.6 from the book (Inventory Chain)
 
@@ -23,10 +23,10 @@ topics:
 
     2. Let \\(\\{X\_n:n \ge 0\\}\\) be a Markov Chain. Which of the following will necessarily be stopping times? Prove your claims.
 
-        3. \\(T=\min\\{n \ge 0: X\_n = x\\}\\)
-        3. \\(T=\max\\{n \ge 0: X\_n = x\\}\\)
+        3. (<font color="green">Discussed</font>) \\(T=\min\\{n \ge 0: X\_n = x\\}\\)
+        3. (<font color="green">Discussed</font>) \\(T=\max\\{n \ge 0: X\_n = x\\}\\)
         3. \\(T=\min\\{n \ge 0: X\_n = X\_{n-1}\\}\\)
-        3. \\(T=\min\\{n \ge 0: X\_{n+1} = X\_{n}\\}\\)
+        3. (<font color="green">Discussed</font>) \\(T=\min\\{n \ge 0: X\_{n+1} = X\_{n}\\}\\)
 
     2. Let \\(T\_1, T\_2\\) be stopping times for some Markov Chain \\(\\{X\_n:n \ge 0\\}\\). Which of the following will also necessarily be stopping times? Prove your claims.
 
