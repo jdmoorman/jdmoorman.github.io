@@ -19,8 +19,6 @@ collections:
     output: true
   teaching:
     output: true
-  drafts:
-    output: true
 
 #
 # Flags below are optional

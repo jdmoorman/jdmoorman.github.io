@@ -4,6 +4,7 @@
 {% if notes.layout == 'course_notes' %}
 {% if notes.quarter == page.quarter %}
 {% if notes.number == page.number %}
+{% unless notes.hidden %}
 
 * [Week {{ notes.week }}]({{ site.baseurl }}{{ notes.url }})
 
@@ -11,6 +12,7 @@
     * {{ topic }}
 {% endfor %}
 
+{% endunless %}
 {% endif %}
 {% endif %}
 {% endif %}
