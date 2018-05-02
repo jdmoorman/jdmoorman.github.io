@@ -23,7 +23,6 @@ topics:
 
     2. Under what conditions on \\(p,q\\) will the following satisfy detailed balance? \\[P = \begin{bmatrix} 0 & 0.5 & 0.5 \cr p & 1-p-q & q \cr 0.4 & 0.6 & 0 \end{bmatrix}\\]
 
-
 1. **{{ page.topics[2] }}**
 
     2. Expanding upon problem 2.1 in the week 3 handout, consider the Markov chain defined by the following transition matrix: \\[P = \begin{matrix} & \mathbf 1 & \mathbf 2 & \mathbf 3 & \mathbf 4 & \mathbf 5 & \mathbf 6 & \mathbf 7 & \mathbf 8 \cr \mathbf 1 & 0.5 & 0 & 0.5 & 0 & 0 & 0 & 0 & 0 \cr \mathbf 2 & 0.5 & 0.5 & 0 & 0 & 0 & 0 & 0 & 0 \cr \mathbf 3 & 0 & 0 & 0 & 0.5 & 0 & 0 & 0 & 0.5 \cr \mathbf 4 & 0 & 0 & 0.5 & 0 & 0.5 & 0 & 0 & 0 \cr \mathbf 5 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \cr \mathbf 6 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \cr \mathbf 7 & 0 & 0 & 0 & 0 & 0 & 0.5 & 0 & 0.5 \cr \mathbf 8 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \end{matrix}\\] Compute \\(E\_2[N(6)]\\) and \\(E\_2[N(3)]\\)
