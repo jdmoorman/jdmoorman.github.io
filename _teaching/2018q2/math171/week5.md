@@ -6,7 +6,6 @@ week: 5
 topics:
   - Reversibility/Detailed Balance Condition
   - Limiting Behavior
-hidden: true
 ---
 
 1. **{{ page.topics[0] }}**
