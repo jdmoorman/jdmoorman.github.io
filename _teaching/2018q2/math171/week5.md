@@ -11,8 +11,6 @@ hidden: true
 
 1. **{{ page.topics[0] }}**
 
-    2. Suppose that \\(r\\) satisfies the detailed balance condition: \\(r\_i P\_\{ij\} = r\_j P\_\{ji\} \; \forall i, j\\). Show that \\(r\\) is stationary.
-
     2. Show that Ehrenfest's chain is reversible. \\[P(x,y)= \begin{cases}\frac{N-x}{N}, & \mathrm{if\ } y=x+1 \cr \frac{x}{N}, & \mathrm{if\ } y=x-1 \cr 0, & \mathrm{otherwise}\end{cases}\\]
 
     2. Consider the Markov chain \\(\\{X\_n:n \ge 0\\}\\) on \\(\mathcal{S} = \\{1, 2, \dots, N\\}\\) with a transition matrix of the form \\[P(x,x-1)=q(x), \; P(x,x)=r(x), \; P(x,x+1)=p(x)\\]
@@ -22,6 +20,14 @@ hidden: true
         3. Show the chain is reversible
 
         3. Find the stationary distribution, assuming the chain is irreducible
+
+    2. Consider the Markov chain \\(\\{X\_n:n \ge 0\\}\\) on \\(\mathcal{S} = \\{1, 2, \dots, N\\}\\) with a transition matrix of the form \\[P(x,y)= \begin{cases}q(x) & \mathrm{if\ } x \neq y \cr 1-(N-1)q(x) & \mathrm{if\ } x = y \end{cases}\\] Verify that such chains are reversible
+
+    2. Suppose \\(P\\) is the transition matrix for a reversible Markov chain. Fix \\(i\_0, j\_0 \in \mathcal{S}\\) Define a new transition matrix \\[P\'(x,y)= \begin{cases}aP(i\_0, j\_0) & \mathrm{if\ } x=i\_0, y=j\_0 \cr aP(j\_0, i\_0) & \mathrm{if\ } x=j\_0, y=i\_0 \cr P(i\_0, i\_0) + (1-a)P(i\_0, j\_0) & \mathrm{if\ } x=y=i\_0 \cr P(j\_0, j\_0) + (1-a)P(j\_0, i\_0) & \mathrm{if\ } x=y=j\_0 \cr P(x,y) & \mathrm{otherwise} \end{cases}\\]
+
+        3. Verify that the Markov chain defined by the new transition matrix will be reversible
+
+        3. How will the stationary distribution of the new Markov chain relate to the stationary distribution of the original?
 
 1. **{{ page.topics[1] }}**
 
