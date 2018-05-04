@@ -32,7 +32,7 @@ topics:
 
     2. (<font color="green">Discussed</font>) Consider Ehrenfest's chain \\(\\{X\_n:n \ge 0\\}\\) subject to the transition probabilities. \\[P(x,y)= \begin{cases}\frac{N-x}{N}, & \mathrm{if\ } y=x+1 \cr \frac{x}{N}, & \mathrm{if\ } y=x-1 \cr 0, & \mathrm{otherwise}\end{cases}\\]
 
-        3. Compute the period \\(\\{X\_n:n \ge 0\\}\\)
+        3. Compute the period of \\(\\{X\_n:n \ge 0\\}\\)
 
         3. Show that \\(Y\_n=X\_{2n}\\) is a Markov chain. Is it irreducible?
 
