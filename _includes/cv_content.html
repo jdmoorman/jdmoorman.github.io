@@ -12,26 +12,23 @@
 <div class="cv-container">
   <div class="row cv-section">
     <div class="col-xs-6">
-      <h1 class="name">{{ site.name }}</h1>
-      <span class="profession">{{ site.description }}</span>
+      <h1 class="name">{{ site.data.cv.name }}</h1>
+      <span class="profession">{{ site.data.cv.description }}</span>
     </div>
     <div class="col-xs-6">
       <ul class="list-unstyled" style="text-align: right">
         <li>
-          <a href="mailto: {{ site.footer-links.email }}">
-            {{site.footer-links.email }}</a> <i class="fa fa-envelope-o"></i>
+          <a href="mailto:{{ site.data.cv.email }}">{{site.data.cv.email }}</a> <i class="fa fa-envelope-o"></i>
         </li>
         <li>
-          <a href="http://{{ site.url }}">{{ site.url }}</a> <i class="fa fa-laptop"></i>
+          <a href="https://{{ site.data.cv.url }}">{{ site.data.cv.url }}</a> <i class="fa fa-laptop"></i>
         </li>
-        {% if site.phone %}
-          <li>{{site.phone}} <i class="fa fa-phone"></i></li>
+        {% if site.data.cv.phone %}
+          <li>{{ site.data.cv.phone }} <i class="fa fa-phone"></i></li>
         {% endif%}
-        {% if site.footer-links.github %}
-          <li>
-            <a href="https://github.com{{site.footer-links.github}}">{{site.footer-links.github}}</a> <i class="fa fa-github"></i>
-          </li>
-        {% endif%}
+        <li>
+          <a href="https://github.com/{{site.data.cv.github}}">{{ site.data.cv.github }}</a> <i class="fa fa-github"></i>
+        </li>
       </ul>
     </div>
   </div>
@@ -43,23 +40,33 @@
     <div class="col-xs-12">
 
       {% for item in site.data.cv.education %}
-      <div class="row">
-        <div class="col-xs-6">
-          <h3>{{ item.degree }}</h3>
-          <i>{{ item.school }}</i>
+        <div class="row">
+          <div class="col-xs-6">
+            {% for degree in item.degrees %}
+              <h3>{{ degree }}</h3>
+            {% endfor %}
+            <i>{{ item.school }}</i>
+          </div>
+          <div class="col-xs-6" style="text-align: right">
+            {% for dates in item.dates %}
+              <h5><span class="avoidwrap">{{ dates.start }}</span>
+              <span class="avoidwrap">– {{ dates.end }}</span></h5>
+            {% endfor %}
+            <i>{{ item.location }}</i>
+          </div>
         </div>
-        <div class="col-xs-6" style="text-align: right">
-          <h5>{{ item.dates }}</h5>
-          <i>{{ item.location }}</i>
+        <div class="row">
+          <div class="col-xs-12">
+            <p>{{ item.summary }}</p>
+          </div>
         </div>
-      </div>
       {% endfor %}
     </div>
   </div>
 
   <div class="row cv-section">
     <div class="col-xs-12">
-      <h2 class="cv-section-header">Experience</h2>
+      <h2 class="cv-section-header">Work</h2>
     </div>
     <div class="col-xs-12">
       {% for item in site.data.cv.experience %}
@@ -69,25 +76,18 @@
             <i>{{item.company}}</i>
           </div>
           <div class="col-xs-6" style="text-align: right">
-            <h5>{{ item.dates }}</h5>
+            <h5><span class="avoidwrap">{{ item.start_date }}</span>
+            <span class="avoidwrap">– {{ item.end_date }}</span></h5>
             <i>{{ item.location }}</i>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <p>{{ item.summary }}</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            {% if item.accomplishments.size > 0 %}
-              <b>Selected accomplishments:</b>
-              <ul>
-                {% for itemm in item.accomplishments %}
-                  <li>{{itemm.accomplishment}}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
+            <ul class="cv-summary">
+            {% for summand in item.summary %}
+              <li>{{ summand }}</li>
+            {% endfor %}
+            </ul>
           </div>
         </div>
       {% endfor %}
@@ -106,25 +106,48 @@
             <i>{{item.institution}}</i>
           </div>
           <div class="col-xs-6" style="text-align: right">
-            <h5>{{ item.dates }}</h5>
+            <h5><span class="avoidwrap">{{ item.start_date }}</span>
+            <span class="avoidwrap">– {{ item.end_date }}</span></h5>
             <i>{{ item.location }}</i>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <p>{{ item.summary }}</p>
+            <ul class="cv-summary">
+            {% for summand in item.summary %}
+              <li>{{ summand }}</li>
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="row cv-section">
+    <div class="col-xs-12">
+      <h2 class="cv-section-header">Teaching</h2>
+    </div>
+    <div class="col-xs-12">
+      {% for item in site.data.cv.teaching %}
+        <div class="row">
+          <div class="col-xs-6">
+            <h3>{{ item.position }}</h3>
+            <i>{{ item.institution }}</i>
+          </div>
+          <div class="col-xs-6" style="text-align: right">
+            <h5><span class="avoidwrap">{{ item.start_date }}</span>
+            <span class="avoidwrap">– {{ item.end_date }}</span></h5>
+            <i>{{ item.location }}</i>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            {% if item.accomplishments.size > 0 %}
-              <b>Selected accomplishments:</b>
-              <ul>
-                {% for itemm in item.accomplishments %}
-                  <li>{{itemm.accomplishment}}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
+            <ul class="cv-summary">
+            {% for summand in item.summary %}
+              <li>{{ summand }}</li>
+            {% endfor %}
+            </ul>
           </div>
         </div>
       {% endfor %}
