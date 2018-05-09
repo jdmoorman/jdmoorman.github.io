@@ -36,6 +36,7 @@ experience:
   end_date: Sept 2017
   location: Los Angeles, CA
   summary: 
+  - 
 
 - position: Software Engineering Intern
   company: Trillium Labs
@@ -43,6 +44,9 @@ experience:
   end_date: May 2016
   location: New York, NY
   summary:
+  - Built an equity market data visualization web app to allow interactive access to millisecond resolution records.
+  - Contributed to an outlier detection tool used to identify interesting stocks and transactions.
+  - Combined outlier detection and data visualization tools into a workflow for generating market insights.
 
 - position: Game Development Consultant
   company: Mission Critical Studios
@@ -71,7 +75,7 @@ research:
   location: Newark, NJ
   summary:
   - Applied a particle filtering approach to identifying and tracking accoustic sources in 2d and 3d.
-  - Implemented simulations and benchmark tests in C++ and MATLAB to evaluate performance.
+  - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance.
 
 
 
