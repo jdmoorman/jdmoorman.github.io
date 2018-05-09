@@ -1,0 +1,1 @@
+wkhtmltopdf -T 16 http://127.0.0.1:4000/raw_cv/ cv.pdf

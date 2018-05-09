@@ -10,7 +10,7 @@
 </head>
 
 <div class="cv-container">
-  <div class="row cv-section">
+  <div class="row cv-masthead cv-section">
     <div class="col-xs-6">
       <h1 class="name">{{ site.data.cv.name }}</h1>
       <span class="profession">{{ site.data.cv.description }}</span>
@@ -21,14 +21,14 @@
           <a href="mailto:{{ site.data.cv.email }}">{{site.data.cv.email }}</a> <i class="fa fa-envelope-o"></i>
         </li>
         <li>
-          <a href="https://{{ site.data.cv.url }}">{{ site.data.cv.url }}</a> <i class="fa fa-laptop"></i>
+          <a href="https://{{ site.data.cv.url }}">https://{{ site.data.cv.url }}</a> <i class="fa fa-laptop"></i>
         </li>
         {% if site.data.cv.phone %}
           <li>{{ site.data.cv.phone }} <i class="fa fa-phone"></i></li>
         {% endif%}
-        <li>
+        <!-- <li>
           <a href="https://github.com/{{site.data.cv.github}}">{{ site.data.cv.github }}</a> <i class="fa fa-github"></i>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
