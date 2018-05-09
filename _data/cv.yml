@@ -3,14 +3,14 @@ description: Applied Math PhD Student at UCLA
 github: jdmoorman
 email: jdmoorman@math.ucla.edu
 url: jacob.moorman.me
-
+phone: 
 
 
 education:
 
 - degrees:
   - Ph.D. Mathematics
-  - M.A. Mathematics
+#  - M.A. Mathematics
   dates: 
   - start: Aug 2016
     end: Present
