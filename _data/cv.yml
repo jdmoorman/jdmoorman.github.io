@@ -6,13 +6,14 @@ url: jacob.moorman.me
 phone: 
 
 
+
 education:
 
 - degrees:
   - Ph.D. Mathematics
 #  - M.A. Mathematics
   dates: 
-  - start: Aug 2016
+  - start: 2016
     end: Present
   school: University of California, Los Angeles (UCLA)
   location: Los Angeles, CA
@@ -21,8 +22,8 @@ education:
   - B.S. Computational Mathematics
   - B.S. Computer Science
   dates: 
-  - start: Sept 2012
-    end: May 2016
+  - start: 2012
+    end: 2016
   school: New Jersey Institute of Technology (NJIT)
   location: Newark, NJ
 
@@ -36,7 +37,8 @@ experience:
   end_date: Sept 2017
   location: Los Angeles, CA
   summary: 
-  - 
+  - Explored data augmentation methods via simulations
+  - Overhauled data post-processing and visualization frameworks to improve extensibility
 
 - position: Software Engineering Intern
   company: Trillium Labs
@@ -83,7 +85,7 @@ teaching:
 
 - position: Teaching Assistant
   institution: UCLA Department of Mathematics
-  start_date: Sept 2016
+  start_date: 2016
   end_date: Present
   location: Los Angeles, CA
   summary:
