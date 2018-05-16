@@ -6,6 +6,7 @@ week: 7
 topics:
   - Martingales
   - Optional Stopping
+hidden: True
 ---
 
 1. **{{ page.topics[0] }}**
