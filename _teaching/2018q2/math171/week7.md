@@ -25,7 +25,7 @@ hidden: True
 
         3. Find the even moments of \\(S\_n\\). That is, \\(\mathbb{E}[S\_n^{2m}]\\).
 
-        3. For what value of \\(c\\) is \\(M\_n = S\_n^2 - nc\\) a martingale?
+        3. For what values of \\(c\_n\\) is \\(M\_n = S\_n^2 - c\_n\\) a martingale?
 
         3. Find a formula for \\(\mathbb{E}[S\_{n+1}^{2m} \mid S\_n=t]\\) which depends only on \\(m\\) and \\(t\\)
 
