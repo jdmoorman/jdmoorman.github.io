@@ -16,6 +16,8 @@ topics:
 
         3. Show that \\((M\_n)\_{n \ge 0}\\) with \\(M\_n = \frac{1}{X\_0} + \dots + \frac{1}{X\_n}\\) is not a Martingale.
 
+            * (<font color="red">Answer</font>) \\[\mathbb{E}\|M\_n\| = \infty\\]
+
     2. Let \\((X\_n)\_{n \ge 0}\\) be i.i.d. uniform on \\(\\{-1, 1\\}\\). AKA Rademacher distributed. Let \\(S\_n = X\_0 + X\_1 + \dots + X\_n\\) for some \\(X\_0\\).
 
         3. Compute the moment generating function of \\(S\_n\\). That is, \\(\mathbb{E}[e^{tS\_n}]\\)
