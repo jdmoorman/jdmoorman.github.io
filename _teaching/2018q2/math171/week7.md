@@ -6,7 +6,6 @@ week: 7
 topics:
   - Martingales
   - Optional Stopping
-hidden: True
 ---
 
 1. **{{ page.topics[0] }}**
@@ -31,6 +30,8 @@ hidden: True
 
 1. **{{ page.topics[1] }}**
 
-    2. Textbook (3rd edition) problems 5.8, 5.9
+    2. Problem 5.16 from the textbook (2nd edition) 
 
-    2. Textbook (3rd edition) problems 5.16, 5.17
+    2. Problem 5.17 from the textbook (2nd edition) 
+
+    2. Problem 5.8 from the textbook (2nd edition) 
