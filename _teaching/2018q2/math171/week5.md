@@ -17,6 +17,8 @@ topics:
     2. Consider the Markov chain \\(\\{X\_n:n \ge 0\\}\\) on \\(\mathcal{S} = \\{1, 2, \dots, N\\}\\) with a transition matrix of the form \\[P(x,x-1)=q(x), \; P(x,x)=r(x), \; P(x,x+1)=p(x)\\]
 
         3. Find conditions on \\(q, r, p\\) which guarantee the chain will be irreducible.
+    
+            * (<font color="red">Answer</font>) \\(q(x) \neq 0\\) and \\(p(x) \neq 0\\) \\(\forall x\\)
 
         3. Show the chain is reversible
     
