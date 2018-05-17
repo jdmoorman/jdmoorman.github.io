@@ -12,7 +12,7 @@ topics:
 
     2. Show that Ehrenfest's chain is reversible. \\[P(x,y)= \begin{cases}\frac{N-x}{N}, & \mathrm{if\ } y=x+1 \cr \frac{x}{N}, & \mathrm{if\ } y=x-1 \cr 0, & \mathrm{otherwise}\end{cases}\\]
     
-            * (<font color="red">Answer</font>) Show KCC on simple cycles: All simple cycles are length 2, and cycles of length 2 always satisfy KCC.
+        * (<font color="red">Answer</font>) Show KCC on simple cycles: All simple cycles are length 2, and cycles of length 2 always satisfy KCC.
 
     2. Consider the Markov chain \\(\\{X\_n:n \ge 0\\}\\) on \\(\mathcal{S} = \\{1, 2, \dots, N\\}\\) with a transition matrix of the form \\[P(x,x-1)=q(x), \; P(x,x)=r(x), \; P(x,x+1)=p(x)\\]
 
