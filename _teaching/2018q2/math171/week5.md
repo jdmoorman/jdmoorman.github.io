@@ -11,12 +11,16 @@ topics:
 1. **{{ page.topics[0] }}**
 
     2. Show that Ehrenfest's chain is reversible. \\[P(x,y)= \begin{cases}\frac{N-x}{N}, & \mathrm{if\ } y=x+1 \cr \frac{x}{N}, & \mathrm{if\ } y=x-1 \cr 0, & \mathrm{otherwise}\end{cases}\\]
+    
+            * (<font color="red">Answer</font>) Show KCC on simple cycles: All simple cycles are length 2, and cycles of length 2 always satisfy KCC.
 
     2. Consider the Markov chain \\(\\{X\_n:n \ge 0\\}\\) on \\(\mathcal{S} = \\{1, 2, \dots, N\\}\\) with a transition matrix of the form \\[P(x,x-1)=q(x), \; P(x,x)=r(x), \; P(x,x+1)=p(x)\\]
 
         3. Find conditions on \\(q, r, p\\) which guarantee the chain will be irreducible.
 
         3. Show the chain is reversible
+    
+            * (<font color="red">Answer</font>) Show KCC on simple cycles: All simple cycles are length 2, and cycles of length 2 always satisfy KCC.
 
         3. Find the stationary distribution, assuming the chain is irreducible
 
@@ -33,14 +37,20 @@ topics:
     2. (<font color="green">Discussed</font>) Consider Ehrenfest's chain \\(\\{X\_n:n \ge 0\\}\\) subject to the transition probabilities. \\[P(x,y)= \begin{cases}\frac{N-x}{N}, & \mathrm{if\ } y=x+1 \cr \frac{x}{N}, & \mathrm{if\ } y=x-1 \cr 0, & \mathrm{otherwise}\end{cases}\\]
 
         3. Compute the period of \\(\\{X\_n:n \ge 0\\}\\)
+    
+            * (<font color="red">Answer</font>) 2
 
         3. Show that \\(Y\_n=X\_{2n}\\) is a Markov chain. Is it irreducible?
+    
+            * (<font color="red">Answer</font>) No. The state space has been split into two parts which don't communicate with each other.
 
         3. Consider \\(Y\_n=X\_{2n}\\) under the restriction \\(X\_0 \in \\{0,\ 2,\ \dots,\ 2\lfloor\frac{N}{2}\rfloor\\}\\). Compute its stationary distribution. Explain why \\(Y\_n\\) converges in distribution to the stationary distribution as \\(n \to \infty\\).
 
     2. (<font color="green">Discussed</font>) Consider the Markov chain \\(\\{X\_n:n \ge 0\\}\\) on \\(\mathcal{S} = \\{1, 2, \dots, N\\}\\) with a transition matrix of the form \\[P(x,x-1)=q(x), \; P(x,x)=r(x), \; P(x,x+1)=p(x)\\]
 
         3. Find conditions on \\(q, r, p\\) which lead to a period of 2
+        
+            * (<font color="red">Answer</font>) \\(r(x) = 0\\)
 
         3. Suppose \\(q(x)=0\\). Find a formula for \\(\mathbb{E}\_x[N(y)]\\) for \\(x < y\\)
 
