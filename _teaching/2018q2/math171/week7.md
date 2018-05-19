@@ -28,7 +28,9 @@ topics:
 
             * (<font color="red">Answer</font>) 0. Makes sense because \\(S_n\\) is symmetric about 0.
 
-        3. Find the even moments of \\(S\_n\\). That is, \\(\mathbb{E}[S\_n^{2m}]\\).
+        3. Find a formula for the even moments of \\(S\_n\\). That is, \\(\mathbb{E}[S\_n^{2m}]\\).
+
+            * (<font color="red">Answer</font>) \\(\sum\_{k=0}^n \binom{n}{k}\left(\frac{1}{2}\right)^n (2k-n)^{2m}\\)
 
         3. For what values of \\(c\_n\\) is \\(M\_n = S\_n^2 - c\_n\\) a martingale?
 
