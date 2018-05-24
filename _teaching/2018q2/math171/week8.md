@@ -6,7 +6,6 @@ week: 8
 topics:
   - Exponential Distribution
   - Poisson Process Basics
-hidden: True
 ---
 
 1. **{{ page.topics[0] }}**
