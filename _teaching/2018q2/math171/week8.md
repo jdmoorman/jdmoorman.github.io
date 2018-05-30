@@ -24,6 +24,8 @@ topics:
 
         3. Find the distribution of \\(e^{-X}\\)
 
+            * (<font color="blue">Solution</font>) Let \\(Y = e^{-X}\\). Note since \\(X \in [0, \infty)\\) we have \\(Y \in (0, 1]\\). \\[\begin{aligned}F\_Y(y) &= P(Y \le y)\\\\ &= P(e^{-X}\le y)\\\\&=P(-X \le \log(y))\\\\&= P(X \ge -\log(y))\\\\&=1-F\_X(-\log(y))\end{aligned}\\] \\[\begin{aligned}f\_Y(y) &= \frac{d}{dy}F\_Y(y) \\\\ &= \frac{d}{dy}(1 - F\_X(-\log(y))) \\\\ &= -f\_X(-\log(y))\cdot \frac{-1}{y} \\\\ &= \frac{\lambda e^{-\lambda (-\log(y))}}{y} \\\\ &= \lambda y^{\lambda - 1}\end{aligned}\\]
+
     2. Let \\(U \sim \mathrm{uniform}[0,1]\\). Find the distribution of \\(-\alpha\log{U}\\)
 
         * (<font color="red">Answer</font>) \\(\mathrm{exponential}(1/\alpha)\\)
