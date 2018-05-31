@@ -40,4 +40,20 @@ hidden: True
 
         3. Find an analogous equality for \\(P(s \le \sum\_{i=1}^n X\_i \le t)\\)
 
+    2. \\(n+m\\) cars approach \\(n\\) toll booths \\((m < n)\\). The time taken for a car to pass through a toll booth is exponentially distributed with rate \\(\lambda\\). When a toll booth becomes available, a car fills it instantly if there are any cars waiting.
+
+        3. What is the expected time before the first car exits the tolls?
+
+        3. What is the expected time before the \\(m^\mathrm{th}\\) car exits the tolls?
+
+        3. What is the expected time before the last car exits the tollbooths?
+
+        3. Describe the exits of first \\(m\\) cars from the toll booths as a superposition of poisson process
+
+        3. What is the probability that the first car comes through the leftmost tollbooth?
+
+        3. What is the probability that all of the first \\(m\\) cars comes through the leftmost tollbooth?
+
+        3. What is the probability that each of the first \\(m\\) cars go exit through a different tollbooth?
+
 
