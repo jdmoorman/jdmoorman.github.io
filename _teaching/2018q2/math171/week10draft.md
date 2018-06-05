@@ -14,18 +14,19 @@ hidden: True
     1. Let \\(N(t)\\) be a Poisson process with rate \\(\lambda\\). Fix \\(n \ge 0\\), \\(s \le t\\).
         1. Compute \\(\mathbb{P}(N(s)=m \mid N(t) = n)\\) for \\(m \le n\\). Give the name and parameters of the distribution.
         2. Compute \\(\mathbb{E}[N(s) \mid N(t) = n]\\)
+
     2. Let \\(N(t)\\) be a Poisson process with rate \\(\lambda\\). Fix \\(n\ge m \ge 0\\), \\(r \le s \le t\\).
         1. Compute \\(\mathbb{P}(N(s)=k \mid N(t) = n, N(r)=m)\\) for \\(m \le n\\). Give the name and parameters of the distribution.
         2. Compute \\(\mathbb{E}[N(s) \mid N(t) = n]\\)
         3. Compute the expected amount if time between the first and last arrivals in \\([r, t]\\) given that \\(N(t) = n\\) and \\(N(r)=m\\).
-
-    [https://www.math.ucdavis.edu/~gravner/MAT135B/materials/ch18.pdf](https://www.math.ucdavis.edu/~gravner/MAT135B/materials/ch18.pdf)
 
     3. Assume that passengers arrive at a bus station as a Poisson process with rate \\(\lambda\\).
         1. The only bus departs after a deterministic time \\(T\\). Let \\(W\\) be the combined waiting time for all passengers. Compute \\(\mathbb{E}[W]\\).
         2. Now two buses depart, one at \\(T\\) and one at \\(S<T\\). Compute \\(\mathbb{E}[W]\\).
         3. Now assume T, the only bus arrival time, is Exponential(\\(\mu\\)), independent of the passengers. Compute \\(\mathbb{E}[W]\\).
         3. Finally, two buses now arrive as the first two events in a rate \\(\mu\\) Poisson process. Compute \\(\mathbb{E}[W]\\).
+
+    [https://www.math.ucdavis.edu/~gravner/MAT135B/materials/ch18.pdf](https://www.math.ucdavis.edu/~gravner/MAT135B/materials/ch18.pdf)
 
 1. **{{ page.topics[1] }}**
 
