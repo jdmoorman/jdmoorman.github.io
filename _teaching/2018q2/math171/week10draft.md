@@ -6,6 +6,7 @@ week: 10
 topics:
   - Poisson Process Conditioning
   - Renewal Process
+hidden: True
 ---
 
 1. **{{ page.topics[0] }}**
