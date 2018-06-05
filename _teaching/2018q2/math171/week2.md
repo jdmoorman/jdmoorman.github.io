@@ -31,14 +31,29 @@ topics:
     2. Let \\(T\_1, T\_2\\) be stopping times for some Markov Chain \\(\\{X\_n:n \ge 0\\}\\). Which of the following will also necessarily be stopping times? Prove your claims.
 
         3. \\(T\_1 + T\_2\\)
+
+            * (<font color="red">Answer</font>) Yes
+
         3. \\(T\_1 - T\_2\\)
+
+            * (<font color="red">Answer</font>) No
+
         3. \\(\min(T\_1, T\_2)\\)
+
+            * (<font color="red">Answer</font>) Yes
+
         3. \\(\max(T\_1, T\_2)\\)
+
+            * (<font color="red">Answer</font>) Yes
 
 1. **{{ page.topics[2] }}**
 
 	2. Compute or write down the inverse of the matrix \\[A = \begin{bmatrix} a & b \cr c & d \end{bmatrix}\\]
 
+        * (<font color="red">Answer</font>) \\[\frac{1}{ad-bc}\begin{bmatrix}d & -b \\\\ -c a\end{bmatrix}\\]
+
 	2. Under what circumstances is the following matrix invertible? Under these circumstances, compute its inverse. \\[A = \begin{bmatrix} a & 0 & 0 \cr b & c & 0 \cr 0 & d & e \end{bmatrix}\\]
+
+        * (<font color="red">Answer</font>) \\(ace \neq 0\\)
 
     2. Compute the left eigenvector of \\[P = \begin{bmatrix} 1-r & 0 & r \cr p & 1-p & 0 \cr 0 & q & 1-q \end{bmatrix}\\] corresponding to eigenvalue \\(1\\)
