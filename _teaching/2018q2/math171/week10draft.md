@@ -16,7 +16,7 @@ hidden: True
         2. Compute \\(\mathbb{E}[N(s) \mid N(t) = n]\\)
 
     2. Let \\(N(t)\\) be a Poisson process with rate \\(\lambda\\). Fix \\(0 \le m \le n\\), \\(r \le s \le t\\).
-        1. Compute \\(\mathbb{P}(N(s)=k \mid N(t) = n, N(r)=m)\\) for \\(m \le n\\). Give the name and parameters of the distribution.
+        1. Compute \\(\mathbb{P}(N(s)=k \mid N(t) = n, N(r)=m)\\). Give the name and parameters of the distribution.
         2. Compute \\(\mathbb{E}[N(s) \mid N(t) = n, N(r)=m]\\)
         3. Compute the expected amount if time between the first and last arrivals in \\([r, t]\\) given that \\(N(t) = n\\) and \\(N(r)=m\\).
 
