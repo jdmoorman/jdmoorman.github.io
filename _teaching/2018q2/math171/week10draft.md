@@ -20,14 +20,6 @@ hidden: True
         2. Compute \\(\mathbb{E}[N(s) \mid N(t) = n]\\)
         3. Compute the expected amount if time between the first and last arrivals in \\([r, t]\\) given that \\(N(t) = n\\) and \\(N(r)=m\\).
 
-    3. Assume that passengers arrive at a bus station as a Poisson process with rate \\(\lambda\\).
-        1. The only bus departs after a deterministic time \\(T\\). Let \\(W\\) be the combined waiting time for all passengers. Compute \\(\mathbb{E}[W]\\).
-        2. Now two buses depart, one at \\(T\\) and one at \\(S<T\\). Compute \\(\mathbb{E}[W]\\).
-        3. Now assume T, the only bus arrival time, is Exponential(\\(\mu\\)), independent of the passengers. Compute \\(\mathbb{E}[W]\\).
-        3. Finally, two buses now arrive as the first two events in a rate \\(\mu\\) Poisson process. Compute \\(\mathbb{E}[W]\\).
-
-    [https://www.math.ucdavis.edu/~gravner/MAT135B/materials/ch18.pdf](https://www.math.ucdavis.edu/~gravner/MAT135B/materials/ch18.pdf)
-
 1. **{{ page.topics[1] }}**
 
     1. Cars queue at a gate. The lengths of the cars are i.i.d with distribution \\(F_L\\) and mean \\(\mu\\). Let \\(L \sim F_L\\). Each successive car stops leaving a gap, distributed according to a uniform distribution on \\((0, 1)\\), to the car in front (or to the gate in the case of the car at the head of the queue). Consider the number of cars \\(N(t)\\) lined up within distance t of the gate. Determine \\(\lim_{t \to \infty} \frac{\mathbb{E}[N(t)]}{t}\\) if 
