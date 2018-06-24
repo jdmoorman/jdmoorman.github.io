@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
+    <title>
+      {% if page.number %}
+        {{ page.number }}
+        {% if page.week %}
+          Week {{ page.week }}
+        {% endif %}
+      {% else %}
+        {{ page.title }}
+      {% endif %}
+       – {{ site.name }}
+    </title>
 
     {% include meta.html %}
 
@@ -23,12 +33,13 @@
     <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/assets/images/favicon.png">
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+
+    {% include analytics.html %}
   </head>
 
   <body>
 
     {{ content }}
 
-    {% include analytics.html %}
   </body>
 </html>

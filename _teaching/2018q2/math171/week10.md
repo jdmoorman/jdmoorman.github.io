@@ -6,7 +6,7 @@ week: 10
 topics:
   - Poisson Process Conditioning
   - Renewal Process
-  - Miscellaneous
+  - Useful Formulas
 ---
 
 1. **{{ page.topics[0] }}**
@@ -49,7 +49,7 @@ topics:
         3. Let \\(S(t)\\) the amount total amount paid by all parties by time \\(t\\). Compute \\(\lim\_{t\to \infty}\frac{S(t)}{t}\\), and justify the validity of your computation.
             * (<font color="red">Answer</font>) \\(\frac{20\mathbb{E}[N]}{\mathbb{E}[N/4]+1}\\). Justify by SLLN
 
-1. **{{ page.topics[1] }}**
+1. **{{ page.topics[2] }}**
 
     1. For a discrete random variable \\(X\\) taking values in \\(\\{0, 1, 2, \dots\\}\\), we have \\(\mathbb{E}[X] = \sum\_{k=0}^\infty P(X > k)\\)
     1. For a continuous random variable \\(T\\) taking values in \\([0, \infty)\\), we have \\(\mathbb{E}[T] = \int\_0^\infty P(T > s) ds\\)
