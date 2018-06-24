@@ -15,11 +15,11 @@ I flip a coin with probability \\(p\\) of heads until the first head occurs. Let
 
 1. (<font color="green">Discussed</font>) Compute \\(P(H=0)\\)
 
-	* Hint: {{ page.topics[0] }}
+    * Hint: {{ page.topics[0] }}
 
 1. (<font color="green">Discussed</font>) Compute \\(P(N=n\|H=0)\\)
 
-	* Hint: {{ page.topics[1] }}
+    * Hint: {{ page.topics[1] }}
 
 1. (<font color="green">Discussed</font>) Compute the distribution of \\[M(N) = \begin{cases}\frac{N}{2}, &\text{if } n \text{ is even}  \\\ \frac{N+1}{2}, &\text{if } n \text{ is odd} \end{cases}\\]
 

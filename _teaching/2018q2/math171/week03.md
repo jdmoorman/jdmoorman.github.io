@@ -14,12 +14,16 @@ topics:
     2. Let \\(T\_1, T\_2\\) be stopping times for some Markov Chain \\(\\{X\_n:n \ge 0\\}\\). Which of the following will also necessarily be stopping times? Prove your claims.
 
         3. (<font color="green">Discussed</font>) \\(T\_3=5\\)
+
         3. \\(T\_4=T\_1 + T\_2 + 1\\)
+
         3. (<font color="green">Discussed</font>) \\(T\_5=T\_1 + T\_2 - 1\\)
+
             * (<font color="blue">Solution</font>) \\(T\_5\\) will not necessarily be a stopping time. Suppose \\(\\{X\_n:n \ge 0\\}\\) is the Markov Chain corresponding to the transition matrix \\[P = \begin{matrix} & \mathbf 0 & \mathbf 1 \cr \mathbf 0 & 1/2 & 1/2 \cr \mathbf 1 & 0 & 1 \end{matrix}\\] Suppose further that \\(T_1 = \min\\{n \ge 0: X\_n = \mathbf 0\\}\\) and \\(T_2 = \min\\{n \ge 0: X\_n = \mathbf 1\\}\\). If \\(T\_5\\) were a stopping time we would have \\(P(T\_5 = n \| X\_n = x\_n, \dots, X\_0=x\_0)\in \\{0, 1\\} \; \forall n\\). However, by definition of \\(T\_5\\)\\[P(T\_5 = 0 \| X\_0=\mathbf 0) = P(T\_1 + T\_2 = 1 \| X\_0=\mathbf 0)\\] by directly enumerating the possibilities we see \\[= P(T\_1 = 1, T\_2 = 0 \| X\_0=\mathbf 0)\\] \\[+ P(T\_1 = 0, T\_2 = 1 \| X\_0=\mathbf 0)\\] and now using the Multiplication Rule \\[= P(T\_1 = 1 \| T\_2 = 0, X\_0=\mathbf 0)P(T\_2 = 0 \| X\_0=\mathbf 0)\\] \\[+ P(T\_2 = 1 \| T\_1 = 0, X\_0=\mathbf 0)P(T\_1 = 0 \| X\_0=\mathbf 0)\\] since \\(T\_1\\) and \\(T\_2\\) are stopping times this simplifies to \\[= P(T\_1 = 1 \| X\_0=\mathbf 0)P(T\_2 = 0 \| X\_0=\mathbf 0)\\]\\[ + P(T\_2 = 1 \| X\_0=\mathbf 0)P(T\_1 = 0 \| X\_0=\mathbf 0)\\] each term of which can be computed \\[=0 \cdot 0 + \frac 1 2 \cdot 1\\]\\[= \frac 1 2 \notin \\{0, 1\\}\\]
 
 
     2. (<font color="green">Discussed</font>) Solve problem 4(ii) on HW 2
+
         * (<font color="green">Discussed</font>) Show Lemma 1.3 from the textbook
 
 1. **{{ page.topics[1] }}**
