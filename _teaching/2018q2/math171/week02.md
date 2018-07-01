@@ -48,12 +48,14 @@ topics:
 
 1. **{{ page.topics[2] }}**
 
-	2. Compute or write down the inverse of the matrix \\[A = \begin{bmatrix} a & b \cr c & d \end{bmatrix}\\]
+    2. Compute or write down the inverse of the matrix \\[A = \begin{bmatrix} a & b \cr c & d \end{bmatrix}\\]
 
-        * (<font color="red">Answer</font>) \\[\frac{1}{ad-bc}\begin{bmatrix}d & -b \\\\ -c a\end{bmatrix}\\]
+        * (<font color="red">Answer</font>) \\[\frac{1}{ad-bc}\begin{bmatrix}d & -b \\\\ -c & a\end{bmatrix}\\]
 
-	2. Under what circumstances is the following matrix invertible? Under these circumstances, compute its inverse. \\[A = \begin{bmatrix} a & 0 & 0 \cr b & c & 0 \cr 0 & d & e \end{bmatrix}\\]
+    2. Under what circumstances is the following matrix invertible? Under these circumstances, compute its inverse. \\[A = \begin{bmatrix} a & 0 & 0 \cr b & c & 0 \cr 0 & d & e \end{bmatrix}\\]
 
-        * (<font color="red">Answer</font>) \\(ace \neq 0\\)
+        * (<font color="red">Answer</font>) \\(ace \neq 0\\)\\[\begin{bmatrix}1/a & 0 & 0 \\\\ -b/ac & 1/c & 0\\\\bd/ace & -d/ce & 1/e\end{bmatrix}\\]
 
-    2. Compute the left eigenvector of \\[P = \begin{bmatrix} 1-r & 0 & r \cr p & 1-p & 0 \cr 0 & q & 1-q \end{bmatrix}\\] corresponding to eigenvalue \\(1\\)
+    2. Compute a left eigenvector of \\[P = \begin{bmatrix} 1-r & 0 & r \cr p & 1-p & 0 \cr 0 & q & 1-q \end{bmatrix}\\] corresponding to eigenvalue \\(1\\)
+
+        * (<font color="red">Answer</font>) \\(ace \neq 0\\)\\[\begin{bmatrix}1/a & 0 & 0 \\\\ -b/ac & 1/c & 0\\\\bd/ace & -d/ce & 1/e\end{bmatrix}\\]

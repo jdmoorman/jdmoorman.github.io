@@ -19,6 +19,8 @@ collections:
     output: true
   teaching:
     output: true
+  slides:
+    output: true
 
 #
 # Flags below are optional
