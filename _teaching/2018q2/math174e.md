@@ -6,4 +6,5 @@ name: Mathematics of Finance
 hours:
   - Monday 2:15pm - 3:00pm
   - Thursday 11:00am - 11:45am
+no_link: true
 ---

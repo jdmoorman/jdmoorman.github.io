@@ -75,7 +75,9 @@ research:
   start_date: June 2018
   end_date: Aug 2018
   location: Los Angeles, CA
-  summary: Upcoming summer research position
+  summary:
+    - Creating subgraph matching algorithms for multichannel networks
+    - Implementing algorithms using Python, PySpark, and GraphFrames
 
 - position: Undergraduate Researcher
   institution: NJIT Department of Mathematics

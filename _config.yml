@@ -12,7 +12,7 @@ description: Applied Math PhD Student at UCLA
 avatar: /assets/images/avatar.png
 
 office: MS 3921
-quarter: Spring 2018
+quarter: Summer 2018
 
 collections:
   research:
@@ -21,10 +21,21 @@ collections:
     output: true
   slides:
     output: true
+  blog:
+    output: true
 
-#
-# Flags below are optional
-#
+# # How many blog posts per page?
+# paginate: 1
+# paginate_path: "/blog/page:num/"
+
+pages_list:
+  - ["About", ""]
+  - ["Teaching", "teaching/"]
+  # - ["Research", "research/"]
+  - ["Blog", "blog/"]
+  - ["Slides", "slides/"]
+  - ["CV", "cv/"]
+  - ["Contact", "contact/"]
 
 # Includes an icon in the footer for each username you enter
 footer-links:
@@ -66,7 +77,7 @@ baseurl: ""
 # !! You don't need to change any of the configuration flags below !!
 #
 
-permalink: /:title/
+permalink: /blog/:title/
 
 # The release of Jekyll Now that you're using
 version: v1.2.0

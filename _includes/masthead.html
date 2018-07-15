@@ -9,12 +9,9 @@
       </div>
 
       <nav>
-        <a href="{{ site.baseurl }}/">About</a>
-        <!-- <a href="{{ site.baseurl }}/research">Research</a> -->
-        <a href="{{ site.baseurl }}/teaching">Teaching</a>
-        <a href="{{ site.baseurl }}/contact">Contact</a>
-        <a href="{{ site.baseurl }}/slides">Slides</a>
-        <a href="{{ site.baseurl }}/cv">CV</a>
+        {% for entry in site.pages_list %}
+          <a href="{{ site.baseurl }}/{{ entry[1] }}">{{ entry[0] }}</a>
+        {% endfor %}
       </nav>
     </header>
   </div>
