@@ -39,8 +39,10 @@ experience:
   end_date: Sept 2017
   location: Los Angeles, CA
   summary: 
+  - Developed quality metrics for real time TCD (brain ultrasound) data
+  - Created simulations for testing search algorithms to eliminate the need for physical tests
   - Explored data augmentation methods via simulations
-  - Overhauled data post-processing and visualization frameworks to improve extensibility
+  - Automated routine data visualization processes to reduce data science team's workload
 
 - position: Software Engineering Intern
   company: Trillium Labs
