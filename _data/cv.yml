@@ -84,6 +84,7 @@ research:
   summary:
     - Creating subgraph matching algorithms for multichannel networks
     - Implementing algorithms using Python, PySpark, and GraphFrames
+    - Funded by DARPA award number FA8750-18-2-0066
 
 - position: Undergraduate Researcher
   institution: NJIT Department of Mathematics
@@ -93,6 +94,7 @@ research:
   summary:
   - Applied a particle filtering approach to identifying and tracking accoustic sources in 2d and 3d.
   - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance.
+  - Funded by NSF under EXTREEMS-QED
 
 
 
