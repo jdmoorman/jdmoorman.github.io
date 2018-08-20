@@ -150,16 +150,10 @@
       <h2 class="cv-section-header">Projects</h2>
     </div>
     <div class="col-xs-12">
-      {% for item in site.data.cv.ucla_projects %}
-        <div class="row">
-          <div class="col-xs-12 col-sm-6">
-            <h3>{{ UCLA Course Projects }}</h3>
-          </div>
-          <div class="col-xs-12 col-sm-6 cv-dates-and-loc">
-          </div>
-        </div>
+      {% for item in site.data.cv.uclaProjects %}
         <div class="row">
           <div class="col-xs-12">
+            {% item.brief %}
             <ul class="cv-summary">
             {% for summand in item.summary %}
               <li>{{ summand }}</li>
