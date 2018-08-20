@@ -50,9 +50,9 @@ experience:
   end_date: May 2016
   location: New York, NY
   summary:
-  - Built an equity market data visualization web app to allow interactive access to millisecond resolution records.
-  - Contributed to an outlier detection tool used to identify interesting stocks and transactions.
-  - Combined outlier detection and data visualization tools into a workflow for generating market insights.
+  - Built an equity market data visualization web app to allow interactive access to millisecond resolution records
+  - Contributed to an outlier detection tool used to identify interesting stocks and transactions
+  - Combined outlier detection and data visualization tools into a workflow for generating market insights
 
 - position: Game Development Consultant
   company: Mission Critical Studios
@@ -80,7 +80,7 @@ research:
 - position: Graduate Student Researcher
   institution: UCLA Department of Mathematics
   start_date: June 2018
-  end_date: Aug 2018
+  end_date: Present
   location: Los Angeles, CA
   summary:
     - Creating subgraph matching algorithms for multichannel networks
@@ -93,8 +93,8 @@ research:
   end_date: Dec 2014
   location: Newark, NJ
   summary:
-  - Applied a particle filtering approach to identifying and tracking accoustic sources in 2d and 3d.
-  - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance.
+  - Applied a particle filtering approach to identifying and tracking accoustic sources in 2 and 3 dimensions
+  - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance
   - Funded by NSF under EXTREEMS-QED
 
 
