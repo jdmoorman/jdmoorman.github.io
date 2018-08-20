@@ -74,6 +74,11 @@ researchInterests:
   - Numerical Linear Algebra
 
 
+uclaProjects:
+- brief: Analyzed Reddit comments and threads from 2006 onward
+  summary: 
+  - Investigated structural properties of comment trees with and without profanity
+
 
 research:
 
