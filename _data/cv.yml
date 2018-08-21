@@ -77,8 +77,8 @@ researchInterests:
 uclaProjects:
 - brief: Reddit Profanity Analysis
   summary:
-  - Quantified structural differences between threads with and threads without profanity
-  - Performed topic modeling on comments and threads, analyzed the sentiment of the topics
+  - Quantified structural differences between threads with and without profanity
+  - Performed topic modeling on comments and threads, analyzed sentiment of the topics
   - Found structure and sentiment of threads with profanity to be significantly different from those without
 - brief: Optimally Relaxed Randomized Kaczmarz
   summary:
