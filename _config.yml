@@ -32,7 +32,7 @@ pages_list:
   - ["About", ""]
   - ["Teaching", "teaching/"]
   # - ["Research", "research/"]
-  - ["Blog", "blog/"]
+  # - ["Blog", "blog/"]
   - ["Slides", "slides/"]
   - ["CV", "cv/"]
   - ["Contact", "contact/"]
