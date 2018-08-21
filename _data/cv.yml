@@ -3,7 +3,7 @@ description: Applied Math PhD Student at UCLA
 github: jdmoorman
 email: jdmoorman@math.ucla.edu
 url: jacob.moorman.me
-phone: 
+phone:
 
 
 
@@ -12,7 +12,7 @@ education:
 - degrees:
   - Ph.D. Mathematics
   - M.A. Mathematics
-  dates: 
+  dates:
   - start: 2016
     end: Present
   - start: 2016
@@ -23,7 +23,7 @@ education:
 - degrees:
   - B.S. Computational Mathematics
   - B.S. Computer Science
-  dates: 
+  dates:
   - start: 2012
     end: 2016
   school: New Jersey Institute of Technology (NJIT)
@@ -38,7 +38,7 @@ experience:
   start_date: April 2017
   end_date: Sept 2017
   location: Los Angeles, CA
-  summary: 
+  summary:
   - Developed quality metrics for real time TCD (brain ultrasound) data
   - Created simulations for testing search algorithms to eliminate the need for physical tests
   - Explored data augmentation methods via simulations
@@ -59,7 +59,7 @@ experience:
   start_date: Sept 2012
   end_date: Nov 2014
   location: Farmingdale, NJ
-  summary: 
+  summary:
   - Designed and prototyped levels for 2d puzzle game published on Steam
   - Added custom physics mechanics to 3d action game in Unity3d using C#
 
@@ -75,9 +75,16 @@ researchInterests:
 
 
 uclaProjects:
-- brief: Analyzed Reddit comments and threads from 2006 onward
-  summary: 
-  - Investigated structural properties of comment trees with and without profanity
+- brief: Reddit Profanity Analysis
+  summary:
+  - Quantified structural differences between threads with and threads without profanity
+  - Performed topic modeling on comments and threads, analyzed the sentiment of the topics
+  - Found structure and sentiment of threads with profanity to be significantly different from those without
+- brief: Optimally Relaxed Randomized Kaczmarz
+  summary:
+  - Computed the greedily optimal step size for the relaxed randomized Kaczmarz algorithm
+  - Proved convergence of the algorithm using the optimal step size
+  - Found a short recurrence for updating the step size
 
 
 research:
@@ -104,7 +111,7 @@ research:
 
 
 
-teaching: 
+teaching:
 
 - position: Teaching Assistant
   institution: UCLA Department of Mathematics

@@ -6,7 +6,7 @@
   <meta name="description" content="{{ site.name }}'s CV" />
   <link href="{{ site.baseurl }}/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link href="{{ site.baseurl }}/assets/css/cv.css" rel="stylesheet">
-  
+
 </head>
 
 <div class="cv-container">
@@ -65,12 +65,12 @@
       {% endfor %}
     </div>
   </div>
-  
+
   <div class="row cv-section">
     <div class="col-xs-12">
       <h2 class="cv-section-header">Research</h2>
     </div>
-    
+
     <div class="col-xs-12">
       <div class="row">
         <div class="col-xs-12 col-sm-6">
@@ -144,16 +144,16 @@
       {% endfor %}
     </div>
   </div>
-  
+
   <div class="row cv-section">
     <div class="col-xs-12">
-      <h2 class="cv-section-header">Projects</h2>
+      <h2 class="cv-section-header">Side Projects</h2>
     </div>
     <div class="col-xs-12">
       {% for item in site.data.cv.uclaProjects %}
         <div class="row">
           <div class="col-xs-12">
-            {% item.brief %}
+            <h3>{{ item.brief }}</h3>
             <ul class="cv-summary">
             {% for summand in item.summary %}
               <li>{{ summand }}</li>
