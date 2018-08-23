@@ -11,12 +11,18 @@
 
 <div class="cv-container">
   <div class="row cv-masthead cv-section">
-    <div class="col-xs-12 col-sm-6">
-      <h1 class="cv-name">{{ site.data.cv.name }}</h1>
-      <span class="profession">{{ site.data.cv.description }}</span>
+    <div class="col-xs-6 col-sm-6">
+      <ul class="list-unstyled" style="margin-bottom: 0">
+        <li>
+          <h1 class="cv-name">{{ site.data.cv.name }}</h1>
+        </li>
+        <li>
+          <span class="profession"><i>{{ site.data.cv.description }}</i></span>
+        </li>
+      </ul>
     </div>
-    <div class="col-xs-12 col-sm-6">
-      <ul class="list-unstyled cv-contacts">
+    <div class="col-xs-6 col-sm-6">
+      <ul class="list-unstyled cv-contacts" style="text-align: right;">
         <li>
           <a href="mailto:{{ site.data.cv.email }}">{{site.data.cv.email }}</a>
         </li>
@@ -43,13 +49,13 @@
 
       {% for item in site.data.cv.education %}
         <div class="row">
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-6 col-sm-6">
             {% for degree in item.degrees %}
               <h3>{{ degree }}</h3>
             {% endfor %}
             <i>{{ item.school }}</i>
           </div>
-          <div class="col-xs-12 col-sm-6 cv-dates-and-loc">
+          <div class="col-xs-6 col-sm-6 cv-dates-and-loc" style="text-align: right;">
             {% for dates in item.dates %}
               <h5><span class="avoidwrap">{{ dates.start }}</span>
               <span class="avoidwrap">– {{ dates.end }}</span></h5>
@@ -71,7 +77,7 @@
       <h2 class="cv-section-header">Research</h2>
     </div>
 
-    <div class="col-xs-12">
+    <!-- <div class="col-xs-12">
       <div class="row">
         <div class="col-xs-12 col-sm-6">
           <h3>Interests</h3>
@@ -86,17 +92,17 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
     <div class="col-xs-12">
       {% for item in site.data.cv.research %}
         <div class="row">
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-6 col-sm-6">
             <h3>{{ item.position }}</h3>
             <i>{{item.institution}}</i>
           </div>
-          <div class="col-xs-12 col-sm-6 cv-dates-and-loc">
+          <div class="col-xs-6 col-sm-6 cv-dates-and-loc" style="text-align: right;">
             <h5><span class="avoidwrap">{{ item.start_date }}</span>
             <span class="avoidwrap">– {{ item.end_date }}</span></h5>
             <i>{{ item.location }}</i>
@@ -122,11 +128,11 @@
     <div class="col-xs-12">
       {% for item in site.data.cv.experience %}
         <div class="row">
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-6 col-sm-6">
             <h3>{{ item.position }}</h3>
             <i>{{item.company}}</i>
           </div>
-          <div class="col-xs-12 col-sm-6 cv-dates-and-loc">
+          <div class="col-xs-6 col-sm-6 cv-dates-and-loc" style="text-align: right;">
             <h5><span class="avoidwrap">{{ item.start_date }}</span>
             <span class="avoidwrap">– {{ item.end_date }}</span></h5>
             <i>{{ item.location }}</i>
@@ -147,7 +153,7 @@
 
   <div class="row cv-section">
     <div class="col-xs-12">
-      <h2 class="cv-section-header">Side Projects</h2>
+      <h2 class="cv-section-header">Course Projects</h2>
     </div>
     <div class="col-xs-12">
       {% for item in site.data.cv.uclaProjects %}
@@ -172,11 +178,11 @@
     <div class="col-xs-12">
       {% for item in site.data.cv.teaching %}
         <div class="row">
-          <div class="col-xs-12 col-sm-6">
+          <div class="col-xs-6 col-sm-6">
             <h3>{{ item.position }}</h3>
             <i>{{ item.institution }}</i>
           </div>
-          <div class="col-xs-12 col-sm-6 cv-dates-and-loc">
+          <div class="col-xs-6 col-sm-6 cv-dates-and-loc" style="text-align: right;">
             <h5><span class="avoidwrap">{{ item.start_date }}</span>
             <span class="avoidwrap">– {{ item.end_date }}</span></h5>
             <i>{{ item.location }}</i>

@@ -1,5 +1,5 @@
 name: Jacob Moorman
-description: Applied Math PhD Student at UCLA
+description: Applied Math Ph.D. Student at UCLA
 github: jdmoorman
 email: jdmoorman@math.ucla.edu
 url: jacob.moorman.me
@@ -26,6 +26,8 @@ education:
   dates:
   - start: 2012
     end: 2016
+  - start: 2012
+    end: 2016
   school: New Jersey Institute of Technology (NJIT)
   location: Newark, NJ
 
@@ -39,10 +41,9 @@ experience:
   end_date: Sept 2017
   location: Los Angeles, CA
   summary:
-  - Developed quality metrics for real time TCD (brain ultrasound) data
-  - Created simulations for testing search algorithms to eliminate the need for physical tests
-  - Explored data augmentation methods via simulations
-  - Automated routine data visualization processes to reduce data science team's workload
+  - Developed quality metrics for transcranial doppler ultrasound data to improve search algorithms
+  - Created simulations for testing search algorithms to reduce the need for physical tests
+  - Automated routine data visualization processes
 
 - position: Software Engineering Intern
   company: Trillium Labs
@@ -51,7 +52,7 @@ experience:
   location: New York, NY
   summary:
   - Built an equity market data visualization web app to allow interactive access to millisecond resolution records
-  - Contributed to an outlier detection tool used to identify interesting stocks and transactions
+  - Implemented outlier detection techniques to identify interesting stocks and transactions
   - Combined outlier detection and data visualization tools into a workflow for generating market insights
 
 - position: Game Development Consultant
@@ -60,8 +61,8 @@ experience:
   end_date: Nov 2014
   location: Farmingdale, NJ
   summary:
-  - Designed and prototyped levels for 2d puzzle game published on Steam
-  - Added custom physics mechanics to 3d action game in Unity3d using C#
+  - Designed and prototyped levels for 2D puzzle game published on Steam
+  - Added custom physics mechanics to 3D action game in Unity using C#
 
 
 
@@ -69,7 +70,7 @@ researchInterests:
   - Scalable Methods in Data Analysis
   - Network Analysis
   - Natural Language Processing
-  - Topic Modelling
+  - Topic Modeling
   - High Dimensional Probability
   - Numerical Linear Algebra
 
@@ -77,13 +78,13 @@ researchInterests:
 uclaProjects:
 - brief: Reddit Profanity Analysis
   summary:
-  - Quantified structural differences between threads with and threads without profanity
+  - Quantified structural differences between threads with and without profanity
   - Performed topic modeling on comments and threads, analyzed the sentiment of the topics
-  - Found structure and sentiment of threads with profanity to be significantly different from those without
+  - Found structure and sentiment of threads with profanity tend to be different from those without profanity
 - brief: Optimally Relaxed Randomized Kaczmarz
   summary:
   - Computed the greedily optimal step size for the relaxed randomized Kaczmarz algorithm
-  - Proved convergence of the algorithm using the optimal step size
+  - Proved linear convergence of the algorithm using the optimal step size
   - Found a short recurrence for updating the step size
 
 
@@ -105,7 +106,7 @@ research:
   end_date: Dec 2014
   location: Newark, NJ
   summary:
-  - Applied a particle filtering approach to identifying and tracking accoustic sources in 2 and 3 dimensions
+  - Applied a particle filtering approach to identifying and tracking acoustic sources in 2 and 3 dimensions
   - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance
   - Funded by NSF under EXTREEMS-QED
 
