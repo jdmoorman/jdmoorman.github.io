@@ -1,0 +1,406 @@
+---
+layout: presentation
+title: Greedy Kaczmarz and Sketching
+---
+
+## Greedy Kaczmarz and
+## Other Sketching Methods
+
+&nbsp;
+
+Jacob Moorman
+
+
+
+
+-vertical-
+
+Here there be MathJax
+
+Define a bunch of useful commands here.
+
+\\(
+\def\sigmin{\sigma\_\min}
+\def\sigmax{\sigma\_\max}
+\def\t{\intercal}
+\def\R{\mathbb{R}}
+\def\P{\mathbf{P}}
+\def\E{\mathbb{E}}
+\def\e{\mathbf{e}}
+\def\enext{\e^{k+1}}
+\def\ecurr{\e^{k}}
+\def\r{\mathbf{r}}
+\def\rnext{\r^{k+1}}
+\def\rcurr{\r^{k}}
+\def\rexact{\r^\star}
+\def\y{\mathbf{y}}
+\def\x{\mathbf{x}}
+\def\xnext{\x^{k+1}}
+\def\xcurr{\x^{k}}
+\def\xexact{\x^{\star}}
+\def\ik{ {i\_k} }
+\def\A{\mathbf{A}}
+\def\Ai{\A\_i}
+\def\Ao{\A\_1}
+\def\Am{\A\_m}
+\def\Aik{\A\_\ik}
+\def\N{\mathbf{N}}
+\def\Nk{\N\_k}
+\def\B{\mathbf{B}}
+\def\Binv{\B^{-1}}
+\def\S{\mathbf{S}}
+\def\Sk{\S\_k}
+\def\I{\mathbf{I}}
+\def\W{\mathbf{W}}
+\def\Wk{\W\_k}
+\def\Z{\mathbf{Z}}
+\def\Zk{\Z\_k}
+\def\b{\mathbf{b}}
+\def\bi{\b\_i}
+\def\bik{\b\_\ik}
+\def\Pik{ \P(\ik=i \mid \xcurr) }
+\def\Pok{ \P(\ik=1 \mid \xcurr) }
+\def\Pmk{ \P(\ik=m \mid \xcurr) }
+\def\PSk{ \P(\Sk=\S \mid \xcurr) }
+\def\argmin#1{\underset{#1}{\arg\min}}
+\def\argmax#1{\underset{#1}{\arg\max}}
+\def\proj#1{\underset{#1}{\text{proj}}}
+\def\diag{\text{diag}}
+\def\bproj#1{\underset{#1}{\text{proj}_\B}}
+\def\norm#1{\left\lVert#1\right\rVert}
+\def\bnorm#1{\left\lVert#1\right\rVert_B}
+\def\abs#1{\left|#1\right|}
+\def\trace#1{\mathbf{Tr}\left(#1\right)}
+\def\innerprod#1#2{\langle #1 , #2 \rangle}
+\\)
+
+
+
+
+-horizontal-
+
+## Problem
+
+Given \\(\A \in \R^{m \times n}\\), \\(\b \in \R^m\\),
+
+seek the least squares solution to the system \\(\A\x=\b\\),
+
+\\[\xexact = \argmin{\x \in \R^n} \norm{\A\x-\b}^2.\\]
+
+
+
+
+-horizontal-
+
+## Motivation: Kaczmarz Methods
+
+1. Select \\(\ik \in [m]\\) according to some **selection rule**
+
+2. Let \\(\xnext = \argmin{\x \in \R^n} \norm{\x - \xcurr}\\) s.t. \\(\Aik \x = \bik\\)
+
+3. Repeat until convergence
+
+
+
+
+-vertical-
+
+## Kaczmarz Selection Rules
+
+Options for \\(\Pik\\)
+
+* **Static Distribution**:  
+Sample \\(\ik\\) i.i.d. from a fixed distribution
+
+    * \\(\Pik = \norm{\Ai}^2/\norm{\A}_F^2\\)
+
+    * \\(\Pik = 1/m\\)
+
+
+
+
+-vertical-
+
+## Kaczmarz Selection Rules
+
+* **Adaptive Distribution**:  
+Sample \\(\ik\\) from a distribution which depends on \\(\xcurr\\)
+
+    * Includes static distributions as a special case
+
+    * **Max residual (MR)**: \\(\ik = \argmax{i}\abs{\Ai \xcurr - \bi}\\)
+
+    * **Max distance (MD)**: \\(\ik = \argmax{i}\norm{\xnext - \xcurr}\\)
+    
+    * Relaxed greedy rules [Bai and Wu, 2018]
+
+
+
+
+-vertical-
+
+## Kaczmarz Update Formula
+
+\\[
+\begin{align}\xnext &= \argmin{\x \in \R^n} \norm{\x - \xcurr} \text{ s.t. } \Aik \x = \bik \\\\
+&= \proj{\\\{\x\ :\ \Aik \x = \bik\\\}}(\xcurr)\\\\
+&= \xcurr - \frac{\Aik \xcurr - \bik}{\norm{\Aik}^2}\Aik^\t
+\end{align}\\]
+
+
+
+
+-vertical-
+
+(This slide is intentionally left blank)
+
+
+
+
+-vertical-
+
+## Kaczmarz Convergence
+
+\\[
+\xnext = \xcurr - \frac{\Aik \xcurr - \bik}{\norm{\Aik}^2}\Aik^\t
+\\]
+
+Define \\(\ecurr = \xcurr - \xexact\\), and \\(\rexact = \b - \A\xexact\\)
+
+\\[
+\begin{align}
+\enext &= \ecurr - \frac{\Aik \ecurr - \rexact\_\ik}{\norm{\Aik}^2}\Aik^\t \\\\
+&= \left(\I - \frac{\Aik^\t\Aik}{\norm{\Aik}^2}\right) \ecurr + \frac{\rexact\_\ik \Aik^\t}{\norm{\Aik}^2}
+\end{align}
+\\]
+
+
+
+
+-vertical-
+
+## Kaczmarz Convergence
+
+\\[
+\enext = \left(\I - \frac{\Aik^\t\Aik}{\norm{\Aik}^2}\right) \ecurr + \frac{\rexact\_\ik \Aik^\t}{\norm{\Aik}^2}
+\\]
+
+The terms are orthogonal wrt \\(\innerprod{\cdot}{\cdot}\\), so
+
+\\[
+\begin{align}
+\norm{\enext}^2 &= \norm{\left(\I - \frac{\Aik^\t\Aik}{\norm{\Aik}^2}\right) \ecurr}^2 + \norm{\frac{\rexact\_\ik \Aik^\t}{\norm{\Aik}^2}}^2 \\\\
+&= \norm{\ecurr}^2 - \norm{\frac{\Aik^\t\Aik}{\norm{\Aik}^2} \ecurr}^2 + \frac{\abs{\rexact\_\ik}^2}{\norm{\Aik}^2}.
+\end{align}
+\\]
+
+
+
+
+-vertical-
+
+## Kaczmarz Convergence
+
+Finally, we have the error norm update
+
+\\[
+\norm{\enext}^2 = \norm{\ecurr}^2 - \frac{\abs{\Aik \ecurr}^2}{\norm{\Aik}^2} + \frac{\abs{\rexact\_\ik}^2}{\norm{\Aik}^2}.
+\\]
+
+
+
+
+-vertical-
+
+## Kaczmarz Convergence
+
+Define \\(\Nk = \diag\left(\frac{\Pok}{\norm{\Ao}^2},\ \dots,\ \frac{\Pmk}{\norm{\Am}^2}\right)\\)
+
+\\[
+\begin{align}
+&\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
+&= \norm{\ecurr}^2 - \sum\_i \Pik \left(\frac{\abs{\Aik \ecurr}^2}{\norm{\Aik}^2} - \frac{\abs{\rexact\_\ik}^2}{\norm{\Aik}^2}\right) \\\\
+&= \norm{\ecurr}^2 - \norm{\Nk \A \ecurr}^2 + \norm{\Nk \rexact}^2.
+\end{align}
+\\]
+
+
+
+
+-vertical-
+
+## Kaczmarz Loose Bound
+
+\\[
+\begin{align}
+&\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
+&\le \left(1 - \sigmin^2(\Nk \A)\right)\norm{\ecurr}^2 + \sigmax^2(\Nk)\norm{\rexact}^2
+\end{align}
+\\]
+
+Where \\(\sigmin\\) is the smallest _nonzero_ singular value.
+
+
+
+
+
+-horizontal-
+
+## Generalization: Sketch and Project (S&P) Methods
+
+Fix \\(\B \in \R^{n \times n}\\), symmetric positive definite.
+
+1. Select \\(\Sk \in \R^{m \times \tau_k}\\) according to some **selection rule**
+
+2. Let \\(\xnext = \argmin{\x\in\R^n} \norm{\x - \xcurr}_B\\) s.t. \\(\Sk^\t \A \x = \Sk^\t\b\\)
+
+3. Repeat until convergence
+
+
+
+
+-vertical-
+
+## S&P Selection Rules
+
+Options for \\(\PSk\\)
+
+* **Static Distribution**:  
+Sample \\(\Sk\\) i.i.d. from a fixed distribution
+
+    * \\(\PSk \propto \trace{\S^\t\A\Binv \A^\t \S}\\)
+
+    * \\(\text{uniform}\left(\\\{\S^{(1)}, \dots, \S^{(r)} \\\}\right)\\)
+
+
+
+
+-vertical-
+
+## S&P Selection Rules
+
+* **Adaptive Distribution**:  
+Sample \\(\Sk\\) from a distribution which depends on \\(\xcurr\\)
+
+    * Includes static distributions as a special case
+
+    * **Max residual (MR)**: \\(\Sk = \argmax{\S}\norm{\S^\t (\A \xcurr - \b)}\\)
+
+    * **Max distance (MD)**: \\(\Sk = \argmax{\S}\norm{\xnext - \xcurr}_B\\)
+
+
+
+
+-vertical-
+
+## S&P Update Formula
+
+\\[
+\begin{align}
+\xnext &= \argmin{\x \in \R^n} \norm{\x - \xcurr}_B \text{ s.t. } \Sk^\t \A \x = \Sk^\t\b\\\\
+&= \bproj{\\\{\x\ :\ \Sk^\t\A \x = \Sk^\t\b\\\}}(\xcurr)\\\\
+&= \xcurr - \Binv \A^\t \Sk \left(\Sk^\t \A \Binv \A^\t \Sk\right)^\dagger \Sk^\t (\A \xcurr - \b)
+\end{align}
+\\]
+
+
+
+
+-vertical-
+
+## S&P Update Formula
+
+Define \\(\Wk = \Sk \left(\Sk^\t \A \Binv \A^\t \Sk\right)^\dagger \Sk^\t\\),
+
+and \\(\Zk = \A^\t \Wk \A\\).
+
+The S&P update can then be written
+
+\\[\xnext = \xcurr - \Binv \Zk \xcurr + \Binv \A^\t \Wk \b.\\]
+
+
+
+
+-vertical-
+
+## S&P Convergence
+
+\\[
+\xnext = \xcurr - \Binv \Zk \xcurr + \Binv \A^\t \Wk \b
+\\]
+
+Define \\(\ecurr = \xcurr - \xexact\\), and \\(\rexact = \b - \A\xexact\\)
+
+\\[
+\begin{align}
+\enext &= \ecurr - \Binv \Zk \ecurr + \Binv \A^\t \Wk \rexact \\\\
+&= \left( \I - \Binv \Zk \right) \ecurr + \Binv \A^\t \Wk \rexact
+\end{align}
+\\]
+
+
+
+
+-vertical-
+
+## S&P Convergence
+
+\\[
+\enext = \left( \I - \Binv \Zk \right) \ecurr + \Binv \A^\t \Wk \rexact
+\\]
+
+The terms are orthogonal wrt \\(\innerprod{\cdot}{\cdot}_B\\), so
+
+\\[
+\begin{align}
+\bnorm{\enext}^2 &= \bnorm{\left( \I - \Binv \Zk \right) \ecurr}^2 + \bnorm{\Binv \A^\t \Wk \rexact}^2 \\\\
+&= \bnorm{\ecurr}^2 - \bnorm{\Binv \Zk \ecurr}^2 + \bnorm{\Binv \A^\t \Wk \rexact}^2.
+\end{align}
+\\]
+
+
+
+
+-vertical-
+
+## S&P Convergence
+
+Finally, we have the error norm update
+
+\\[
+\begin{align}
+\bnorm{\enext}^2 &= \bnorm{\ecurr}^2 - \bnorm{\Binv \Zk \ecurr}^2 + \bnorm{\Binv \A^\t \Wk \rexact}^2 \\\\
+&= \bnorm{\ecurr}^2 - \innerprod{\Zk \ecurr}{\ecurr} + \innerprod{\Wk \rexact}{\rexact}.
+\end{align}
+\\]
+
+
+
+
+-vertical-
+
+## S&P Convergence
+
+\\[
+\begin{align}
+&\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
+&= \E\left[\bnorm{\ecurr}^2 - \innerprod{\Zk \ecurr}{\ecurr} + \innerprod{\Wk \rexact}{\rexact}\mid \ecurr\right] \\\\
+&= \bnorm{\ecurr}^2 - \innerprod{\E\left[\Zk \mid \ecurr\right] \ecurr}{\ecurr} + \innerprod{\E\left[\Wk \mid \ecurr\right] \rexact}{\rexact}.
+\end{align}
+\\]
+
+
+
+
+
+-vertical-
+
+## S&P Loose Bound
+
+\\[
+\begin{align}
+&\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
+&\le \left(1 - \sigmin\left(\Binv \E\left[\Zk \mid \ecurr\right]\right)\right)\bnorm{\ecurr}^2 \\\\
+&\quad + \sigmax\left(\E\left[\Wk \mid \ecurr\right]\right)\norm{\rexact}^2.
+\end{align}
+\\]
