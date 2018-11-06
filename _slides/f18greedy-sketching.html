@@ -27,8 +27,10 @@ Define a bunch of useful commands here.
 \def\P{\mathbf{P}}
 \def\E{\mathbb{E}}
 \def\e{\mathbf{e}}
+\def\einit{\e^{0}}
 \def\enext{\e^{k+1}}
 \def\ecurr{\e^{k}}
+\def\eprev{\e^{k-1}}
 \def\r{\mathbf{r}}
 \def\rnext{\r^{k+1}}
 \def\rcurr{\r^{k}}
@@ -39,6 +41,7 @@ Define a bunch of useful commands here.
 \def\xcurr{\x^{k}}
 \def\xexact{\x^{\star}}
 \def\ik{ {i\_k} }
+\def\D{\mathbf{D}}
 \def\A{\mathbf{A}}
 \def\Ai{\A\_i}
 \def\Ao{\A\_1}
@@ -58,6 +61,7 @@ Define a bunch of useful commands here.
 \def\b{\mathbf{b}}
 \def\bi{\b\_i}
 \def\bik{\b\_\ik}
+\def\Pk{\mathbf{P}\_k}
 \def\Pik{ \P(\ik=i \mid \xcurr) }
 \def\Pok{ \P(\ik=1 \mid \xcurr) }
 \def\Pmk{ \P(\ik=m \mid \xcurr) }
@@ -85,7 +89,9 @@ Given \\(\A \in \R^{m \times n}\\), \\(\b \in \R^m\\),
 
 seek the least squares solution to the system \\(\A\x=\b\\),
 
-\\[\xexact = \argmin{\x \in \R^n} \norm{\A\x-\b}^2.\\]
+\\[\xexact \in \argmin{\x \in \R^n} \norm{\A\x-\b}^2.\\]
+
+such that \\(\xexact\\) has minimal norm.
 
 
 
@@ -214,13 +220,13 @@ Finally, we have the error norm update
 
 ## Kaczmarz Convergence
 
-Define \\(\Nk = \diag\left(\frac{\Pok}{\norm{\Ao}^2},\ \dots,\ \frac{\Pmk}{\norm{\Am}^2}\right)\\)
+\\[\D := \diag\left(\norm{\Ao}^2,\ \dots,\ \norm{\Am}^2\right)\\]
+\\[\Pk := \diag\left(\Pok,\ \dots,\ \Pmk\right)\\]
 
 \\[
 \begin{align}
 &\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
-&= \norm{\ecurr}^2 - \sum\_i \Pik \left(\frac{\abs{\Aik \ecurr}^2}{\norm{\Aik}^2} - \frac{\abs{\rexact\_\ik}^2}{\norm{\Aik}^2}\right) \\\\
-&= \norm{\ecurr}^2 - \norm{\Nk \A \ecurr}^2 + \norm{\Nk \rexact}^2.
+&= \norm{\ecurr}^2 - \norm{\Pk \D^{-1} \A \ecurr}^2 + \norm{\Pk \D^{-1} \rexact}^2.
 \end{align}
 \\]
 
@@ -229,15 +235,59 @@ Define \\(\Nk = \diag\left(\frac{\Pok}{\norm{\Ao}^2},\ \dots,\ \frac{\Pmk}{\norm
 
 -vertical-
 
-## Kaczmarz Loose Bound
+## Kaczmarz Bounds
+
+Look for \\(\alpha, \beta\\) independent of \\(\ecurr\\) for which
 
 \\[
 \begin{align}
 &\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
-&\le \left(1 - \sigmin^2(\Nk \A)\right)\norm{\ecurr}^2 + \underset{\Nk}{\max}\norm{\Nk\rexact}^2
+&= \norm{\ecurr}^2 - \norm{\Pk \D^{-1} \A \ecurr}^2 + \norm{\Pk \D^{-1} \rexact}^2 \\\\
+&\le \left(1 - \alpha^2\right)\norm{\ecurr}^2 + \beta^2
 \end{align}
 \\]
 
+
+
+
+-vertical-
+
+## Kaczmarz Bounds
+
+\\[
+\begin{align}
+&\E\left[\norm{\ecurr}^2\right] \\\\
+&\le \left(1 - \alpha^2\right)\E\left[\norm{\eprev}^2\right] + \beta^2 \\\\
+&\le \dots \\\\
+&\le \left(1 - \alpha^2\right)^k\norm{\einit}^2 + \sum_{l = 0}^{k-1}\left(1 - \alpha^2\right)^l \beta^2 \\\\
+&\le \left(1 - \alpha^2\right)^k\norm{\einit}^2 + \frac{\beta^2}{\alpha^2}.
+\end{align}
+\\]
+
+
+
+
+-vertical-
+
+Require for any \\(\ecurr\\) where \\(\A\ecurr \neq 0\\) that
+
+\\[
+\alpha \norm{\ecurr} \le \norm{\Pk \D^{-1}\A\ecurr}
+\\]
+
+\\[
+\norm{\Pk \D^{-1}\rexact} \le \beta.
+\\]
+
+Leading to the natural choices
+
+\\[
+\alpha = \underset{\A\ecurr \neq 0}{\inf}\frac{\norm{\Pk \D^{-1}\A\ecurr}}{\norm{\ecurr}}
+\\]
+
+\\[
+\beta = \underset{\A\ecurr \neq 0}{\sup}\norm{\Pk \D^{-1}\rexact}
+\\]
 
 
 
@@ -393,12 +443,56 @@ Finally, we have the error norm update
 
 -vertical-
 
-## S&P Loose Bound
+## S&P Bounds
+
+Look for \\(\alpha, \beta\\) independent of \\(\ecurr\\) for which
 
 \\[
 \begin{align}
 &\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
-&\le \left(1 - \sigmin\left(\Binv \E\left[\Zk \mid \ecurr\right]\right)\right)\bnorm{\ecurr}^2 \\\\
-&\quad + \underset{\ecurr}{\max}\innerprod{\E\left[\Wk \mid \ecurr\right] \rexact}{\rexact}.
+&= \bnorm{\ecurr}^2 - \innerprod{\E\left[\Zk \mid \ecurr\right] \ecurr}{\ecurr} + \innerprod{\E\left[\Wk \mid \ecurr\right] \rexact}{\rexact} \\\\
+&\le \left(1 - \alpha^2\right)\bnorm{\ecurr}^2 + \beta^2
 \end{align}
+\\]
+
+
+
+
+-vertical-
+
+## S&P Bounds
+
+\\[
+\begin{align}
+&\E\left[\norm{\ecurr}^2\right] \\\\
+&\le \left(1 - \alpha^2\right)\E\left[\norm{\eprev}^2\right] + \beta^2 \\\\
+&\le \dots \\\\
+&\le \left(1 - \alpha^2\right)^k\norm{\einit}^2 + \sum_{l = 0}^{k-1}\left(1 - \alpha^2\right)^l \beta^2 \\\\
+&\le \left(1 - \alpha^2\right)^k\norm{\einit}^2 + \frac{\beta^2}{\alpha^2}.
+\end{align}
+\\]
+
+
+
+
+-vertical-
+
+Require for any \\(\ecurr\\) where \\(\A\ecurr \neq 0\\) that
+
+\\[
+\alpha \bnorm{\ecurr} \le \innerprod{\E\left[\Zk \mid \ecurr\right] \ecurr}{\ecurr}
+\\]
+
+\\[
+\innerprod{\E\left[\Wk \mid \ecurr\right] \rexact}{\rexact} \le \beta.
+\\]
+
+Leading to the natural choices
+
+\\[
+\alpha = \underset{\A\ecurr \neq 0}{\inf}\frac{\innerprod{\E\left[\Zk \mid \ecurr\right] \ecurr}{\ecurr}}{\bnorm{\ecurr}}
+\\]
+
+\\[
+\beta = \underset{\A\ecurr \neq 0}{\sup}\innerprod{\E\left[\Wk \mid \ecurr\right] \rexact}{\rexact}
 \\]
