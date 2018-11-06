@@ -234,11 +234,9 @@ Define \\(\Nk = \diag\left(\frac{\Pok}{\norm{\Ao}^2},\ \dots,\ \frac{\Pmk}{\norm
 \\[
 \begin{align}
 &\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
-&\le \left(1 - \sigmin^2(\Nk \A)\right)\norm{\ecurr}^2 + \sigmax^2(\Nk)\norm{\rexact}^2
+&\le \left(1 - \sigmin^2(\Nk \A)\right)\norm{\ecurr}^2 + \underset{\Nk}{\max}\norm{\Nk\rexact}^2
 \end{align}
 \\]
-
-Where \\(\sigmin\\) is the smallest _nonzero_ singular value.
 
 
 
@@ -401,6 +399,6 @@ Finally, we have the error norm update
 \begin{align}
 &\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
 &\le \left(1 - \sigmin\left(\Binv \E\left[\Zk \mid \ecurr\right]\right)\right)\bnorm{\ecurr}^2 \\\\
-&\quad + \sigmax\left(\E\left[\Wk \mid \ecurr\right]\right)\norm{\rexact}^2.
+&\quad + \underset{\ecurr}{\max}\innerprod{\E\left[\Wk \mid \ecurr\right] \rexact}{\rexact}.
 \end{align}
 \\]
