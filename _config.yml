@@ -31,9 +31,9 @@ collections:
 pages_list:
   - ["About", ""]
   - ["Teaching", "teaching/"]
-  # - ["Research", "research/"]
+  - ["Research", "research/"]
   # - ["Blog", "blog/"]
-  - ["Slides", "slides/"]
+  # - ["Slides", "slides/"]
   - ["CV", "cv/"]
   - ["Contact", "contact/"]
 
