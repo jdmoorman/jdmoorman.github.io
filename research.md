@@ -3,7 +3,7 @@ layout: page
 title: Research
 ---
 
-I work on developing algorithms for subgraph matching and analyzing randomized iterative methods for solving linear systems.
+I develop algorithms for subgraph matching and analyze randomized iterative methods for solving linear systems.
 
 ###### Publications
 
