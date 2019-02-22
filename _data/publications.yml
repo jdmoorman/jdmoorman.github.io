@@ -1,6 +1,15 @@
+- title: Randomized Kaczmarz with Averaging
+  venue: "Proc. Information Theory and Applications Workshop, La Jolla, CA, Feb. 2019."
+  url: 2019ita.pdf
+  my_name: Jacob D. Moorman
+  authors: 
+  - Jacob D. Moorman
+  - Thomas K. Tu
+  - Denali Molitor
+  - Deanna Needell
 - title: Filtering Methods for Subgraph Matching on Multiplex Networks
-  venue: "Proc. GTA³ 2.0: The 2nd workshop on Graph Techniques for Adversarial Activity Analytics, IEEE International Conference on Big Data, Seattle, WA, Dec. 2018, pp. 3979-3984."
-  url: http://www.math.ucla.edu/~bertozzi/papers/UCLA-BIGDATA2018-finalpaper.pdf
+  venue: "Proc. GTA³ 2.0: The 2nd workshop on Graph Techniques for Adversarial Activity Analytics, IEEE International Conference on Big Data, Seattle, WA, Dec. 2018."
+  url: 2018ieeebigdata.pdf
   my_name: Jacob D. Moorman
   authors: 
   - Jacob D. Moorman

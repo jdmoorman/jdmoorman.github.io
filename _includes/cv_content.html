@@ -74,6 +74,53 @@
 
   <div class="row cv-section">
     <div class="col-xs-12">
+      <h2 class="cv-section-header">Research</h2>
+    </div>
+
+    <div class="col-xs-12">
+        <div class="row">
+          <div class="col-xs-9 col-sm-9">
+            <h3>Publications</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="cv-summary">
+              {% for publication in site.data.publications %}
+                <li>
+                    {% for name in publication.authors %}{% if name == publication.my_name %}<strong>{{ name }}</strong>{% else %}{{ name }}{% endif %}, {% endfor %}"<em>{{ publication.title }}</em>." {{ publication.venue }}</li>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% for item in site.data.cv.research %}
+        <div class="row">
+          <div class="col-xs-9 col-sm-9">
+            <h3>{{ item.brief }}</h3>
+            <i>{{ item.institution }}</i>
+          </div>
+          <div class="col-xs-3 col-sm-3 cv-dates-and-loc" style="text-align: right;">
+            <h5><span class="avoidwrap">{{ item.start_date }}</span>
+            <span class="avoidwrap">– {{ item.end_date }}</span></h5>
+            <i>{{ item.location }}</i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <ul class="cv-summary">
+            {% for summand in item.summary %}
+              <li>{{ summand }}</li>
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="row cv-section">
+    <div class="col-xs-12">
       <h2 class="cv-section-header">Technical Skills</h2>
     </div>
     <div class="col-xs-12">
@@ -99,37 +146,6 @@
             <i>{{item.company}}</i>
           </div>
           <div class="col-xs-6 col-sm-6 cv-dates-and-loc" style="text-align: right;">
-            <h5><span class="avoidwrap">{{ item.start_date }}</span>
-            <span class="avoidwrap">– {{ item.end_date }}</span></h5>
-            <i>{{ item.location }}</i>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <ul class="cv-summary">
-            {% for summand in item.summary %}
-              <li>{{ summand }}</li>
-            {% endfor %}
-            </ul>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-
-  <div class="row cv-section">
-    <div class="col-xs-12">
-      <h2 class="cv-section-header">Research</h2>
-    </div>
-
-    <div class="col-xs-12">
-      {% for item in site.data.cv.research %}
-        <div class="row">
-          <div class="col-xs-9 col-sm-9">
-            <h3>{{ item.brief }}</h3>
-            <i>{{ item.institution }}</i>
-          </div>
-          <div class="col-xs-3 col-sm-3 cv-dates-and-loc" style="text-align: right;">
             <h5><span class="avoidwrap">{{ item.start_date }}</span>
             <span class="avoidwrap">– {{ item.end_date }}</span></h5>
             <i>{{ item.location }}</i>

@@ -3,8 +3,7 @@ layout: page
 title: Presentations
 ---
 
-{% for presentation in site.slides %}
-
+{% assign presentations = site.slides | sort:"order" | reverse %}
+{% for presentation in presentations %}
 * [{{ presentation.title }}]({{ site.baseurl }}{{ presentation.url }})
-
 {% endfor %}
