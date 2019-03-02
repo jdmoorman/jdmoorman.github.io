@@ -35,7 +35,7 @@ pages_list:
   # - ["Blog", "blog/"]
   # - ["Slides", "slides/"]
   - ["CV", "cv/"]
-  - ["Contact", "contact/"]
+  # - ["Contact", "contact/"]
 
 # Includes an icon in the footer for each username you enter
 footer-links:
