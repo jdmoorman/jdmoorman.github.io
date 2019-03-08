@@ -1,0 +1,283 @@
+---
+layout: presentation
+title: Maximum Principle Based Algorithms for Deep Learning
+order: 6
+---
+
+## Maximum principle based algorithms for deep learning
+
+Qianxiao Li, Long Chen, Cheng Tai, Weinan E.
+
+Journal of Machine Learning Research, 2018.
+
+&nbsp;
+
+#### Jacob Moorman
+
+
+
+
+-vertical-
+
+This slide intentionally left blank
+
+\\(
+\def\sigmin{\sigma\_\min}
+\def\sigmax{\sigma\_\max}
+\def\t{\intercal}
+\def\R{\mathbb{R}}
+\def\P{\mathbf{P}}
+\def\E{\mathbb{E}}
+\def\E{\mathbb{E}}
+\def\e{\mathbf{e}}
+\def\einit{\e^{0}}
+\def\enext{\e^{k+1}}
+\def\ecurr{\e^{k}}
+\def\eprev{\e^{k-1}}
+\def\r{\mathbf{r}}
+\def\rnext{\r^{k+1}}
+\def\rcurr{\r^{k}}
+\def\rexact{\r^\star}
+\def\y{\mathbf{y}}
+\def\x{\mathbf{x}}
+\def\xnext{\x^{k+1}}
+\def\xcurr{\x^{k}}
+\def\xexact{\x^{\star}}
+\def\ik{ {i\_k} }
+\def\D{\mathbf{D}}
+\def\A{\mathbf{A}}
+\def\Ai{\A\_i}
+\def\Ao{\A\_1}
+\def\Am{\A\_m}
+\def\Aik{\A\_\ik}
+\def\N{\mathbf{N}}
+\def\Nk{\N\_k}
+\def\B{\mathbf{B}}
+\def\Binv{\B^{-1}}
+\def\S{\mathbf{S}}
+\def\Sk{\S\_k}
+\def\I{\mathbf{I}}
+\def\W{\mathbf{W}}
+\def\Wk{\W\_k}
+\def\Z{\mathbf{Z}}
+\def\Zk{\Z\_k}
+\def\b{\mathbf{b}}
+\def\bi{\b\_i}
+\def\bik{\b\_\ik}
+\def\Pk{\mathbf{P}\_k}
+\def\Pik{ \P(\ik=i \mid \xcurr) }
+\def\Pok{ \P(\ik=1 \mid \xcurr) }
+\def\Pmk{ \P(\ik=m \mid \xcurr) }
+\def\PSk{ \P(\Sk=\S \mid \xcurr) }
+\def\argmin#1{\underset{#1}{\arg\min}}
+\def\argmax#1{\underset{#1}{\arg\max}}
+\def\proj#1{\underset{#1}{\text{proj}}}
+\def\diag{\text{diag}}
+\def\bproj#1{\underset{#1}{\text{proj}_\B}}
+\def\norm#1{\left\lVert#1\right\rVert}
+\def\bnorm#1{\left\lVert#1\right\rVert_B}
+\def\abs#1{\left|#1\right|}
+\def\trace#1{\mathbf{Tr}\left(#1\right)}
+\def\innerprod#1#2{\langle #1 , #2 \rangle}
+\\)
+
+
+
+
+-horizontal-
+
+## Objective
+
+Approximate some function
+
+\\[F: \cal X \to \cal Y\\]
+
+mapping <strong>inputs</strong> in \\(\cal X \subset \R^d\\) to <strong>labels</strong> in \\(\cal Y\\),
+
+given only some input-label pairs
+
+\\[\left\\{\left(x^i, y^i = F(x^i)\right)\right\\}_{i=1}^K, \\]
+
+
+
+
+-vertical-
+
+For example,
+
+* \\(x^i\\) could represent images and \\(y^i\\) some description of their contents
+
+* \\(x^i\\) could be the sizes of some houses and \\(y^i\\) their values
+
+* Pick your favorite classification or regression task
+
+
+
+
+-vertical-
+
+Consider the inputs
+
+\\[x = \left(x^1, \dots, x^K\right) \in \R^{d \times K}\\]
+
+as initial conditions to the ODE system
+
+\\[\dot X^i(t) = f(t, X^i(t), \theta(t)), \quad 0 \le t \le T\\]
+
+\\[X^i(0) = x^i,\\]
+
+where \\(\theta: [0,T] \to \Theta \subset \R^P\\) is the control.
+
+
+
+
+-vertical-
+
+Consider the <strong>prediction</strong> of the system to be 
+
+\\[g(X^i(T))\\]
+
+for some fixed \\(g : \R^d \to \cal Y\\).
+
+
+
+
+-horizontal-
+
+## Optimal Control Formulation
+
+\\[\min\_\theta \sum_{i=1}^K \Phi(g(X^i(T), y^i) + \int\_0^T L(\theta(t))\mathop{dt}\\]
+
+<!-- \\[\dot X^i(t) = f(t, X^i(t), \theta(t)), \quad 0 \le t \le T\\]
+\\[X^i(0) = x^i\\] -->
+
+&nbsp;
+Where \\(\Phi : \cal Y \times \cal Y \to \R\\) is some <strong>loss function</strong>
+
+and \\(L : \R^P \to \R\\) is a <strong>running cost</strong> or <strong>regularizer</strong>.
+
+
+
+
+-vertical-
+
+## Traditional Deep Learning
+
+Discretize the ODE system
+
+\\[\dot X^i(t) = f(t, X^i(t), \theta(t)), \quad 0 \le t \le T\\]
+
+into a <strong>residual network</strong>, then apply gradient descent.
+
+
+
+
+-vertical-
+
+## Proposed Alternative
+
+Attack the optimal control problem directly,
+
+then discretize the optimally controlled system.
+
+
+
+
+-horizontal-
+
+For the following discussion,
+
+suppose there is only one datapoint.
+
+
+
+
+-vertical-
+
+## The Hamiltonian
+
+\\[H(t, x, p, \theta) := p \cdot f(t, x, \theta) - L(\theta)\\]
+
+
+
+
+
+
+-vertical-
+
+## Pontryagin’s Maximum Principle (PMP)
+
+* For any optimal control \\(\theta^\star\\) with corresponding <strong>state process</strong> \\(X^\star\\), there exists a <strong>co-state process</strong> \\(P^\star\\).
+* \\(\theta^\star\\), \\(X^\star\\), and \\(P^\star\\) satisfy:
+    * Hamilton's equations (omitted)
+    * Hamiltonian maximization \\(H(t, X^\star(t), P^\star(t), \theta^\star(t)) \ge H(t, X^\star(t), P^\star(t), \theta) \; \forall \theta\\)
+
+
+
+
+-vertical-
+
+## Method of Successive Approximations (MSA)
+
+1. Make initial guess \\(\;\theta\_0\\)
+2. For \\(k=0, 1, 2, \dots \\)
+    1. Solve \\(\; \dot X\_k = f(t, X\_k, \theta\_k),\; X\_k(0) = x^1\\)
+    2. Solve Hamilton's equation for \\(P\_k\\) using \\(X\_k\\)
+    3. Set \\(\theta\_{k+1}(t) = \text{arg}\max\_\theta H(t, X\_k, P\_k, \theta)\\)
+
+
+
+
+-vertical-
+
+## Problem with MSA
+
+Frequently diverges due to <strong>feasibility errors</strong> from enforcing Hamiltonian maximization. I.e.
+
+\\[\int\_0^T\lVert \dot X_k^i - f(t, X\_k^i, \theta\_{k+1})\rVert ^2 \mathop{dt}\\]
+
+can explode.
+
+
+
+
+-vertical-
+
+## Solution
+
+Use an augmented Hamiltonian
+
+\\[\begin{align}\tilde H(t, x, p, \theta, v, q) := H(t, x, p, \theta) &- \rho \lVert v - f(t, x, \theta)\rVert \\\\ &- \rho \lVert q + \nabla_x H(t, x, p, \theta)\rVert\end{align}\\]
+
+when enforcing Hamiltonian maximization
+
+
+
+
+-vertical-
+
+## Extended MSA (E-MSA)
+
+1. Make initial guess \\(\;\theta\_0\\)
+2. For \\(k=0, 1, 2, \dots \\)
+    1. Solve \\(\; \dot X_k^i = f(t, X\_k^i, \theta_k),\; X\_k^i(0) = x^i\\)
+    2. Solve Hamilton's equation for \\(P\_k\\) using \\(X\_k\\)
+    3. Set \\(\theta\_{k+1}(t) = \text{arg}\max \tilde H(t, X\_k, P\_k, \theta, \dot X\_k, \dot P\_k)\\)
+
+
+
+
+-horizontal-
+
+## Experiments
+
+<img src="./images/loss-vs-iteration.png" width="70%">
+
+
+
+
+-vertical-
+
+## Experiments
+
+<img src="./images/loss-vs-time.png" width="70%">
