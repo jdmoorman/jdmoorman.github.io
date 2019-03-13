@@ -118,11 +118,32 @@ For example,
 
 ## Traditional ResNet
 
-\\[\begin{align} X\_1 &= X\_0 + h f(W\_0 X\_0 + b\_0) \\\\ &\vdots \\\\ X\_N &= X\_{N-1} + h f(W\_{N-1} X\_{N-1} + b\_{N-1}) \\\\ Y &= g(X\_N)\end{align}\\]
+\\[\begin{align} X\_1 &= X\_0 + f(W\_0 X\_0 + b\_0) \\\\ &\vdots \\\\ X\_L &= X\_{L-1} + f(W\_{L-1} X\_{L-1} + b\_{L-1}) \\\\ Y &= g(X\_L)\end{align}\\]
 
 If \\(X_0 = x^i\\), we want \\(Y \approx y^i\\).
 
 Apply SGD/Backprop to learn \\(W\_\ell, b\_\ell\\).
+
+
+
+
+-vertical-
+
+## Eureka!
+
+The update
+
+\\[X\_\ell = X\_{\ell-1} + f(W\_{\ell-1} X\_{\ell-1} + b\_{\ell-1})\\]
+
+looks just like forward Euler applied to the ODE
+
+\\[\dot X (t) = f(W(t) X(t) + b(t)).\\]
+
+(For those unfamiliar)
+
+\\[\frac{X\_\ell - X\_{\ell-1}}{h} = f(W\_{\ell-1} X\_{\ell-1} + b\_{\ell-1}).\\]
+
+
 
 
 -vertical-
