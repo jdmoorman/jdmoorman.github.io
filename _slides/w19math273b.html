@@ -118,9 +118,11 @@ For example,
 
 ## Traditional ResNet
 
-\\[\begin{align} X\_1 &= X\_0 \\\\ &\vdots \\\\ X\_N &= X\_{N-1} \\\\ Y &= g(X\_N)\end{align}\\]
+\\[\begin{align} X\_1 &= X\_0 + h f(W\_0 X\_0 + b\_0) \\\\ &\vdots \\\\ X\_N &= X\_{N-1} + h f(W\_{N-1} X\_{N-1} + b\_{N-1}) \\\\ Y &= g(X\_N)\end{align}\\]
 
+If \\(X_0 = x^i\\), we want \\(Y \approx y^i\\).
 
+Apply SGD/Backprop to learn \\(W\_\ell, b\_\ell\\).
 
 
 -vertical-
