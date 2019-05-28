@@ -1,0 +1,119 @@
+---
+layout: presentation
+title: Subgraph Matching (Advancement to Candidacy)
+order: 9
+---
+
+## Subgraph Matching
+
+**Jacob Moorman**
+
+&nbsp;
+
+In collaboration with
+
+Thomas Tu, Qinyi Chen, Xie He, and Andrea Bertozzi
+
+of UCLA Department of Mathematics
+
+
+
+
+-vertical-
+
+Work funded by DARPA
+
+under the Modeling Adversarial Activity (MAA) program
+
+
+
+
+-vertical-
+
+Jacob was funded by NSF grant DGE-1829071
+
+
+
+
+-horizontal-
+
+## Subgraph Matching Problem
+
+Find all copies of a **template** graph in a **world** graph
+
+<img class="plain" src="definitions-example.png" width="50%">
+
+An instance of the *template* in the *world* is called a **signal**
+
+
+
+
+-vertical-
+
+## Three main approaches
+
+* Tree Search
+* Constraint Propagation
+* Graph Indexing
+
+
+
+
+-vertical-
+
+## Tree Search
+
+  1. Find all signals where \\(\mathbf{A} = \mathbf{1}\\)
+    1. Find all signals where \\(\mathbf{A} = \mathbf{1}\\) and \\(\mathbf{C} = \mathbf{6}\\)
+      1. ...
+  2. Find all signals where \\(\mathbf{A} = \mathbf{4}\\)
+  3. ...
+
+<img class="plain" src="definitions-example.png" width="50%">
+
+
+
+
+-vertical-
+
+## Tree Search
+
+* In what order should we match the template nodes?
+* To which world nodes should we try matching them?
+
+<img class="plain" src="definitions-example.png" width="50%">
+
+
+
+
+-vertical-
+
+## Constraint Propagation
+
+**To which world nodes should we try matching them?**
+
+Try matching template nodes to world nodes which fulfill a subset of the subgraph isomorphism constraints.
+
+
+
+
+-horizontal-
+
+## Our Work
+
+* Stats filter
+* Topology filter
+* Neighborhood filter
+* Permutation filter
+* Public GitHub code
+
+<img class="plain" src="cheap-filters-example.png" width="50%">
+
+<img class="plain" src="neighborhood-example.png" width="50%">
+
+
+
+
+-horizontal-
+
+## Future Work
