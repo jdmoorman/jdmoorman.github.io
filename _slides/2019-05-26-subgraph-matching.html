@@ -12,7 +12,7 @@ order: 9
 
 In collaboration with
 
-Thomas Tu, Qinyi Chen, Xie He, and Andrea Bertozzi
+*Thomas Tu, Qinyi Chen, Xie He, and Andrea Bertozzi*
 
 of UCLA Department of Mathematics
 
@@ -48,20 +48,10 @@ An instance of the *template* in the *world* is called a **signal**
 
 
 
--vertical-
-
-## Three main approaches
-
-* Tree Search
-* Constraint Propagation
-* Graph Indexing
-
-
-
 
 -vertical-
 
-## Tree Search
+## Main Algorithm: Tree Search
 
   1. Find all signals where \\(\mathbf{A} = \mathbf{1}\\)
     1. Find all signals where \\(\mathbf{A} = \mathbf{1}\\) and \\(\mathbf{C} = \mathbf{6}\\)
@@ -76,10 +66,35 @@ An instance of the *template* in the *world* is called a **signal**
 
 -vertical-
 
-## Tree Search
+## Tree Search Considerations
 
-* In what order should we match the template nodes?
-* To which world nodes should we try matching them?
+* **Search Order:** In what order should we match the template nodes?
+* **Pruning Rules:** To which world nodes should we try matching them?
+
+<img class="plain" src="definitions-example.png" width="50%">
+
+
+
+
+-horizontal-
+
+## Search Order
+
+> *In what order should we match the template nodes?*
+
+Use a heuristic to precompute a fixed order on the template nodes.
+
+
+
+
+-vertical-
+
+## Search Order Heuristics
+
+* Fewest candidates first
+* Highest degree first
+* Most neighbors first
+* ...
 
 <img class="plain" src="definitions-example.png" width="50%">
 
@@ -88,11 +103,34 @@ An instance of the *template* in the *world* is called a **signal**
 
 -vertical-
 
-## Constraint Propagation
+## Search Order Objective
 
-**To which world nodes should we try matching them?**
+The objective in choosing a search order is to minimize the computational cost of traversing the search tree.
 
-Try matching template nodes to world nodes which fulfill a subset of the subgraph isomorphism constraints.
+
+
+
+-horizontal-
+
+## Pruning Rules
+
+> To which world nodes should we try matching the template nodes?
+
+Try matching each template node to world nodes which satisfy some set of constraints. Refer to these world nodes as **candidates**.
+
+
+
+
+-vertical-
+
+## Pruning Rules:
+#### Node-level Statistics
+
+A candidate should have as many incoming/outgoing edges as its corresponding template nodes
+
+<img class="plain" src="cheap-filters-example.png" width="50%">
+
+[insert table here]
 
 
 
@@ -107,8 +145,6 @@ Try matching template nodes to world nodes which fulfill a subset of the subgrap
 * Permutation filter
 * Public GitHub code
 
-<img class="plain" src="cheap-filters-example.png" width="50%">
-
 <img class="plain" src="neighborhood-example.png" width="50%">
 
 
@@ -117,3 +153,32 @@ Try matching template nodes to world nodes which fulfill a subset of the subgrap
 -horizontal-
 
 ## Future Work
+
+
+
+
+-horizontal-
+
+## References
+
+* Fewest candidates first search order heuristic
+  * [He2008] H. He and A. K. Singh. Graphs-at-a-time: query language and access methods for graph databases. In SIGMOD, 2008.
+
+
+
+
+-horizontal-
+
+# Junk Slides
+
+
+
+
+
+-vertical-
+
+## Three main approaches
+
+* Tree Search
+* Constraint Propagation
+* Graph Indexing
