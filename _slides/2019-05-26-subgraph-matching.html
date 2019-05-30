@@ -60,15 +60,23 @@ An instance of the *template* in the *world* is called a **signal**
 
 -vertical-
 
-## Main Algorithm: Tree Search
+## Main Algorithm:
 
-  1. Find all signals where \\(\mathbf{A} = \mathbf{1}\\)
-    1. Find all signals where \\(\mathbf{A} = \mathbf{1}\\) and \\(\mathbf{C} = \mathbf{6}\\)
-      1. ...
-  2. Find all signals where \\(\mathbf{A} = \mathbf{4}\\)
-  3. ...
+## Tree Search
 
-<img class="plain" src="definitions-example.png" width="50%">
+
+
+
+
+-vertical-
+
+1. Find all signals where \\(\mathbf{A} = \mathbf{1}\\)
+  1. Find all signals where \\(\mathbf{A} = \mathbf{1}\\) and \\(\mathbf{C} = \mathbf{6}\\)
+    1. ...
+2. Find all signals where \\(\mathbf{A} = \mathbf{4}\\)
+3. ...
+
+<img class="plain" src="definitions-example.png" width="70%">
 
 
 
@@ -98,23 +106,23 @@ Use a heuristic to precompute a fixed order on the template nodes.
 
 -vertical-
 
-## Search Order Heuristics
+## Search Order Objective
 
-* Fewest candidates first
-* Highest degree first
-* Most neighbors first
-* ...
-
-<img class="plain" src="definitions-example.png" width="50%">
+The objective of the heuristic is to minimize the computational cost of traversing the search tree.
 
 
 
 
 -vertical-
 
-## Search Order Objective
+## Search Order Heuristics
 
-The objective in choosing a search order is to minimize the computational cost of traversing the search tree.
+* Fewest candidates first
+* Most neighbors first
+* Highest degree first
+* ...
+
+<img class="plain" src="definitions-example.png" width="50%">
 
 
 
@@ -134,9 +142,9 @@ Try matching each template node to world nodes which satisfy some set of constra
 
 ## Pruning Rules: Node Stats
 
-A candidate should have as many incoming/outgoing edges as its corresponding template nodes.
+A candidate should have as many incoming/outgoing edges as its corresponding template node.
 
-<img class="plain" src="cheap-filters-example.png" width="60%">
+<img class="plain" src="cheap-filters-example.png" width="70%">
 
 
 
@@ -160,7 +168,7 @@ A candidate should have as many incoming/outgoing edges as its corresponding tem
 
 Candidates for neighboring template nodes should neighbor other candidates for the corresponding template nodes.
 
-<img class="plain" src="cheap-filters-example.png" width="60%">
+<img class="plain" src="cheap-filters-example.png" width="70%">
 
 
 
@@ -195,8 +203,8 @@ If **k** world nodes are candidates for the same **k** template nodes, they cann
 
 | Template Node | Candidates Before Pigeonhole | Candidates After Pigeonhole |
 |:---:|:---:|:---:|
-| A | 1, 3, 4 | 1 |
-| B | 1, 2, 3, 4 | 2 |
+| A | 1 | 1 |
+| B | 1, 2 | 2 |
 | C | 4 | 4 |
 
 
@@ -217,7 +225,7 @@ The neighborhood of a candidate should be matchable to the neighborhood of the c
 
 ## Results
 
-<img src="cand-counts-nxgraph.png" width="70%">
+<img src="pnnl-rw.png" width="80%">
 
 
 
