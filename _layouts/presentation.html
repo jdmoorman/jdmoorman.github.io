@@ -64,7 +64,9 @@
           { src: '{{ site.baseurl }}/assets/plugin/markdown/markdown.js' },
           { src: '{{ site.baseurl }}/assets/plugin/notes/notes.js', async: true },
           { src: '{{ site.baseurl }}/assets/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: '{{ site.baseurl }}/assets/plugin/math/math.js', async: true }
+          { src: '{{ site.baseurl }}/assets/plugin/math/math.js', async: true },
+      		// Zoom in and out with Alt+click
+      		{ src: '{{ site.baseurl }}/assets/plugin/zoom-js/zoom.js', async: true },
         ]
       });
     </script>
