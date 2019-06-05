@@ -46,9 +46,9 @@ Code is on GitHub at [bit.ly/ucla-sm](http://bit.ly/ucla-sm)
 
 -horizontal-
 
-## Subgraph Matching Problem
+## Subgraph Matching
 
-Find all copies of a **template** graph in a **world** graph
+Find all copies of a **template** network in a **world** network
 
 <img class="plain" src="definitions-example.png" width="50%">
 
@@ -57,10 +57,23 @@ An instance of the *template* in the *world* is called a **signal**
 
 
 
-
 -vertical-
 
-## Main Algorithm:
+## Backstory
+
+1. DARPA hired several teams (PNNL, IvySys, GORDIAN) to generate synthetic networks
+
+2. DARPA challenged other teams to create algorithms to solve subgraph matching on those networks
+
+3. We succeeded.
+
+
+
+
+
+-horizontal-
+
+## Classic Algorithm:
 
 ## Tree Search
 
@@ -86,7 +99,7 @@ An instance of the *template* in the *world* is called a **signal**
 ## Tree Search Considerations
 
 * **Search Order:** In what order should we match the template nodes?
-* **Pruning Rules:** To which world nodes should we try matching them?
+* **Filtering Rules:** To which world nodes should we try matching them?
 
 <img class="plain" src="definitions-example.png" width="50%">
 
@@ -129,7 +142,7 @@ The objective of the heuristic is to minimize the computational cost of traversi
 
 -horizontal-
 
-## Pruning Rules
+## Filtering Rules
 
 > To which world nodes should we try matching the template nodes?
 
@@ -140,7 +153,7 @@ Try matching each template node to world nodes which satisfy some set of constra
 
 -vertical-
 
-## Pruning Rules: Node Stats
+## Filtering Rules: Node Stats
 
 A candidate should have as many incoming/outgoing edges as its corresponding template node.
 
@@ -164,7 +177,7 @@ A candidate should have as many incoming/outgoing edges as its corresponding tem
 
 -vertical-
 
-## Pruning Rules: Topology
+## Filtering Rules: Topology
 
 Candidates for neighboring template nodes should neighbor other candidates for the corresponding template nodes.
 
@@ -188,7 +201,7 @@ Candidates for neighboring template nodes should neighbor other candidates for t
 
 -vertical-
 
-## Pruning Rules: Pigeonhole
+## Filtering Rules: Pigeonhole
 
 If **k** world nodes are candidates for the same **k** template nodes, they cannot be candidates for any others.
 
@@ -212,7 +225,7 @@ If **k** world nodes are candidates for the same **k** template nodes, they cann
 
 -vertical-
 
-## Pruning Rules: Neighborhood
+## Filtering Rules: Neighborhood
 
 The neighborhood of a candidate should be matchable to the neighborhood of the corresponding template node.
 
@@ -227,6 +240,8 @@ The neighborhood of a candidate should be matchable to the neighborhood of the c
 
 <img src="pnnl-rw.png" width="80%">
 
+Filtering rules alone uniquely identify many nodes!
+
 
 
 
@@ -236,6 +251,17 @@ The neighborhood of a candidate should be matchable to the neighborhood of the c
 
 <img style="margin:0;"  src="histogram.png" width="50%">
 
+Expensive filtering rules are not always worth the effort!
+
+
+
+
+-vertical-
+
+Using a tree search, we are usually able to verify exactly which candidates belong to at least one signal.
+
+We are not always able to enumerate all of the signals.
+
 
 
 
@@ -243,5 +269,8 @@ The neighborhood of a candidate should be matchable to the neighborhood of the c
 
 ## Future Work
 
-* Approximate matching
+
+* Approximate matching in the presence of noise
+  * Missing nodes/edges
+  * Incorrect attribute info
 * Attributes beyond node/edge labels (eg. timestamps)
