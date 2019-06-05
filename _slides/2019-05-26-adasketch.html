@@ -27,6 +27,8 @@ and *Robert Gower* of Telecom-Paristech
 
 Jacob was funded by NSF grant DGE-1829071
 
+(The MENTOR NRT)
+
 \\(
 \def\range{\mathrm{Range}}
 \def\eqdef{\overset{\mathrm{def}}{=}}
@@ -143,7 +145,7 @@ We will use an overbar to denote normalization by the row norms of \\(\A\\) usin
 
 \\[\barb \eqdef \D^{-1} \b\\]
 \\[\barA \eqdef \D^{-1} \A\\]
-\\[\barr \eqdef \barb - \barA \xcurr\\]
+\\[\barr \eqdef \barA \xcurr - \barb\\]
 
 
 
@@ -244,7 +246,7 @@ for some weighting function \\(\phi\\).
 | \\(1\\) ||| Uniform sampling |
 | \\(\norm{\A\_i}^2\\) ||| \\(\Pik = \norm{\Ai}^2/\norm{\A}_F^2\\) |
 | \\(\mathbb{1}(\abs{\r\_i}=\norm{\r}\_\infty)\\) ||| Max distance rule |
-| \\(\norm{\A\_i}^2\\)\\(\mathbb{1}(\abs{\r\_i}\geq\norm{\r}\_\infty)\\) ||| A rule I just made up |
+| \\(\norm{\A\_i}^2\\)\\(\mathbb{1}(\abs{\r\_i}\geq\theta\norm{\r}\_\infty)\\) ||| A rule I made up |
 
 
 
@@ -279,13 +281,15 @@ for any \\(\xcurr\in \range(\A^\t)\\).
 
 ## Convergence
 
-The smallest such rate constant \\(\sigphi\\) can be written as \\(\def\grossp{\bar{\pmat}\_\phi(\e, \A)}\\)
+Thus, the smallest such rate constant \\(\sigphi\\) is
 
 \\[\begin{align}
-\sigphisq &= \min\_{\xcurr \in \range(\A^\t)}\left(\frac{\Ephiarg{\abs{\barrik}^2\mid \xcurr}}{\norm{\ecurr}^2}\right)
+\sigphisq &= \min\_{\xcurr \in \range(\A^\t)}\left(\frac{\Ephiarg{\abs{\barrik}^2\mid \xcurr}}{\norm{\ecurr}^2}\right).
 \end{align}\\]
 
-Which, though not obvious, does not depend on \\(\xexact\\) or \\(k\\).
+Though not obvious, this does not depend on \\(\xexact\\) or \\(k\\).
+
+It depends only on \\(\A\\).
 
 
 
@@ -331,11 +335,7 @@ Sample some row indices \\(\tau\_k \subset [m]\\),
 
 then let \\(\ik = \argmax{i\in \tau\_k}\norm{\xnext - \xcurr}\\).
 
-\\[\sigphisq \geq \frac{m}{V\_k}\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\]
-
-where \\(V\_k = \max (m - s\_k, m - \abs{\tau\_k} + 1)\\)
-
-and \\(s\_k\\) is the number of satisfied equations \\(\Ai \xcurr = \bi\\)
+\\[\sigphisq \geq \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\]
 
 
 
@@ -366,6 +366,20 @@ and \\(\Pik = 0\\) otherwise.
 
 
 
+-vertical-
+
+## Convergence Summary
+
+| Selection Rule || <span style="font-weight:normal">\\(\sigphisq\\)</span> |
+|:---:||:---:|
+| \\(p\_i^k = \norm{\Ai}^2 / \norm{\A}\_F^2\\) || \\(= \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\) [SV09] |
+| Max distance || \\(= \min\_{\e \in \range(\A^\t)} \left(\frac{\norm{\barA\e}\_\infty^2}{\norm{\e}^2}\right)\\) [NSLSKV16] |
+| Sampling max distance || \\(\geq \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\) [DHN17] |
+| RGRK || \\(\overset{\gt}{\approx} \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\) [BW18] |
+
+
+
+
 -horizontal-
 
 ## Main Result
@@ -387,7 +401,7 @@ Then \\(\sigphihatsq \le \sigphisq\\).
 
 * Max Distance rule has the fastest rate constant \\(\sigphi\\) possible, since \\(\phi \lelr \phi\_\infty\\) for any \\(\phi\\).
 
-* Any monotonically increasing \\(\phi\\) has a faster rate constant \\(\sigphi\\) than static sampling
+* Any monotonically increasing \\(\phi\\) yields a faster rate constant \\(\sigphi\\) than static sampling.
 
 
 
@@ -444,7 +458,20 @@ Then \\(\sigphihatsq \le \sigphisq\\).
 
 -horizontal-
 
-# More Slides
+# Appendix
+
+
+
+
+-vertical-
+
+## No \\(\xexact\\) dependence
+
+\\[\begin{align}
+\frac{\Ephiarg{\abs{\barrik}^2\mid \xcurr}}{\norm{\ecurr}^2} &= \frac{\Ephiarg{\abs{\barAik \xcurr - \barbik}^2\mid \xcurr}}{\norm{\ecurr}^2} \\\\
+&= \frac{\Ephiarg{\abs{\barAik \left(\ecurr\right)}^2\mid \ecurr}}{\norm{\ecurr}^2} \\\\
+&= \frac{\Ephiarg{\abs{\barAik \e}^2\mid \e}}{\norm{\e}^2}
+\end{align}\\]
 
 
 
