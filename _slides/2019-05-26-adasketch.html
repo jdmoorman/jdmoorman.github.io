@@ -1,10 +1,11 @@
 ---
 layout: presentation
-title: Comparing Sketch-and-Project Methods (Advancement to Candidacy)
+title: On Comparing Adaptive Kaczmarz Methods (ATC)
 order: 8
 ---
 
-## Comparing Adaptive Sketch-and-Project Methods
+## On Comparing Adaptive Kaczmarz Methods
+
 
 Jacob Moorman
 
@@ -38,6 +39,7 @@ Jacob was funded by NSF grant DGE-1829071
 \def\E{\mathbb{E}}
 \def\Earg#1{\E\left[#1\right]}
 \def\Ephiarg#1{\E\_\phi\left[#1\right]}
+\def\Ephihatarg#1{\E\_{\hat\phi}\left[#1\right]}
 \def\r{\mathbf{r}}
 \def\rnext{\r^{k+1}}
 \def\rcurr{\r^{k}}
@@ -55,13 +57,10 @@ Jacob was funded by NSF grant DGE-1829071
 \def\ik{ {i\_k} }
 \def\D{\mathbf{D}}
 \def\A{\mathbf{A}}
-\def\barA{\bar{\A}}
 \def\Ai{\A\_i}
-\def\barAi{\barA\_i}
 \def\Ao{\A\_1}
 \def\Am{\A\_m}
 \def\Aik{\A\_\ik}
-\def\barAik{\barA\_\ik}
 \def\pmat{\mathbf{P}}
 \def\pmatik{\pmat\_\ik}
 \def\bmat{\mathbf{Q}}
@@ -71,6 +70,8 @@ Jacob was funded by NSF grant DGE-1829071
 \def\B{\mathbf{B}}
 \def\Binv{\B^{-1}}
 \def\S{\mathbf{S}}
+\def\Si{\S\_i}
+\def\Hi{\mathbf{H}\_i}
 \def\Sk{\S\_k}
 \def\I{\mathbf{I}}
 \def\W{\mathbf{W}}
@@ -80,9 +81,6 @@ Jacob was funded by NSF grant DGE-1829071
 \def\b{\mathbf{b}}
 \def\bi{\b\_i}
 \def\bik{\b\_\ik}
-\def\barb{\bar{\mathbf{b}}}
-\def\barbi{\barb\_i}
-\def\barbik{\barb\_\ik}
 \def\Pk{\P\_k}
 \def\Pik{ \P(\ik=i \mid \xcurr) }
 \def\Pok{ \P(\ik=1 \mid \xcurr) }
@@ -101,8 +99,24 @@ Jacob was funded by NSF grant DGE-1829071
 \\)
 
 \\(
+\def\r{\mathbf{r}}
+\def\ri{\r\_i}
+\def\rj{\r\_j}
+\def\barr{\bar{\r}^k}
+\def\barri{\barr\_i}
+\def\barrj{\barr\_j}
+\def\barrik{\barr\_\ik}
+\def\barb{\bar{\mathbf{b}}}
+\def\barbi{\barb\_i}
+\def\barbik{\barb\_\ik}
+\def\barA{\bar{\A}}
+\def\barAi{\barA\_i}
+\def\barAik{\barA\_\ik}
+\def\lelr{\leq\_{\text{wr}}}
+\def\sigphihat{\kappa\_{\hat \phi}(\A)}
 \def\sigphi{\kappa\_\phi(\A)}
 \def\sigphisq{\kappa\_\phi^{-2}(\A)}
+\def\sigphihatsq{\kappa\_{\hat \phi}^{-2}(\A)}
 \\)
 
 
@@ -125,11 +139,11 @@ such that \\(\xexact\\) has minimal norm.
 
 ## Notation
 
-It will frequently be useful to use
+We will use an overbar to denote normalization by the row norms of \\(\A\\) using \\(\D \eqdef \diag(\norm{\A\_1}, \ldots, \norm{\A\_m})\\)
 
-\\[\D \eqdef \diag(\norm{\A}\_1, \ldots, \norm{\A}\_m)\\]
-\\[\bar{\b} \eqdef \D^{-1} \b\\]
-\\[\bar{\A} \eqdef \D^{-1} \A\\]
+\\[\barb \eqdef \D^{-1} \b\\]
+\\[\barA \eqdef \D^{-1} \A\\]
+\\[\barr \eqdef \barb - \barA \xcurr\\]
 
 
 
@@ -138,7 +152,7 @@ It will frequently be useful to use
 
 ## Kaczmarz Methods
 
-Make an initial guess \\(\xinit \in \range(\A)\\)
+Make an initial guess \\(\xinit \in \range(\A^\t)\\)
 
 1. Select a row index \\(\ik \in [m]\\) by some **selection rule**
 
@@ -155,9 +169,27 @@ Make an initial guess \\(\xinit \in \range(\A)\\)
 
 Row index \\(\ik\\) sampled i.i.d. at each iteration.
 
+* \\(\Pik = p\_i\\)
+
 * \\(\Pik = \norm{\Ai}^2/\norm{\A}_F^2\\)
 
 * \\(\Pik = 1/m\\)
+
+
+
+
+-vertical-
+
+## Motivation for Adaptive Rules
+
+Then the expected error update is
+
+\\[\begin{align}
+\Earg{\norm{\enext}^2 \mid \xcurr} &= \norm{\ecurr}^2 - \Earg{\norm{\xnext - \xcurr}^2\mid \xcurr}\\\\
+&=\norm{\ecurr}^2 - \Earg{\abs{\barrik}^2\mid \xcurr}
+\end{align}\\]
+
+where \\(\barr = \barb - \barA \xcurr\\).
 
 
 
@@ -172,20 +204,58 @@ Choice of row index \\(\ik\\) depends on \\(\xcurr\\)
 
 * **Sampling MD**: \\(\ik = \argmax{i\in \tau\_k}\norm{\xnext - \xcurr}\\)
 
-* \\(\Pik = \abs{\bi - \Ai \xcurr}^2/\norm{\b -  \A \xcurr}^2\\)
+* \\(\Pik = \abs{\barri}^2/\norm{\barr}^2\\)
 
-* greedy randomized rules [BW18]
+
+
+
+-horizontal-
+
+## Selection Rule Parameterization
+
+Recalling the expected error update
+
+\\[
+\Ephiarg{\norm{\enext}^2 \mid \xcurr} =\norm{\ecurr}^2 - \Ephiarg{\abs{\barrik}^2\mid \xcurr}
+\\]
 
 
 
 
 -vertical-
 
+## Selection Rule Parameterization
+
+A general way to parameterize the selection rule is
+
+\\[\Pik = \frac{\phi\left(\abs{\barri}^2; i, \barr\right)}{\sum\_j\phi\left(\abs{\barrj}^2; j, \barr\right)} \quad \text{or} \quad \frac{\phi\left(\abs{\barri}^2\right)}{\sum\_j\phi\left(\abs{\barrj}^2\right)}\\]
+
+for some weighting function \\(\phi\\).
+
+
+
+
+-vertical-
+
+## Example Parameterizations
+
+| <span style="font-weight:normal">\\(\phi(\abs{\r\_i}^2; i, \r)\\)</span> ||| Selection Rule |
+|:---:|||:---:|
+| \\(1\\) ||| Uniform sampling |
+| \\(\norm{\A\_i}^2\\) ||| \\(\Pik = \norm{\Ai}^2/\norm{\A}_F^2\\) |
+| \\(\mathbb{1}(\abs{\r\_i}=\norm{\r}\_\infty)\\) ||| Max distance rule |
+| \\(\norm{\A\_i}^2\\)\\(\mathbb{1}(\abs{\r\_i}\geq\norm{\r}\_\infty)\\) ||| A rule I just made up |
+
+
+
+
+-horizontal-
+
 ## Convergence
 
-Let \\(\phi\\) parameterize the selection rule.
+Given a selection rule parameterization \\(\phi\\),
 
-There exists a constant \\(\sigphi\\) such that
+there exists a rate constant \\(\sigphi\\) such that
 
 \\[\Ephiarg{\norm{\ecurr}^2} \le (1 - \sigphisq)^k \norm{\einit}^2.\\]
 
@@ -196,14 +266,26 @@ There exists a constant \\(\sigphi\\) such that
 
 ## Convergence
 
-The smallest such constant \\(\sigphi\\) can be expressed as
+Any such rate constant \\(\sigphi\\) should satisfy
 
-\\[\def\grossp{\bar{\pmat}\_\phi(\e, \A)}
-\sigphisq = \min\_{\e \in \range(\A^\t)} \left(\frac{\e^\t\grossp\e}{\norm{\e}^2}\right),\\]
+\\[\begin{align}\Ephiarg{\abs{\barrik}^2\mid \xcurr} \le \sigphisq \norm{\ecurr}^2\end{align}\\]
 
-where
+for any \\(\xcurr\in \range(\A^\t)\\).
 
-\\[\grossp = \E\_{\phi}\left[\barAik^\t \barAik \mid \xcurr=\xexact+\e \right].\\]
+
+
+
+-vertical-
+
+## Convergence
+
+The smallest such rate constant \\(\sigphi\\) can be written as \\(\def\grossp{\bar{\pmat}\_\phi(\e, \A)}\\)
+
+\\[\begin{align}
+\sigphisq &= \min\_{\xcurr \in \range(\A^\t)}\left(\frac{\Ephiarg{\abs{\barrik}^2\mid \xcurr}}{\norm{\ecurr}^2}\right)
+\end{align}\\]
+
+Which, though not obvious, does not depend on \\(\xexact\\) or \\(k\\).
 
 
 
@@ -251,6 +333,9 @@ then let \\(\ik = \argmax{i\in \tau\_k}\norm{\xnext - \xcurr}\\).
 
 \\[\sigphisq \geq \frac{m}{V\_k}\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\]
 
+where \\(V\_k = \max (m - s\_k, m - \abs{\tau\_k} + 1)\\)
+
+and \\(s\_k\\) is the number of satisfied equations \\(\Ai \xcurr = \bi\\)
 
 
 
@@ -259,32 +344,63 @@ then let \\(\ik = \argmax{i\in \tau\_k}\norm{\xnext - \xcurr}\\).
 
 ## Greedy Randomized Kaczmarz [BW18]
 
-\\(\Pik \propto \abs{\barbi - \barAi \xcurr}^2\\) for
+\\(\Pik \propto \abs{\barri}^2\\) for
 
-\\(\abs{\barbi - \barAi \xcurr}^2 \geq \theta \norm{\barb - \barA \xcurr}\_\infty^2 + (1-\theta)\frac{1}{m}\norm{\barb - \barA \xcurr}^2\\),
+\\(\abs{\barri}^2 \geq \theta \norm{\barr}\_\infty^2 + (1-\theta)\frac{1}{m}\norm{\barr}^2\\),
 
 and \\(\Pik = 0\\) otherwise.
-
-\\[\sigphisq \geq \frac{1}{2}\left(\frac{1}{\gamma}\norm{\A}\_F^2 + 1\right)\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)} \overset{O(1/m)}{\approx} \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\]
-
-
-
-
--horizontal-
-
-## Contributions
-
-* MLRP implies ordering
-* Thus, if two methods are the same cost, the more aggressive one wins.
 
 
 
 
 -vertical-
 
-## Generalization
+## Greedy Randomized Kaczmarz [BW18]
 
-Same result holds on sketch-and-project class of methods, which includes coordinate descent, block coordinate descent, block kaczmarz as special cases.
+\\[\begin{align}
+\sigphisq &\geq \frac{1}{2}\left(\frac{\norm{\A}\_F^2}{\norm{\A}\_F^2 - \min\_i \norm{\Ai}^2} + 1\right)\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)} \\\\
+&=  \frac{1}{2}\left(2 - O\(m^{-1})\right)\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)} \\\\
+&\approx\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}
+\end{align}\\]
+
+
+
+
+-horizontal-
+
+## Main Result
+
+Suppose \\(\phi\\) and \\(\hat \phi\\) satisfy
+
+\\[\hat \phi \lelr \phi \quad \eqdef \quad \frac{\hat \phi(b)}{\hat \phi(a)} \le \frac{\phi(b)}{\phi(a)} \quad \text{for any}\quad a \le b.\\]
+
+Then \\(\sigphihatsq \le \sigphisq\\).
+
+
+
+
+-vertical-
+
+## Implications
+
+* Given two sampling rules, we can determine which has a faster rate constant \\(\sigphi\\) without evaluating it.
+
+* Max Distance rule has the fastest rate constant \\(\sigphi\\) possible, since \\(\phi \lelr \phi\_\infty\\) for any \\(\phi\\).
+
+* Any monotonically increasing \\(\phi\\) has a faster rate constant \\(\sigphi\\) than static sampling
+
+
+
+
+-vertical-
+
+## Limitations
+
+* Can't compare \\(\Ephihatarg{\norm{\ecurr}^2}\\) to \\(\Ephiarg{\norm{\ecurr}^2}\\)
+
+* Not all \\(\hat \phi\\) and \\(\phi\\) are comparable by \\(\lelr\\)
+
+* Does not give any measure of \\(\sigphisq - \sigphihatsq\\)
 
 
 
@@ -293,62 +409,55 @@ Same result holds on sketch-and-project class of methods, which includes coordin
 
 ## Future Work
 
-* Exact MSE analysis inspired by []
-* Publish papers
-* Publish Averaged Kaczmarz stuff
-* Generalize Averaged Kaczmarz to Sketch-and-Project
-* Extend everything to the inconsistent case
-
-
-
-
--horizontal-
-
-## References
-
-<ul style="font-size:24px !important;">
-  <li>
-[SV09] T. Strohmer and R. Vershynin, *"A randomized Kaczmarz algorithm with exponential convergence"*, J. Fourier Anal. Appl., 15 (2009), pp. 262–278.
-  </li>
-  <li>
-[NSLSKV16] J. Nutini, B. Sepehry, I. Laradji, M. Schmidt, H. Koepke, and A. Virani. *"Convergence rates for greedy Kaczmarz algorithms, and faster randomized Kaczmarz rules using the orthogonality graph."* In Proceedings of the Thirty-Second Conference on Uncertainty in Artificial Intelligence, pages 547–556. AUAI Press, 2016
-  </li>
-  <li>
-[DHN17]
-  </li>
-  <li>
-[BW18] Z.-Z. Bai and W.-T. Wu, *"On greedy randomized Kaczmarz method for solving large sparse linear systems"*, SIAM J. Sci. Comput., vol. 40, no. 1, pp. A592–A606, 2018.
-  </li>
-  <li>
-
-  </li>
-  <li>
-
-  </li>
-  <li>
-
-  </li>
-</ul>
-
-
-
-
-
--horizontal-
-
-# Junk
+* Wrap up the writing
+* What can we say when \\(\hat \phi\\) and \\(\phi\\) are not comparable?
+* Compare \\(\Ephiarg{\norm{\ecurr}^2}\\) and \\(\Ephihatarg{\norm{\ecurr}^2}\\)
+* Extend to the inconsistent case
 
 
 
 
 -vertical-
 
-## Kaczmarz Update Formula
+## References
 
-\\[
-\begin{align}\xnext &= \argmin{\x \in \R^n} \norm{\x - \xcurr} \text{ s.t. } \Aik \x = \bik \\\\
-&= \proj{\\\{\x\ :\ \Aik \x = \bik\\\}}(\xcurr)\\\\
-&= \xcurr - \frac{\Aik \xcurr - \bik}{\norm{\Aik}^2}\Aik^\t
+<ul style="font-size:24px !important;">
+  <li>
+**[SV09]** T. Strohmer and R. Vershynin: *"A randomized Kaczmarz algorithm with exponential convergence"*, Journal of Fourier Analysis and Applications, 15 (2009), pp. 262–278.
+  </li>
+  <li>
+**[GR15]** R. Gower and P. Richtarik: *"Randomized Iterative Methods for Linear Systems"*, SIAM Journal on Matrix Analysis and Applications (2015).
+  </li>
+  <li>
+**[NSLSKV16]** J. Nutini, B. Sepehry, I. Laradji, M. Schmidt, H. Koepke, and A. Virani: *"Convergence rates for greedy Kaczmarz algorithms, and faster randomized Kaczmarz rules using the orthogonality graph"*, Proceedings of the Thirty-Second Conference on Uncertainty in Artificial Intelligence, pages 547–556. AUAI Press, 2016.
+  </li>
+  <li>
+**[DHN17]** J.A. De Loera, J. Haddock, D. Needell: *"A sampling Kaczmarz–Motzkin algorithm for linear feasibility"*, SIAM Journal on Scientific Computing, 39(5), S66–S87 (2017).
+  </li>
+  <li>
+**[BW18]** Z.-Z. Bai and W.-T. Wu: *"On greedy randomized Kaczmarz method for solving large sparse linear systems"*, SIAM Journal on Scientific Computing, vol. 40, no. 1, pp. A592–A606, 2018.
+  </li>
+</ul>
+
+
+
+
+-horizontal-
+
+# More Slides
+
+
+
+
+-vertical-
+
+## Proof Sketch
+
+\\[\begin{align}
+&\hat \phi \lelr \phi \quad \\\\
+&\implies \P\_{\hat \phi} \leq\_{\text{lr}} \P\_{\phi} & \text{(MLRP)} \\\\
+&\implies \P\_{\hat \phi}\left(\abs{\ri}^2 \geq t\right) \leq \P\_{\phi}\left(\abs{\ri}^2 \geq t\right) \quad \forall t & \text{(FOSD)}\\\\
+&\implies \E\_{\hat \phi}\left[\abs{\ri}^2\right] \leq \E\_{\phi}\left[\abs{\ri}^2\right]
 \end{align}\\]
 
 
@@ -356,147 +465,20 @@ Same result holds on sketch-and-project class of methods, which includes coordin
 
 -vertical-
 
-## Kaczmarz Convergence
+## Full Main Result
 
-The update from \\(\xcurr\\) to \\(\xnext\\) can be written explicitly
+Suppose \\(\phi\\) and \\(\hat \phi\\) satisfy
 
-\\[
-\xnext = \left(\I - \frac{\Aik^\t\Aik}{\norm{\Aik}^2}\right) \xcurr + \frac{\bik \Aik^\t}{\norm{\Aik}^2}
-\\]
+\\[\hat \phi(\abs{\rj}^2; j, \r)\phi(\abs{\ri}^2; i, \r) \le \phi(\abs{\rj}^2; j, \r)\hat \phi(\abs{\ri}^2; i, \r)\\]
 
-
-
-
--vertical-
-
-## Kaczmarz Convergence
-
-From which the error update can be written explicitly
-
-\\[
-\begin{align}
-\enext &= \left(\I - \frac{\Aik^\t\Aik}{\norm{\Aik}^2}\right) \ecurr + \frac{\rexact\_\ik \Aik^\t}{\norm{\Aik}^2} \\\\
-&= \left(\I - \frac{\Aik^\t\Aik}{\norm{\Aik}^2}\right) \ecurr
-\end{align}
-\\]
-
-Where \\(\ecurr \eqdef \xcurr - \xexact\\) and \\(\rexact \eqdef \b - \A\xexact\\)
+for any \\(i, j\\) with \\(\ri \le \rj\\). Then \\(\sigphihatsq \le \sigphisq\\).
 
 
 
 
 -vertical-
 
-## Kaczmarz Convergence
-
-\\[
-\enext = \left(\I - \frac{\Aik^\t\Aik}{\norm{\Aik}^2}\right) \ecurr + \frac{\rexact\_\ik \Aik^\t}{\norm{\Aik}^2}
-\\]
-
-The terms are orthogonal wrt \\(\innerprod{\cdot}{\cdot}\\), so
-
-\\[
-\begin{align}
-\norm{\enext}^2 &= \norm{\left(\I - \frac{\Aik^\t\Aik}{\norm{\Aik}^2}\right) \ecurr}^2 + \norm{\frac{\rexact\_\ik \Aik^\t}{\norm{\Aik}^2}}^2 \\\\
-&= \norm{\ecurr}^2 - \norm{\frac{\Aik^\t\Aik}{\norm{\Aik}^2} \ecurr}^2 + \frac{\abs{\rexact\_\ik}^2}{\norm{\Aik}^2}.
-\end{align}
-\\]
-
-
-
-
--vertical-
-
-## Kaczmarz Convergence
-
-Finally, we have the error norm update
-
-\\[
-\norm{\enext}^2 = \norm{\ecurr}^2 - \frac{\abs{\Aik \ecurr}^2}{\norm{\Aik}^2} + \frac{\abs{\rexact\_\ik}^2}{\norm{\Aik}^2}.
-\\]
-
-
-
-
--vertical-
-
-## Kaczmarz Convergence
-
-\\[\D := \diag\left(\norm{\Ao}^2,\ \dots,\ \norm{\Am}^2\right)\\]
-\\[\Pk := \diag\left(\Pok,\ \dots,\ \Pmk\right)\\]
-
-\\[
-\begin{align}
-&\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
-&= \norm{\ecurr}^2 - \norm{\Pk \D^{-1} \A \ecurr}^2 + \norm{\Pk \D^{-1} \rexact}^2.
-\end{align}
-\\]
-
-
-
-
--vertical-
-
-## Kaczmarz Bounds
-
-Look for \\(\alpha, \beta\\) independent of \\(\ecurr\\) for which
-
-\\[
-\begin{align}
-&\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
-&= \norm{\ecurr}^2 - \norm{\Pk \D^{-1} \A \ecurr}^2 + \norm{\Pk \D^{-1} \rexact}^2 \\\\
-&\le \left(1 - \alpha^2\right)\norm{\ecurr}^2 + \beta^2
-\end{align}
-\\]
-
-
-
-
--vertical-
-
-## Kaczmarz Bounds
-
-\\[
-\begin{align}
-&\E\left[\norm{\ecurr}^2\right] \\\\
-&\le \left(1 - \alpha^2\right)\E\left[\norm{\eprev}^2\right] + \beta^2 \\\\
-&\le \dots \\\\
-&\le \left(1 - \alpha^2\right)^k\norm{\einit}^2 + \sum_{l = 0}^{k-1}\left(1 - \alpha^2\right)^l \beta^2 \\\\
-&\le \left(1 - \alpha^2\right)^k\norm{\einit}^2 + \frac{\beta^2}{\alpha^2}.
-\end{align}
-\\]
-
-
-
-
--vertical-
-
-Require for any \\(\ecurr\\) where \\(\A\ecurr \neq 0\\) that
-
-\\[
-\alpha \norm{\ecurr} \le \norm{\Pk \D^{-1}\A\ecurr}
-\\]
-
-\\[
-\norm{\Pk \D^{-1}\rexact} \le \beta.
-\\]
-
-Leading to the natural choices
-
-\\[
-\alpha = \underset{\A\ecurr \neq 0}{\inf}\frac{\norm{\Pk \D^{-1}\A\ecurr}}{\norm{\ecurr}}
-\\]
-
-\\[
-\beta = \underset{\A\ecurr \neq 0}{\sup}\norm{\Pk \D^{-1}\rexact}
-\\]
-
-
-
-
--horizontal-
-
-## Generalization: Sketch and Project (S&P) Methods
+## Sketch-project methods
 
 Fix \\(\B \in \R^{n \times n}\\), symmetric positive definite.
 
@@ -511,229 +493,17 @@ Fix \\(\B \in \R^{n \times n}\\), symmetric positive definite.
 
 -vertical-
 
-## S&P Selection Rules
+## Sketch-project Residuals
 
-Options for \\(\PSk\\)
+The main result holds on all sketch-project methods where the sketching matrices are sampled from a finite set. The role of \\(\abs{\barri}^2\\) must be changed to \\(\norm{\b - \A \xcurr}^2\_{\Hi}\\), where \\(\Hi = \Si (\Si^\t \A \B^\dagger \A^\t \Si)^{\dagger} \Si^\t\\). Then, the main result holds directly.
 
-* **Static Distribution**:
-Sample \\(\Sk\\) i.i.d. from a fixed distribution
-
-    * \\(\PSk \propto \trace{\S^\t\A\Binv \A^\t \S}\\)
-
-    * \\(\text{uniform}\left(\\\{\S^{(1)}, \dots, \S^{(r)} \\\}\right)\\)
+This includes coordinate descent, block kaczmarz, and other methods as special cases.
 
 
 
 
 -vertical-
 
-## S&P Selection Rules
+## Experimental Results
 
-* **Adaptive Distribution**:
-Sample \\(\Sk\\) from a distribution which depends on \\(\xcurr\\)
-
-    * Includes static distributions as a special case
-
-    * **Max residual (MR)**: \\(\Sk = \argmax{\S}\norm{\S^\t (\A \xcurr - \b)}\\)
-
-    * **Max distance (MD)**: \\(\Sk = \argmax{\S}\norm{\xnext - \xcurr}_B\\)
-
-
-
-
--vertical-
-
-## S&P Update Formula
-
-\\[
-\begin{align}
-\xnext &= \argmin{\x \in \R^n} \norm{\x - \xcurr}_B \text{ s.t. } \Sk^\t \A \x = \Sk^\t\b\\\\
-&= \bproj{\\\{\x\ :\ \Sk^\t\A \x = \Sk^\t\b\\\}}(\xcurr)\\\\
-&= \xcurr - \Binv \A^\t \Sk \left(\Sk^\t \A \Binv \A^\t \Sk\right)^\dagger \Sk^\t (\A \xcurr - \b)
-\end{align}
-\\]
-
-
-
-
--vertical-
-
-## S&P Update Formula
-
-Define \\(\Wk = \Sk \left(\Sk^\t \A \Binv \A^\t \Sk\right)^\dagger \Sk^\t\\),
-
-and \\(\Zk = \A^\t \Wk \A\\).
-
-The S&P update can then be written
-
-\\[\xnext = \xcurr - \Binv \Zk \xcurr + \Binv \A^\t \Wk \b.\\]
-
-
-
-
--vertical-
-
-## S&P Convergence
-
-\\[
-\xnext = \xcurr - \Binv \Zk \xcurr + \Binv \A^\t \Wk \b
-\\]
-
-Define \\(\ecurr = \xcurr - \xexact\\), and \\(\rexact = \b - \A\xexact\\)
-
-\\[
-\begin{align}
-\enext &= \ecurr - \Binv \Zk \ecurr + \Binv \A^\t \Wk \rexact \\\\
-&= \left( \I - \Binv \Zk \right) \ecurr + \Binv \A^\t \Wk \rexact
-\end{align}
-\\]
-
-
-
-
--vertical-
-
-## S&P Convergence
-
-\\[
-\enext = \left( \I - \Binv \Zk \right) \ecurr + \Binv \A^\t \Wk \rexact
-\\]
-
-The terms are orthogonal wrt \\(\innerprod{\cdot}{\cdot}_B\\), so
-
-\\[
-\begin{align}
-\bnorm{\enext}^2 &= \bnorm{\left( \I - \Binv \Zk \right) \ecurr}^2 + \bnorm{\Binv \A^\t \Wk \rexact}^2 \\\\
-&= \bnorm{\ecurr}^2 - \bnorm{\Binv \Zk \ecurr}^2 + \bnorm{\Binv \A^\t \Wk \rexact}^2.
-\end{align}
-\\]
-
-
-
-
--vertical-
-
-## S&P Convergence
-
-Finally, we have the error norm update
-
-\\[
-\begin{align}
-\bnorm{\enext}^2 &= \bnorm{\ecurr}^2 - \bnorm{\Binv \Zk \ecurr}^2 + \bnorm{\Binv \A^\t \Wk \rexact}^2 \\\\
-&= \bnorm{\ecurr}^2 - \innerprod{\Zk \ecurr}{\ecurr} + \innerprod{\Wk \rexact}{\rexact}.
-\end{align}
-\\]
-
-
-
-
--vertical-
-
-## S&P Convergence
-
-\\[
-\begin{align}
-&\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
-&= \E\left[\bnorm{\ecurr}^2 - \innerprod{\Zk \ecurr}{\ecurr} + \innerprod{\Wk \rexact}{\rexact}\mid \ecurr\right] \\\\
-&= \bnorm{\ecurr}^2 - \innerprod{\E\left[\Zk \mid \ecurr\right] \ecurr}{\ecurr} + \innerprod{\E\left[\Wk \mid \ecurr\right] \rexact}{\rexact}.
-\end{align}
-\\]
-
-
-
-
-
--vertical-
-
-## S&P Bounds
-
-Look for \\(\alpha, \beta\\) independent of \\(\ecurr\\) for which
-
-\\[
-\begin{align}
-&\E\left[\norm{\enext}^2 \mid \ecurr\right] \\\\
-&= \bnorm{\ecurr}^2 - \innerprod{\E\left[\Zk \mid \ecurr\right] \ecurr}{\ecurr} + \innerprod{\E\left[\Wk \mid \ecurr\right] \rexact}{\rexact} \\\\
-&\le \left(1 - \alpha^2\right)\bnorm{\ecurr}^2 + \beta^2
-\end{align}
-\\]
-
-
-
-
--vertical-
-
-## S&P Bounds
-
-\\[
-\begin{align}
-&\E\left[\norm{\ecurr}^2\right] \\\\
-&\le \left(1 - \alpha^2\right)\E\left[\norm{\eprev}^2\right] + \beta^2 \\\\
-&\le \dots \\\\
-&\le \left(1 - \alpha^2\right)^k\norm{\einit}^2 + \sum_{l = 0}^{k-1}\left(1 - \alpha^2\right)^l \beta^2 \\\\
-&\le \left(1 - \alpha^2\right)^k\norm{\einit}^2 + \frac{\beta^2}{\alpha^2}.
-\end{align}
-\\]
-
-
-
-
--vertical-
-
-Require for any \\(\ecurr\\) where \\(\A\ecurr \neq 0\\) that
-
-\\[
-\alpha \bnorm{\ecurr} \le \innerprod{\E\left[\Zk \mid \ecurr\right] \ecurr}{\ecurr}
-\\]
-
-\\[
-\innerprod{\E\left[\Wk \mid \ecurr\right] \rexact}{\rexact} \le \beta.
-\\]
-
-Leading to the natural choices
-
-\\[
-\alpha = \underset{\A\ecurr \neq 0}{\inf}\frac{\innerprod{\E\left[\Zk \mid \ecurr\right] \ecurr}{\ecurr}}{\bnorm{\ecurr}}
-\\]
-
-\\[
-\beta = \underset{\A\ecurr \neq 0}{\sup}\innerprod{\E\left[\Wk \mid \ecurr\right] \rexact}{\rexact}
-\\]
-
-
-
-
--horizontal-
-
-## References
-
-* D. Needell, _"Randomized Kaczmarz solver for noisy linear systems,"_ BIT, 50 (2010), pp. 395–403.
-
-
-
-
--vertical-
-
-## References
-
-* Gower, R.M., Richtarik, P., _"Randomized iterative methods for linear systems."_ SIAM J. Matrix Anal. Appl. 36(4), 1660–1690 (2015)
-    * Introduces sketch & project methods, proves convergence for consistent systems
-
-
-
-
--vertical-
-
-## References
-
-* Yushi Morijiri, Kensuke Aishima, Takayasu Matsuo, _"Extension of an error analysis of the randomized Kaczmarz method for inconsistent linear systems,"_ JSIAM Letters, 2018, 10 巻, p. 17-20
-    * Extends convergence of sketch and project methods to inconsistent systems.
-
-
-
-
--vertical-
-
-## References
-
-* Nutini, J., et al., _"Convergence rates for greedy Kaczmarz algorithms, and faster randomized Kaczmarz rules using the orthogonality graph,"_ Proceedings of the Thirty-Second Conference on Uncertainty in Artificial Intelligence. AUAI Press, Corvallis (2016)
-    * Analyses greedy kaczmarz rules applied to consistent systems
+<img style="margin:0;"  src="example.png" width="70%">
