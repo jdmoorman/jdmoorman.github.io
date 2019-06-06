@@ -101,6 +101,13 @@ Jacob was funded by NSF grant DGE-1829071
 \\)
 
 \\(
+\def\d{\mathbf{d}}
+\def\di{\d\_i}
+\def\dj{\d\_j}
+\def\dk{\d^k}
+\def\dki{\dk\_i}
+\def\dkj{\dk\_j}
+\def\dkik{\dk\_\ik}
 \def\r{\mathbf{r}}
 \def\ri{\r\_i}
 \def\rj{\r\_j}
@@ -145,7 +152,6 @@ We will use an overbar to denote normalization by the row norms of \\(\A\\) usin
 
 \\[\barb \eqdef \D^{-1} \b\\]
 \\[\barA \eqdef \D^{-1} \A\\]
-\\[\barr \eqdef \barA \xcurr - \barb\\]
 
 
 
@@ -188,10 +194,10 @@ Then the expected error update is
 
 \\[\begin{align}
 \Earg{\norm{\enext}^2 \mid \xcurr} &= \norm{\ecurr}^2 - \Earg{\norm{\xnext - \xcurr}^2\mid \xcurr}\\\\
-&=\norm{\ecurr}^2 - \Earg{\abs{\barrik}^2\mid \xcurr}
+&=\norm{\ecurr}^2 - \Earg{\dkik\mid \xcurr}
 \end{align}\\]
 
-where \\(\barr = \barb - \barA \xcurr\\).
+where \\(\dki = \norm{\xnext - \xcurr}^2\\) under the selection \\(\ik=i\\).
 
 
 
@@ -202,11 +208,11 @@ where \\(\barr = \barb - \barA \xcurr\\).
 
 Choice of row index \\(\ik\\) depends on \\(\xcurr\\)
 
-* **Max distance (MD)**: \\(\ik = \argmax{i}\norm{\xnext - \xcurr}\\)
+* **Max distance (MD)**: \\(\ik = \argmax{i}(\dki)\\)
 
-* **Sampling MD**: \\(\ik = \argmax{i\in \tau\_k}\norm{\xnext - \xcurr}\\)
+* **Sampling MD**: \\(\ik = \argmax{i\in \tau\_k}(\dki)\\)
 
-* \\(\Pik = \abs{\barri}^2/\norm{\barr}^2\\)
+* \\(\Pik = \tfrac{\dki}{\sum\_j \dkj}\\)
 
 
 
@@ -215,22 +221,9 @@ Choice of row index \\(\ik\\) depends on \\(\xcurr\\)
 
 ## Selection Rule Parameterization
 
-Recalling the expected error update
-
-\\[
-\Ephiarg{\norm{\enext}^2 \mid \xcurr} =\norm{\ecurr}^2 - \Ephiarg{\abs{\barrik}^2\mid \xcurr}
-\\]
-
-
-
-
--vertical-
-
-## Selection Rule Parameterization
-
 A general way to parameterize the selection rule is
 
-\\[\Pik = \frac{\phi\left(\abs{\barri}^2; i, \barr\right)}{\sum\_j\phi\left(\abs{\barrj}^2; j, \barr\right)} \quad \text{or} \quad \frac{\phi\left(\abs{\barri}^2\right)}{\sum\_j\phi\left(\abs{\barrj}^2\right)}\\]
+\\[\Pik = \frac{\phi\left(\dki; i, \dk \right)}{\sum\_j\phi\left(\dkj; j, \dk \right)}\\]
 
 for some weighting function \\(\phi\\).
 
@@ -245,8 +238,8 @@ for some weighting function \\(\phi\\).
 |:---:|||:---:|
 | \\(1\\) ||| Uniform sampling |
 | \\(\norm{\A\_i}^2\\) ||| \\(\Pik = \norm{\Ai}^2/\norm{\A}_F^2\\) |
-| \\(\mathbb{1}(\abs{\r\_i}=\norm{\r}\_\infty)\\) ||| Max distance rule |
-| \\(\norm{\A\_i}^2\\)\\(\mathbb{1}(\abs{\r\_i}\geq\theta\norm{\r}\_\infty)\\) ||| A rule I made up |
+| \\(\mathbb{1}(\dki=\norm{\dk}\_\infty)\\) ||| Max distance rule |
+| \\(\norm{\A\_i}^2\\)\\(\mathbb{1}(\dki\geq\theta\norm{\dk}\_\infty)\\) ||| A rule I made up |
 
 
 
@@ -268,11 +261,13 @@ there exists a rate constant \\(\sigphi\\) such that
 
 ## Convergence
 
-Any such rate constant \\(\sigphi\\) should satisfy
+Recalling the expected error update
 
-\\[\begin{align}\Ephiarg{\abs{\barrik}^2\mid \xcurr} \le \sigphisq \norm{\ecurr}^2\end{align}\\]
-
-for any \\(\xcurr\in \range(\A^\t)\\).
+\\[\begin{align}
+& \Ephiarg{\norm{\enext}^2 \mid \xcurr} \\\\
+&=\norm{\ecurr}^2 - \Ephiarg{\dkik\mid \xcurr} \\\\
+&=\left(1 - \frac{\Ephiarg{\dkik\mid \xcurr}}{\norm{\ecurr}^2}\right)\norm{\ecurr}^2
+\end{align}\\]
 
 
 
@@ -284,7 +279,7 @@ for any \\(\xcurr\in \range(\A^\t)\\).
 Thus, the smallest such rate constant \\(\sigphi\\) is
 
 \\[\begin{align}
-\sigphisq &= \min\_{\xcurr \in \range(\A^\t)}\left(\frac{\Ephiarg{\abs{\barrik}^2\mid \xcurr}}{\norm{\ecurr}^2}\right).
+\sigphisq &= \min\_{\xcurr \in \range(\A^\t)}\left(\frac{\Ephiarg{\dkik\mid \xcurr}}{\norm{\ecurr}^2}\right).
 \end{align}\\]
 
 Though not obvious, this does not depend on \\(\xexact\\) or \\(k\\).
@@ -307,75 +302,13 @@ compute or bound \\(\sigphi\\) for that rule.
 
 -vertical-
 
-## The original Randomized Kaczmarz [SV09]
-
-\\[\Pik = \norm{\Ai}^2/\norm{\A}_F^2\\]
-
-\\[\sigphisq = \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\]
-
-
-
-
--vertical-
-
-## Max Distance [NSLSKV16]
-
-\\[\ik = \argmax{i}\norm{\xnext - \xcurr} = \argmin{i}\norm{\xnext - \xexact}\\]
-
-\\[\sigphisq = \min\_{\e \in \range(\A^\t)} \left(\frac{\norm{\barA\e}\_\infty^2}{\norm{\e}^2}\right)\\]
-
-
-
-
--vertical-
-
-## Sampling Max Distance [DHN17]
-
-Sample some row indices \\(\tau\_k \subset [m]\\),
-
-then let \\(\ik = \argmax{i\in \tau\_k}\norm{\xnext - \xcurr}\\).
-
-\\[\sigphisq \geq \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\]
-
-
-
-
--vertical-
-
-## Greedy Randomized Kaczmarz [BW18]
-
-\\(\Pik \propto \abs{\barri}^2\\) for
-
-\\(\abs{\barri}^2 \geq \theta \norm{\barr}\_\infty^2 + (1-\theta)\frac{1}{m}\norm{\barr}^2\\),
-
-and \\(\Pik = 0\\) otherwise.
-
-
-
-
--vertical-
-
-## Greedy Randomized Kaczmarz [BW18]
-
-\\[\begin{align}
-\sigphisq &\geq \frac{1}{2}\left(\frac{\norm{\A}\_F^2}{\norm{\A}\_F^2 - \min\_i \norm{\Ai}^2} + 1\right)\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)} \\\\
-&=  \frac{1}{2}\left(2 - O\(m^{-1})\right)\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)} \\\\
-&\approx\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}
-\end{align}\\]
-
-
-
-
--vertical-
-
-## Convergence Summary
-
-| Selection Rule || <span style="font-weight:normal">\\(\sigphisq\\)</span> |
-|:---:||:---:|
-| \\(p\_i^k = \norm{\Ai}^2 / \norm{\A}\_F^2\\) || \\(= \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\) [SV09] |
-| Max distance || \\(= \min\_{\e \in \range(\A^\t)} \left(\frac{\norm{\barA\e}\_\infty^2}{\norm{\e}^2}\right)\\) [NSLSKV16] |
-| Sampling max distance || \\(\geq \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\) [DHN17] |
-| RGRK || \\(\overset{\gt}{\approx} \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\) [BW18] |
+| Selection Rule \\(\phi\\) || <span style="font-weight:normal">\\(\sigphisq\\)</span> | Paper |
+|:---:||:---:|:---:|
+| \\(\norm{\Ai}^2\\) || \\(= \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\) |  [SV09] |
+| \\(\dki\\) || \\(\geq 2\frac{\sigmin^2(\barA)}{\sum\_i \sigi^2(\barA)}\\) | Soon |
+| \\(\dki\mathbb{1}(\dki\geq ...)\\) || \\(\overset{\gt}{\approx} \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\) |  [BW18] |
+| \\(\mathbb{1}(\dki=\norm{\dk}\_\infty)\\) || \\(= \underset{\e \in \range(\A^\t)}{\min} \left(\frac{\norm{\barA\e}\_\infty^2}{\norm{\e}^2}\right)\\) |  [NSLSKV16] |
+| Sampling max distance || \\(\geq \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\) | [DHN17] |
 
 
 
@@ -384,9 +317,11 @@ and \\(\Pik = 0\\) otherwise.
 
 ## Main Result
 
-Suppose \\(\phi\\) and \\(\hat \phi\\) satisfy
+Suppose \\(\phi\\) and \\(\hat \phi\\) satisfy \\(\hat \phi \lelr \phi:\\)
 
-\\[\hat \phi \lelr \phi \quad \eqdef \quad \frac{\hat \phi(b)}{\hat \phi(a)} \le \frac{\phi(b)}{\phi(a)} \quad \text{for any}\quad a \le b.\\]
+\\[\hat \phi(\dj;\, j, \d)\phi(\di;\, i, \r) \le \phi(\dj;\, j, \r)\hat \phi(\di;\, i, \r)\\]
+
+for any \\(\d\\) and any \\(i, j\\) with \\(\di \le \dj\\).
 
 Then \\(\sigphihatsq \le \sigphisq\\).
 
@@ -395,9 +330,24 @@ Then \\(\sigphihatsq \le \sigphisq\\).
 
 -vertical-
 
+## <span style="font-weight:normal">\\(\hat \phi \lelr \phi\\)</span> Explained
+
+If \\(\hat\phi\\) and \\(\phi\\) were positive, we could write \\(\hat \phi \lelr \phi\\):
+
+\\[\frac{\hat \phi(\dj; j, \d)}{\hat \phi(\di; i, \d)} \le \frac{\phi(\dj; j, \d)}{\phi(\di; i, \d)}.\\]
+
+This basically says \\(\phi\\) grows faster than \\(\hat \phi\\)
+
+\\[\frac{\hat \phi(b; \ldots)}{\hat \phi(a; \ldots)} \le \frac{\phi(b; \ldots)}{\phi(a; \ldots)}.\\]
+
+
+
+
+-vertical-
+
 ## Implications
 
-* Given two sampling rules, we can determine which has a faster rate constant \\(\sigphi\\) without evaluating it.
+* Given two selection rules, we can determine which has a faster rate constant \\(\sigphi\\) without evaluating it.
 
 * Max Distance rule has the fastest rate constant \\(\sigphi\\) possible, since \\(\phi \lelr \phi\_\infty\\) for any \\(\phi\\).
 
@@ -468,7 +418,7 @@ Then \\(\sigphihatsq \le \sigphisq\\).
 ## \\(\sigphisq\\) has no \\(\xexact\\) dependence
 
 \\[\begin{align}
-\frac{\Ephiarg{\abs{\barrik}^2\mid \xcurr}}{\norm{\ecurr}^2} &= \frac{\Ephiarg{\abs{\barAik \xcurr - \barbik}^2\mid \xcurr}}{\norm{\ecurr}^2} \\\\
+\frac{\Ephiarg{\dkik\mid \xcurr}}{\norm{\ecurr}^2} &= \frac{\Ephiarg{\abs{\barAik \xcurr - \barbik}^2\mid \xcurr}}{\norm{\ecurr}^2} \\\\
 &= \frac{\Ephiarg{\abs{\barAik \left(\ecurr\right)}^2\mid \ecurr}}{\norm{\ecurr}^2} \\\\
 &= \frac{\Ephiarg{\abs{\barAik \e}^2\mid \e}}{\norm{\e}^2}
 \end{align}\\]
@@ -483,22 +433,12 @@ Then \\(\sigphihatsq \le \sigphisq\\).
 \\[\begin{align}
 &\hat \phi \lelr \phi \quad \\\\
 &\implies \P\_{\hat \phi} \leq\_{\text{lr}} \P\_{\phi} & \text{(MLRP)} \\\\
-&\implies \P\_{\hat \phi}\left(\abs{\ri}^2 \geq t\right) \leq \P\_{\phi}\left(\abs{\ri}^2 \geq t\right) \quad \forall t & \text{(FOSD)}\\\\
-&\implies \E\_{\hat \phi}\left[\abs{\ri}^2\right] \leq \E\_{\phi}\left[\abs{\ri}^2\right]
+&\implies \P\_{\hat \phi}\left(\di \geq t\right) \leq \P\_{\phi}\left(\di \geq t\right) \quad \forall t & \text{(FOSD)}\\\\
+&\implies \E\_{\hat \phi}\left[\di\right] \leq \E\_{\phi}\left[\di\right]
 \end{align}\\]
 
-
-
-
--vertical-
-
-## Full Main Result
-
-Suppose \\(\phi\\) and \\(\hat \phi\\) satisfy
-
-\\[\hat \phi(\abs{\rj}^2; j, \r)\phi(\abs{\ri}^2; i, \r) \le \phi(\abs{\rj}^2; j, \r)\hat \phi(\abs{\ri}^2; i, \r)\\]
-
-for any \\(i, j\\) with \\(\ri \le \rj\\). Then \\(\sigphihatsq \le \sigphisq\\).
+* MLRP: Monotone Likelihood Ratio Property
+* FOSD: First Order Stochastic Dominance
 
 
 
@@ -534,3 +474,71 @@ This includes coordinate descent, block kaczmarz, and other methods as special c
 ## Experimental Results
 
 <img style="margin:0;"  src="example.png" width="70%">
+
+
+
+
+-horizontal-
+
+## Selection Rules explained
+
+
+
+
+-vertical-
+
+## The original Randomized Kaczmarz [SV09]
+
+\\[\Pik = \norm{\Ai}^2/\norm{\A}_F^2\\]
+
+\\[\sigphisq = \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\]
+
+
+
+
+-vertical-
+
+## Max Distance [NSLSKV16]
+
+\\[\ik = \argmax{i}\norm{\xnext - \xcurr} = \argmin{i}\norm{\xnext - \xexact}\\]
+
+\\[\sigphisq = \min\_{\e \in \range(\A^\t)} \left(\frac{\norm{\barA\e}\_\infty^2}{\norm{\e}^2}\right)\\]
+
+
+
+
+-vertical-
+
+## Sampling Max Distance [DHN17]
+
+Sample some row indices \\(\tau\_k \subset [m]\\),
+
+then let \\(\ik = \argmax{i\in \tau\_k}\norm{\xnext - \xcurr}\\).
+
+\\[\sigphisq \geq \frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}\\]
+
+
+
+
+-vertical-
+
+## Greedy Randomized Kaczmarz [BW18]
+
+\\(\Pik \propto \abs{\barri}^2\\) for
+
+\\(\abs{\barri}^2 \geq \theta \norm{\barr}\_\infty^2 + (1-\theta)\frac{1}{m}\norm{\barr}^2\\),
+
+and \\(\Pik = 0\\) otherwise.
+
+
+
+
+-vertical-
+
+## Greedy Randomized Kaczmarz [BW18]
+
+\\[\begin{align}
+\sigphisq &\geq \frac{1}{2}\left(\frac{\norm{\A}\_F^2}{\norm{\A}\_F^2 - \min\_i \norm{\Ai}^2} + 1\right)\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)} \\\\
+&=  \frac{1}{2}\left(2 - O\(m^{-1})\right)\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)} \\\\
+&\approx\frac{\sigmin^2(\A)}{\sum\_i \sigi^2(\A)}
+\end{align}\\]

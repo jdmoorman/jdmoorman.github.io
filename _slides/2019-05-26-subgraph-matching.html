@@ -8,7 +8,10 @@ order: 9
 
 **Jacob Moorman**
 
-&nbsp;
+
+
+
+-vertical-
 
 In collaboration with
 
@@ -66,6 +69,21 @@ An instance of the *template* in the *world* is called a **signal**
 2. DARPA challenged other teams to create algorithms to solve subgraph matching on those networks
 
 3. We succeeded.
+
+
+
+
+-vertical-
+
+## An easier problem
+
+<img class="plain" src="definitions-example.png" width="50%">
+
+| Template Node | Signal Nodes |
+|:---:|:---:|
+| A | 1, 4, 7 |
+| B | 2, 5, 8, 9 |
+| C | 6, 7, 10 |
 
 
 
@@ -225,11 +243,13 @@ If **k** world nodes are candidates for the same **k** template nodes, they cann
 
 -vertical-
 
-## Filtering Rules: Neighborhood
+## Filtering Rules: Neighborhood [Solnon09]
 
 The neighborhood of a candidate should be matchable to the neighborhood of the corresponding template node.
 
 <img class="plain" src="neighborhood-example.png" width="60%">
+
+
 
 
 
@@ -274,3 +294,20 @@ We are not always able to enumerate all of the signals.
   * Missing nodes/edges
   * Incorrect attribute info
 * Attributes beyond node/edge labels (eg. timestamps)
+* What if we solve an easier problem?
+
+
+
+
+-vertical-
+
+## References
+
+<ul style="font-size:24px !important;">
+  <li>
+**[Solnon09]** C. Solnon. *"AllDifferent-based Filtering for Subgraph Isomorphism"*. Artificial Intelligence (2010), 174:850–864.
+  </li>
+  <li>
+**[GR15]**
+  </li>
+</ul>
