@@ -6,7 +6,7 @@ url: jacob.moorman.me
 phone:
 
 
-
+ 
 education:
 
 - degrees:
@@ -34,17 +34,26 @@ education:
 
 languages:
   proficient:
-  - Python (NumPy, SciPy, PySpark, GraphFrames, Networkx, Matplotlib)
-  - Matlab
+  - Python
   - JavaScript
+  - Matlab
   - git
   working:
   - C++
   - SQL
   - WebGL
+  - SVN
 
 
 experience:
+
+- position: Research Intern
+  company: HRL Laboratories
+  start_date: June 2019
+  end_date: Sept 2019
+  location: Malibu, CA
+  summary:
+  - 
 
 - position: Data Science Intern
   company: Neural Analytics
