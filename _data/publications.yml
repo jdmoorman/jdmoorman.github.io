@@ -1,3 +1,12 @@
+- title: Adaptive sketch-and-project methods for solving linear systems
+  venue: arXiv
+  url: https://arxiv.org/abs/1909.03604
+  my_name: Jacob D. Moorman
+  authors: 
+  - Robert M. Gower
+  - Denali Molitor
+  - Jacob D. Moorman
+  - Deanna Needell
 - title: Randomized Kaczmarz with Averaging
   venue: "Proc. Information Theory and Applications Workshop, La Jolla, CA, Feb. 2019."
   url: 2019ita.pdf
