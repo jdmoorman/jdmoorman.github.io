@@ -36,6 +36,7 @@ languages:
   proficient:
   - Python
   - JavaScript
+  - OpenCV
   - Matlab
   - git
   working:
@@ -53,7 +54,9 @@ experience:
   end_date: Sept 2019
   location: Malibu, CA
   summary:
-  - 
+  - Created novel dynamic sensor calibration procedures for sensor fusion and metrology applications
+  - Established benchmarking procedures to objectively compare calibration accuracies
+  - Integrated calibration procedures into a hands-off sensor system
 
 - position: Data Science Intern
   company: Neural Analytics
