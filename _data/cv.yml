@@ -1,4 +1,4 @@
-name: Jacob Moorman
+name: Jacob D. Moorman
 description: Applied Math Ph.D. Student at UCLA
 github: jdmoorman
 email: jdmoorman@math.ucla.edu
@@ -6,28 +6,25 @@ url: jacob.moorman.me
 phone:
 
 
- 
-education:
+awards:
+  - MENTOR NRT
+  - TODO TODO TODO TODO
 
+education:
 - degrees:
-  - Ph.D. Mathematics
-  - M.A. Mathematics
-  dates:
-  - start: 2016
-    end: Present
-  - start: 2016
-    end: 2018
+  - degree: Ph.D. in Mathematics
+    date: 2016 - Present
+  - degree: Advanced to Candidacy in Mathematics
+    date: June 14, 2019
+  - degree: M.A. in Mathematics
+    date: June 15, 2018
   school: University of California, Los Angeles (UCLA)
   location: Los Angeles, CA
-
 - degrees:
-  - B.S. Computational Mathematics
-  - B.S. Computer Science
-  dates:
-  - start: 2012
-    end: 2016
-  - start: 2012
-    end: 2016
+  - degree: B.S. in Mathematical Sciences
+    date: May 17, 2016
+  - degree: B.S. in Computer Science
+    date: May 17, 2016
   school: New Jersey Institute of Technology (NJIT)
   location: Newark, NJ
 
@@ -54,17 +51,17 @@ experience:
   end_date: Sept 2019
   location: Malibu, CA
   summary:
-  - Created novel dynamic sensor calibration procedures for sensor fusion and metrology applications
+  - Created dynamic calibration procedures for sensor fusion and metrology applications
   - Established benchmarking procedures to objectively compare calibration accuracies
   - Integrated calibration procedures into a hands-off sensor system
 
-- position: Data Science Intern
+- position: Data Science Research Intern
   company: Neural Analytics
   start_date: April 2017
   end_date: Sept 2017
   location: Los Angeles, CA
   summary:
-  - Developed quality metrics for transcranial doppler ultrasound data to improve search algorithms
+  - Developed quality metrics and search algorithms for automating robotic transcranial doppler ultrasound scans
   - Created simulations for testing search algorithms to reduce the need for physical tests
   - Automated routine data visualization processes
 
@@ -78,6 +75,15 @@ experience:
   - Implemented outlier detection methods to help identify interesting stocks and transactions
   - Combined outlier detection and data visualization tools into a workflow for generating market insights
 
+- position: Undergraduate Researcher
+  company: NJIT Department of Mathematics
+  start_date: Jan 2014
+  end_date: Dec 2014
+  location: Newark, NJ
+  summary:
+  - Applied a particle filtering approach to identifying and tracking acoustic sources in 2 and 3 dimensions
+  - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance
+
 - position: Game Development Consultant
   company: Mission Critical Studios
   start_date: Sept 2012
@@ -86,47 +92,6 @@ experience:
   summary:
   - Designed and prototyped levels for 2D puzzle game published on Steam
   - Added custom physics mechanics to 3D action game in Unity using C#
-
-research:
-- brief: Subgraph Matching for Multichannel Networks
-  institution: UCLA Department of Mathematics
-  start_date: May 2018
-  end_date: Present
-  location: Los Angeles, CA
-  summary:
-    - Implemented subgraph matching algorithms using Python, PySpark, and GraphFrames
-    - Funded by DARPA for the Modeling Adversarial Activity program
-    - Worked with a team of students in a summer research program
-
-- brief: Randomized Iterative Methods for Least Squares
-  institution: UCLA Department of Mathematics
-  start_date: April 2018
-  end_date: Present
-  location: Los Angeles, CA
-  summary:
-  - Computed the greedily optimal step size for the relaxed randomized Kaczmarz algorithm
-  - Proved linear convergence of the algorithm using the optimal step size
-  - Found a short recurrence for updating the step size
-
-- brief: Reddit Profanity Analysis
-  institution: UCLA Departments of Mathematics and Statistics
-  start_date: Jan 2017
-  end_date: Dec 2017
-  location: Los Angeles, CA
-  summary:
-  - Quantified structural differences between threads with and without profanity
-  - Performed topic modeling on comments and threads, analyzed the sentiment of the topics
-  - Found structure and sentiment of threads with profanity tend to be different from those without profanity
-
-- brief: Particle Filtering for Uncertainty Quantification in Tracking
-  institution: NJIT Department of Mathematics
-  start_date: Jan 2014
-  end_date: Dec 2014
-  location: Newark, NJ
-  summary:
-  - Applied a particle filtering approach to identifying and tracking acoustic sources in 2 and 3 dimensions
-  - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance
-
 
 teaching:
 
