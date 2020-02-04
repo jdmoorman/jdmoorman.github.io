@@ -113,7 +113,7 @@
       </div>
       <div class="row">
         <div class="col-xs-9 col-sm-9">
-          <h3>Conference Presentations</h3>
+          <h3>Presentations</h3>
         </div>
       </div>
       <div class="row">
@@ -121,8 +121,6 @@
           <ul class="cv-summary">
             {% for presentation in site.data.research.presentation %}
               <li>
-                  {% for name in presentation.authors %}{% if name == site.data.cv.name %}<strong>{{ name }}</strong>{% else %}{{ name }}{% endif %}, {% endfor %}
-                  <br>
                   "<em>{{ presentation.title }}</em>."
                   <br>
                   {{ presentation.venue }}
@@ -148,6 +146,7 @@
           </ul>
         </div>
       </div>
+      <br><br>
       <div class="row">
         <div class="col-xs-9 col-sm-9">
           <h3>Reviewer</h3>
@@ -189,7 +188,7 @@
 
   <div class="row cv-section">
     <div class="col-xs-12">
-      <h2 class="cv-section-header">Experience</h2>
+      <h2 class="cv-section-header">Work Experience</h2>
     </div>
     <div class="col-xs-12">
       {% for item in site.data.cv.experience %}

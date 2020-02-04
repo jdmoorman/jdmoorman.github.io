@@ -7,8 +7,7 @@ phone:
 
 
 awards:
-  - MENTOR NRT
-  - TODO TODO TODO TODO
+  - 2018-2019 MENTOR NRT Fellowship $34,000
 
 education:
 - degrees:
@@ -71,9 +70,9 @@ experience:
   end_date: May 2016
   location: New York, NY
   summary:
-  - Built an equity market data visualization web app to allow interactive access to millisecond resolution records
-  - Implemented outlier detection methods to help identify interesting stocks and transactions
-  - Combined outlier detection and data visualization tools into a workflow for generating market insights
+  - Built an equity market data visualization web application to allow interactive access to millisecond resolution records
+  - Implemented outlier detection methods to help identify anomalous stocks and transactions
+  - Combined outlier detection and data visualization tools for generating market insights
 
 - position: Undergraduate Researcher
   company: NJIT Department of Mathematics
@@ -81,7 +80,7 @@ experience:
   end_date: Dec 2014
   location: Newark, NJ
   summary:
-  - Applied a particle filtering approach to identifying and tracking acoustic sources in 2 and 3 dimensions
+  - Applied a particle filtering approach to identify and track acoustic sources in 2 and 3 dimensions
   - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance
 
 - position: Game Development Consultant
@@ -103,7 +102,7 @@ teaching:
   summary:
   - "Math 174E: Mathematics of Finance (S'18)"
   - "Math 171: Stochastic Processes (S'18, W'18, F'17)"
-  - "Math 170B: Probability Theory (S'17)"
-  - "Math 170A: Probability Theory (F'16)"
   - "Math 155: Mathematical Imaging (W'18)"
   - "Math 142: Mathematical Modeling (F'17)"
+  - "Math 170B: Probability Theory (S'17)"
+  - "Math 170A: Probability Theory (F'16)"
