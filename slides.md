@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Presentations
+title: Slides
 ---
 
 {% assign presentations = site.slides | sort:"order" | reverse %}

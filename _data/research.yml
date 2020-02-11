@@ -1,7 +1,6 @@
-journal:
+preprint:
 - title: Randomized Kaczmarz with Averaging
   venue: "Submitted Feb. 2020."
-  url: 2019ita.pdf
   authors:
   - Jacob D. Moorman
   - Thomas K. Tu
@@ -9,7 +8,6 @@ journal:
   - Deanna Needell
 - title: The Subgraph Matching Problem on Multiplex Networks
   venue: "Submitted Feb. 2020."
-  url: 2018ieeebigdata.pdf
   authors:
   - Jacob D. Moorman
   - Qinyi Chen
@@ -35,8 +33,8 @@ conference:
   - Denali Molitor
   - Deanna Needell
 - title: Filtering Methods for Subgraph Matching on Multiplex Networks
-  venue: "Proc. GTA³ 2.0 at IEEE International Conference on Big Data, Seattle, WA, Dec. 2018, pp. 3980-3985."
-  url: 2018ieeebigdata.pdf
+  venue: "Proc. GTA³ 2.0 at IEEE International Conference on Big Data, Seattle, WA, Dec. 2018."
+  url: https://ieeexplore.ieee.org/document/8622566
   authors:
   - Jacob D. Moorman
   - Qinyi Chen
@@ -45,31 +43,12 @@ conference:
   - Andrea L. Bertozzi
 
 presentation:
-
 - title: On Comparing Adaptive Sampling Rules for Sketch-and-Project Methods
   venue: Joint Mathematics Meeting, Denver, CO, Jan. 2020.
   type: Oral
-  presenter: Jacob D. Moorman
-- title: Adaptive Sketch-and-Project Methods for Solving Linear Systems
-  venue: Joint Mathematics Meeting, Denver, CO, Jan. 2020.
-  type: Oral
-  presenter: Denali Molitor
-- title: On Comparing Adaptive Kaczmarz Methods
-  venue: 5th Annual Loma Linda Workshop in Particle Imaging and Treatment Planning
-  type: Oral
-  presenter: Deanna Needell
 - title: Randomized Kaczmarz with Averaging
   venue: Information Theory and Applications Workshop, La Jolla, CA, Feb. 2019.
   type: Poster
-  presenter: Jacob D. Moorman
-- title: Randomized Kaczmarz with Averaging
-  venue: Shannon Channel, YouTube, Apr. 2019.
-  type: Webinar
-  presenter: Denali Molitor
-- title: Filtering Methods for Subgraph Matching on Multiplex Networks
-  venue: "GTA³ 2.0 at IEEE International Conference on Big Data, Seattle, WA, Dec. 2018."
-  type: Oral
-  presenter: Thomas K. Tu
 
 reviewer:
   - Linear Algebra and its Applications
