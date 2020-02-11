@@ -5,10 +5,28 @@ title: Research
 
 I develop algorithms for subgraph matching and analyze randomized iterative methods for solving linear systems.
 
-###### Publications
+<!-- ###### Journal Papers
 
-{% for publication in site.data.publications %}
-* {% for name in publication.authors %}{% if name == publication.my_name %}**{{ name }}**{% else %}{{ name }}{% endif %}, {% endfor %}"[*{{ publication.title }}.*]({{ publication.url }})" {{ publication.venue }}
+{% for publication in site.data.research.journal %}
+{% include publication_item.md %}
+{% endfor %} -->
+
+###### Conference Papers
+
+{% for publication in site.data.research.conference %}
+{% include publication_item.md %}
+{% endfor %}
+
+###### Preprints
+
+{% for publication in site.data.research.preprint %}
+{% include publication_item.md %}
+{% endfor %}
+
+###### Presentations
+
+{% for publication in site.data.research.presentation %}
+{% include publication_item.md %}
 {% endfor %}
 
 ###### Slides

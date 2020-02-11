@@ -11,32 +11,26 @@
 
 <div class="cv-container">
   <div class="row cv-masthead cv-section">
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-8 col-sm-8">
       <ul class="list-unstyled" style="margin-bottom: 0">
         <li>
-          <h1 class="cv-name">{{ site.data.cv.name }}</h1>
+          <h1 class="cv-name">{{ site.name }}</h1>
         </li>
         <li>
           <span class="profession"><i>{{ site.data.cv.description }}</i></span>
         </li>
       </ul>
     </div>
-    <div class="col-xs-6 col-sm-6">
+    <div class="col-xs-4 col-sm-4">
       <ul class="list-unstyled cv-contacts" style="text-align: right;">
+        <li></li>
+        <br>
         <li>
           <a href="mailto:{{ site.data.cv.email }}">{{ site.data.cv.email }}</a>
         </li>
         <li>
           <a href="https://{{ site.data.cv.url }}">https://{{ site.data.cv.url }}</a>
         </li>
-        {% if site.data.cv.phone %}
-        <li>
-          {{ site.data.cv.phone }}
-        </li>
-        {% endif%}
-        <!-- <li>
-          <a href="https://github.com/{{site.data.cv.github}}">{{ site.data.cv.github }}</a> <i class="fa fa-github"></i>
-        </li> -->
       </ul>
     </div>
   </div>
@@ -45,27 +39,83 @@
     <div class="col-xs-12">
       <h2 class="cv-section-header">Education</h2>
     </div>
-    <div class="col-xs-12">
 
-      {% for item in site.data.cv.education %}
-        <div class="row">
-          <div class="col-xs-6 col-sm-6">
-            {% for degree in item.degrees %}
-              <h3>{{ degree }}</h3>
-            {% endfor %}
-            <i>{{ item.school }}</i>
+
+    <div class="col-xs-12">
+      {% for institution in site.data.cv.education %}
+        {% for item in institution.degrees %}
+          <div class="row">
+              <div class="col-xs-9 col-sm-9">
+                <h3>{{ item.degree }}</h3>
+              </div>
+              <div class="col-xs-3 col-sm-3 cv-dates-and-loc" style="text-align: right;">
+                <h5><span class="avoidwrap">{{ item.date }}</span></h5>
+              </div>
           </div>
-          <div class="col-xs-6 col-sm-6 cv-dates-and-loc" style="text-align: right;">
-            {% for dates in item.dates %}
-              <h5><span class="avoidwrap">{{ dates.start }}</span>
-              <span class="avoidwrap">– {{ dates.end }}</span></h5>
-            {% endfor %}
+        {% endfor %}
+        <div class="row">
+          <div class="col-xs-9 col-sm-9">
+            <i>{{ institution.school }}</i>
+          </div>
+          <div class="col-xs-3 col-sm-3 cv-dates-and-loc" style="text-align: right;">
+            <i>{{ institution.location }}</i>
+          </div>
+        </div>
+        <br>
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <div class="row cv-section">
+    <div class="col-xs-12">
+      <h2 class="cv-section-header">Skills</h2>
+    </div>
+    <div class="col-xs-12">
+      <!-- <div class="row">
+        <div class="col-xs-12">
+          <h3>Languages and Tools</h3>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="col-xs-12">
+          <p>
+          <b>Programming languages:</b> {{site.data.cv.languages[0]}}{% for item in site.data.cv.languages offset:1 %}, {{ item }}{% endfor %}
+          <br>
+          <b>Operating systems and other tools:</b> {{site.data.cv.tools[0]}}{% for item in site.data.cv.tools offset:1 %}, {{ item }}{% endfor %}
+          <br>
+          <b>Research interests:</b> {{site.data.cv.interests[0]}}{% for item in site.data.cv.interests offset:1 %}, {{ item }}{% endfor %}
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="row cv-section">
+    <div class="col-xs-12">
+      <h2 class="cv-section-header">Experience</h2>
+    </div>
+    <div class="col-xs-12">
+      {% for item in site.data.cv.experience %}
+        <div class="row">
+          <div class="col-xs-9 col-sm-9">
+            <h3>{{ item.position }}</h3>
+            <i>{{item.company}}</i>
+          </div>
+          <div class="col-xs-3 col-sm-3 cv-dates-and-loc" style="text-align: right;">
+            <h5><span class="avoidwrap">{{ item.date }}</span></h5>
             <i>{{ item.location }}</i>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <p>{{ item.summary }}</p>
+            <ul class="cv-summary">
+            {% for summand in item.summary %}
+              <li>{{ summand }}</li>
+            {% endfor %}
+            </ul>
           </div>
         </div>
       {% endfor %}
@@ -78,91 +128,115 @@
     </div>
 
     <div class="col-xs-12">
-        <div class="row">
-          <div class="col-xs-9 col-sm-9">
-            <h3>Publications</h3>
-          </div>
+      <!-- <div class="row">
+        <div class="col-xs-9 col-sm-9">
+          <h3>Journal Papers</h3>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <ul class="cv-summary">
-              {% for publication in site.data.publications %}
-                <li>
-                    {% for name in publication.authors %}{% if name == publication.my_name %}<strong>{{ name }}</strong>{% else %}{{ name }}{% endif %}, {% endfor %}"<em>{{ publication.title }}</em>." {{ publication.venue }}</li>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      {% for item in site.data.cv.research %}
-        <div class="row">
-          <div class="col-xs-9 col-sm-9">
-            <h3>{{ item.brief }}</h3>
-            <i>{{ item.institution }}</i>
-          </div>
-          <div class="col-xs-3 col-sm-3 cv-dates-and-loc" style="text-align: right;">
-            <h5><span class="avoidwrap">{{ item.start_date }}</span>
-            <span class="avoidwrap">– {{ item.end_date }}</span></h5>
-            <i>{{ item.location }}</i>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <ul class="cv-summary">
-            {% for summand in item.summary %}
-              <li>{{ summand }}</li>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="cv-summary">
+            {% for publication in site.data.research.journal %}
+              <li>
+                  {% for name in publication.authors %}{% if name == site.penname %}<strong>{{ name }}</strong>{% else %}{{ name }}{% endif %}, {% endfor %}
+                  <br>
+                  "<em>{{ publication.title }}</em>."
+                  <br>
+                  {{ publication.venue }}
+              </li>
             {% endfor %}
-            </ul>
-          </div>
+          </ul>
         </div>
-      {% endfor %}
-    </div>
-  </div>
-
-  <div class="row cv-section">
-    <div class="col-xs-12">
-      <h2 class="cv-section-header">Technical Skills</h2>
-    </div>
-    <div class="col-xs-12">
-
-      <h3>Languages and Tools</h3>
-      <ul class="cv-summary">
-        <li>Proficient: {{site.data.cv.languages.proficient[0]}}{% for item in site.data.cv.languages.proficient offset:1 %}, {{ item }}{% endfor %}</li>
-        <li>Working knowledge: {{site.data.cv.languages.working[0]}}{% for item in site.data.cv.languages.working offset:1 %}, {{ item }}{% endfor %}</li>
-      </ul>
-
-    </div>
-  </div>
-
-  <div class="row cv-section">
-    <div class="col-xs-12">
-      <h2 class="cv-section-header">Work</h2>
-    </div>
-    <div class="col-xs-12">
-      {% for item in site.data.cv.experience %}
-        <div class="row">
-          <div class="col-xs-6 col-sm-6">
-            <h3>{{ item.position }}</h3>
-            <i>{{item.company}}</i>
-          </div>
-          <div class="col-xs-6 col-sm-6 cv-dates-and-loc" style="text-align: right;">
-            <h5><span class="avoidwrap">{{ item.start_date }}</span>
-            <span class="avoidwrap">– {{ item.end_date }}</span></h5>
-            <i>{{ item.location }}</i>
-          </div>
+      </div> -->
+      <div class="row">
+        <div class="col-xs-9 col-sm-9">
+          <h3>Conference Papers</h3>
         </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <ul class="cv-summary">
-            {% for summand in item.summary %}
-              <li>{{ summand }}</li>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="cv-summary">
+            {% for publication in site.data.research.conference %}
+              <li>
+                  {% for name in publication.authors %}{% if name == site.penname %}<strong>{{ name }}</strong>{% else %}{{ name }}{% endif %}, {% endfor %}
+                  <br>
+                  "<em>{{ publication.title }}</em>."
+                  <br>
+                  {{ publication.venue }}
+              </li>
             {% endfor %}
-            </ul>
-          </div>
+          </ul>
         </div>
-      {% endfor %}
+      </div>
+      <div class="row">
+        <div class="col-xs-9 col-sm-9">
+          <h3>Preprints</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="cv-summary">
+            {% for publication in site.data.research.preprint %}
+              <li>
+                  {% for name in publication.authors %}{% if name == site.penname %}<strong>{{ name }}</strong>{% else %}{{ name }}{% endif %}, {% endfor %}
+                  <br>
+                  "<em>{{ publication.title }}</em>."
+                  <br>
+                  {{ publication.venue }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-9 col-sm-9">
+          <h3>Presentations</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="cv-summary">
+            {% for presentation in site.data.research.presentation %}
+              <li>
+                  "<em>{{ presentation.title }}</em>." ({{ presentation.type}})
+                  <br>
+                  {{ presentation.venue }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-9 col-sm-9">
+          <h3>Awards</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="cv-summary">
+            {% for award in site.data.cv.awards %}
+              <li>{{ award }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-9 col-sm-9">
+          <h3>Reviewer</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="cv-summary">
+            {% for venue in site.data.research.reviewer %}
+              <li>{{ venue }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
+
 
   <!-- <div class="row cv-section">
     <div class="col-xs-12">

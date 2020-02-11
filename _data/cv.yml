@@ -1,132 +1,111 @@
 name: Jacob Moorman
-description: Applied Math Ph.D. Student at UCLA
+description: Applied Math Ph.D. Candidate at UCLA
 github: jdmoorman
 email: jdmoorman@math.ucla.edu
 url: jacob.moorman.me
 phone:
 
 
- 
-education:
+awards:
+  - 2018-2019 MENTOR NRT Fellowship $34,000
 
+education:
 - degrees:
-  - Ph.D. Mathematics
-  - M.A. Mathematics
-  dates:
-  - start: 2016
-    end: Present
-  - start: 2016
-    end: 2018
+  - degree: Ph.D. in Mathematics
+    date: 2016 - Present
+  # - degree: Advanced to Candidacy in Mathematics
+  #   date: June 14, 2019
+  - degree: M.A. in Mathematics
+    date: June 2018
   school: University of California, Los Angeles (UCLA)
   location: Los Angeles, CA
-
 - degrees:
-  - B.S. Computational Mathematics
-  - B.S. Computer Science
-  dates:
-  - start: 2012
-    end: 2016
-  - start: 2012
-    end: 2016
+  - degree: B.S. in Mathematical Sciences
+    date: May 2016
+  - degree: B.S. in Computer Science
+    date: May 2016
   school: New Jersey Institute of Technology (NJIT)
   location: Newark, NJ
 
 
 languages:
-  proficient:
   - Python
   - JavaScript
-  - OpenCV
-  - Matlab
-  - git
-  working:
-  - C++
   - SQL
-  - WebGL
+  - MATLAB
+  - C++
+  - Bash
+tools:
+  - Linux
+  - macOS
+  - Windows
   - SVN
+  - Git
+  - LaTeX
+interests:
+  - optimization
+  - machine learning
+  - statistics
+  - network analysis
+  - numerical linear algebra
+
 
 
 experience:
 
-- position: Research Intern
-  company: HRL Laboratories
-  start_date: June 2019
-  end_date: Sept 2019
-  location: Malibu, CA
-  summary:
-  - Created novel dynamic sensor calibration procedures for sensor fusion and metrology applications
-  - Established benchmarking procedures to objectively compare calibration accuracies
-  - Integrated calibration procedures into a hands-off sensor system
-
-- position: Data Science Intern
-  company: Neural Analytics
-  start_date: April 2017
-  end_date: Sept 2017
+- position: Graduate Researcher and Teaching Assistant
+  company: University of California, Los Angeles (UCLA)
+  date: Sept 2016 – Present
   location: Los Angeles, CA
   summary:
-  - Developed quality metrics for transcranial doppler ultrasound data to improve search algorithms
-  - Created simulations for testing search algorithms to reduce the need for physical tests
-  - Automated routine data visualization processes
+  - Completed independent and collaborative research projects resulting in conference and journal publications
+  - Communicated research results and ideas in oral and poster presentations
+  - Implemented experiments and algorithms in Python; used git for version control and collaboration
+  - Completed a variety of courses in numerical analysis, statistics, optimization, and machine learning
+  - Taught undergraduate courses in probability theory, mathematics of finance, and image processing
+
+- position: Research Intern
+  company: HRL Laboratories
+  date: Summer 2019
+  location: Malibu, CA
+  summary:
+  - Created a calibration procedure for dynamic multi-sensor systems, implemented algorithms in Python
+  - Established benchmark tests to objectively compare calibration accuracies
+  - Integrated my calibration procedure into a hands-off sensor system
+
+- position: Data Science Research Intern
+  company: Neural Analytics
+  date: Summer 2017
+  location: Los Angeles, CA
+  summary:
+  - Developed search algorithms for robotically performing TCD studies previously carried out by hand
+  - Created simulations in Python for testing search algorithms to reduce the need for physical tests
+  - Automated routine data visualization processes using Bash and Python
 
 - position: Software Engineering Intern
   company: Trillium Labs
-  start_date: Jan 2015
-  end_date: May 2016
+  date: Jan 2015 – May 2016
   location: New York, NY
   summary:
-  - Built an equity market data visualization web app to allow interactive access to millisecond resolution records
-  - Implemented outlier detection methods to help identify interesting stocks and transactions
-  - Combined outlier detection and data visualization tools into a workflow for generating market insights
+  - Built an interactive data visualization web application with HTML and JavaScript to view detailed stock data
+  - Implemented outlier detection methods in Python and C++ to identify anomalous stocks and transactions
+  - Combined outlier detection and data visualization tools for generating market insights
+
+- position: Undergraduate Researcher
+  company: NJIT Department of Mathematics
+  date: Jan 2014 – Dec 2014
+  location: Newark, NJ
+  summary:
+  - Applied a particle filtering approach to identify and track acoustic sources in 2 and 3 dimensions
+  - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance
 
 - position: Game Development Consultant
   company: Mission Critical Studios
-  start_date: Sept 2012
-  end_date: Nov 2014
+  date: Sept 2012 – Nov 2014
   location: Farmingdale, NJ
   summary:
-  - Designed and prototyped levels for 2D puzzle game published on Steam
-  - Added custom physics mechanics to 3D action game in Unity using C#
-
-research:
-- brief: Subgraph Matching for Multichannel Networks
-  institution: UCLA Department of Mathematics
-  start_date: May 2018
-  end_date: Present
-  location: Los Angeles, CA
-  summary:
-    - Implemented subgraph matching algorithms using Python, PySpark, and GraphFrames
-    - Funded by DARPA for the Modeling Adversarial Activity program
-    - Worked with a team of students in a summer research program
-
-- brief: Randomized Iterative Methods for Least Squares
-  institution: UCLA Department of Mathematics
-  start_date: April 2018
-  end_date: Present
-  location: Los Angeles, CA
-  summary:
-  - Computed the greedily optimal step size for the relaxed randomized Kaczmarz algorithm
-  - Proved linear convergence of the algorithm using the optimal step size
-  - Found a short recurrence for updating the step size
-
-- brief: Reddit Profanity Analysis
-  institution: UCLA Departments of Mathematics and Statistics
-  start_date: Jan 2017
-  end_date: Dec 2017
-  location: Los Angeles, CA
-  summary:
-  - Quantified structural differences between threads with and without profanity
-  - Performed topic modeling on comments and threads, analyzed the sentiment of the topics
-  - Found structure and sentiment of threads with profanity tend to be different from those without profanity
-
-- brief: Particle Filtering for Uncertainty Quantification in Tracking
-  institution: NJIT Department of Mathematics
-  start_date: Jan 2014
-  end_date: Dec 2014
-  location: Newark, NJ
-  summary:
-  - Applied a particle filtering approach to identifying and tracking acoustic sources in 2 and 3 dimensions
-  - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance
-
+  - Designed and prototyped levels for a 2D puzzle game published on Steam
+  - Added custom physics mechanics to a 3D action game in Unity using C#
 
 teaching:
 
@@ -138,7 +117,7 @@ teaching:
   summary:
   - "Math 174E: Mathematics of Finance (S'18)"
   - "Math 171: Stochastic Processes (S'18, W'18, F'17)"
-  - "Math 170B: Probability Theory (S'17)"
-  - "Math 170A: Probability Theory (F'16)"
   - "Math 155: Mathematical Imaging (W'18)"
   - "Math 142: Mathematical Modeling (F'17)"
+  - "Math 170B: Probability Theory (S'17)"
+  - "Math 170A: Probability Theory (F'16)"

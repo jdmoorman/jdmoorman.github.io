@@ -1,0 +1,57 @@
+preprint:
+- title: Randomized Kaczmarz with Averaging
+  venue: "Submitted Feb. 2020."
+  authors:
+  - Jacob D. Moorman
+  - Thomas K. Tu
+  - Denali Molitor
+  - Deanna Needell
+- title: The Subgraph Matching Problem on Multiplex Networks
+  venue: "Submitted Feb. 2020."
+  authors:
+  - Jacob D. Moorman
+  - Qinyi Chen
+  - Thomas K. Tu
+  - Zachary M. Boyd
+  - Andrea L. Bertozzi
+- title: Adaptive Sketch-and-Project Methods for Solving Linear Systems
+  venue: "Submitted Sept. 2019."
+  url: https://arxiv.org/abs/1909.03604
+  authors:
+  - Robert M. Gower
+  - Denali Molitor
+  - Jacob D. Moorman
+  - Deanna Needell
+
+conference:
+- title: Randomized Kaczmarz with Averaging
+  venue: "Proc. Information Theory and Applications Workshop, La Jolla, CA, Feb. 2019."
+  url: 2019ita.pdf
+  authors:
+  - Jacob D. Moorman
+  - Thomas K. Tu
+  - Denali Molitor
+  - Deanna Needell
+- title: Filtering Methods for Subgraph Matching on Multiplex Networks
+  venue: "Proc. GTA³ 2.0 at IEEE International Conference on Big Data, Seattle, WA, Dec. 2018."
+  url: https://ieeexplore.ieee.org/document/8622566
+  authors:
+  - Jacob D. Moorman
+  - Qinyi Chen
+  - Thomas K. Tu
+  - Zachary M. Boyd
+  - Andrea L. Bertozzi
+
+presentation:
+- title: On Comparing Adaptive Sampling Rules for Sketch-and-Project Methods
+  venue: Joint Mathematics Meeting, Denver, CO, Jan. 2020.
+  type: Oral
+- title: Randomized Kaczmarz with Averaging
+  venue: Information Theory and Applications Workshop, La Jolla, CA, Feb. 2019.
+  type: Poster
+
+reviewer:
+  - Linear Algebra and its Applications
+  - Numerical Algorithms
+  - SIAM Journal on Matrix Analysis and Applications
+  - SIAM Journal on Scientific Computing
