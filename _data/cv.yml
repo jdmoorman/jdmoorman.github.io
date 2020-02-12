@@ -42,6 +42,9 @@ tools:
   - SVN
   - Git
   - LaTeX
+  - OpenCV
+  - PyTorch
+  - SNAP
 interests:
   - optimization
   - machine learning
@@ -58,54 +61,56 @@ experience:
   date: Sept 2016 – Present
   location: Los Angeles, CA
   summary:
-  - Completed independent and collaborative research projects resulting in conference and journal publications
-  - Communicated research results and ideas in oral and poster presentations
-  - Implemented experiments and algorithms in Python; used git for version control and collaboration
-  - Completed a variety of courses in numerical analysis, statistics, optimization, and machine learning
-  - Taught undergraduate courses in probability theory, mathematics of finance, and image processing
+  - Completed independent and collaborative research projects resulting in peer reviewed publications.
+  - Made novel contributions in network science, optimization, and numerical linear algebra.
+  - Communicated research results and ideas in oral and poster presentations.
+  - Implemented experiments and algorithms in Python; used git for version control and collaboration.
+  - Completed a variety of courses in numerical analysis, statistics, optimization, and machine learning.
+  - Taught undergraduate courses in probability theory, mathematics of finance, and image processing.
 
 - position: Research Intern
   company: HRL Laboratories
   date: Summer 2019
   location: Malibu, CA
   summary:
-  - Created a calibration procedure for dynamic multi-sensor systems, implemented algorithms in Python
-  - Established benchmark tests to objectively compare calibration accuracies
-  - Integrated my calibration procedure into a hands-off sensor system
+  - Created a calibration procedure for dynamic multi-sensor systems.
+  - Implemented algorithms in Python with OpenCV and PyTorch.
+  - Established benchmark tests to objectively compare calibration accuracies.
+  - Integrated my calibration procedure into a hands-off sensor system.
 
 - position: Data Science Research Intern
   company: Neural Analytics
   date: Summer 2017
   location: Los Angeles, CA
   summary:
-  - Developed search algorithms for robotically performing TCD studies previously carried out by hand
-  - Created simulations in Python for testing search algorithms to reduce the need for physical tests
-  - Automated routine data visualization processes using Bash and Python
+  - Developed search algorithms for robotically performing TCD studies previously carried out by hand.
+  - Created simulations in Python for testing search algorithms to reduce the need for physical tests.
+  - Automated routine data visualization processes using Bash and Python.
 
 - position: Software Engineering Intern
   company: Trillium Labs
   date: Jan 2015 – May 2016
   location: New York, NY
   summary:
-  - Built an interactive data visualization web application with HTML and JavaScript to view detailed stock data
-  - Implemented outlier detection methods in Python and C++ to identify anomalous stocks and transactions
-  - Combined outlier detection and data visualization tools for generating market insights
+  - Built an interactive data visualization web application with HTML and JavaScript to view detailed stock data.
+  - Implemented outlier detection methods in Python and C++ to identify anomalous stocks and transactions.
+  - Combined outlier detection and data visualization tools for generating market insights.
 
 - position: Undergraduate Researcher
   company: NJIT Department of Mathematics
   date: Jan 2014 – Dec 2014
   location: Newark, NJ
   summary:
-  - Applied a particle filtering approach to identify and track acoustic sources in 2 and 3 dimensions
-  - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance
+  - Applied a particle filtering approach to identify and track acoustic sources in 2 and 3 dimensions.
+  - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance.
 
 - position: Game Development Consultant
   company: Mission Critical Studios
   date: Sept 2012 – Nov 2014
   location: Farmingdale, NJ
   summary:
-  - Designed and prototyped levels for a 2D puzzle game published on Steam
-  - Added custom physics mechanics to a 3D action game in Unity using C#
+  - Designed and prototyped levels for a 2D puzzle game published on Steam.
+  - Added custom physics mechanics to a 3D action game in Unity using C#.
 
 teaching:
 
