@@ -49,6 +49,9 @@ presentation:
 - title: Randomized Kaczmarz with Averaging
   venue: Information Theory and Applications Workshop, La Jolla, CA, Feb. 2019.
   type: Poster
+- title: Identifying and Tracking Multiple Underwater Acoustic Sources Using Characteristic Signatures
+  venue: SIAM Conference on Computational Science and Engineering, Salt Lake City, Utah, Mar. 2015.
+  type: Poster
 
 reviewer:
   - Linear Algebra and its Applications
