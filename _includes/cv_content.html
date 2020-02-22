@@ -80,12 +80,18 @@
       <div class="row">
         <div class="col-xs-12">
           <p>
+          {% for skill in site.data.cv.skills %}
+          <b>{{ skill.title }}:</b> {{ skill.list[0] }}{% for item in skill.list offset:1 %}, {{ item }}{% endfor %}<br>
+          {% endfor %}
+          </p>
+
+          <!-- <p>
           <b>Programming languages:</b> {{site.data.cv.languages[0]}}{% for item in site.data.cv.languages offset:1 %}, {{ item }}{% endfor %}
           <br>
           <b>Operating systems and other tools:</b> {{site.data.cv.tools[0]}}{% for item in site.data.cv.tools offset:1 %}, {{ item }}{% endfor %}
           <br>
           <b>Research interests:</b> {{site.data.cv.interests[0]}}{% for item in site.data.cv.interests offset:1 %}, {{ item }}{% endfor %}
-          </p>
+          </p> -->
         </div>
       </div>
 

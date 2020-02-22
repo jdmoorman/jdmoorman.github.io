@@ -27,25 +27,37 @@ education:
   school: New Jersey Institute of Technology (NJIT)
   location: Newark, NJ
 
-
-languages:
+skills:
+- title: "Programming languages"
+  list:
   - Python
   - JavaScript
   - SQL
   - MATLAB
   - C++
   - Bash
-tools:
+  - LaTeX
+- title: "Python packages"
+  list:
+  - OpenCV
+  - PyTorch
+  - NetworkX
+  - igraph
+  - NumPy
+  - SciPy
+  - Pandas
+  - poetry
+  - pytest
+  - sphinx
+- title: "Operating systems and other tools"
+  list:
   - Linux
   - macOS
   - Windows
   - SVN
   - Git
-  - LaTeX
-  - OpenCV
-  - PyTorch
-  - SNAP
-interests:
+- title: "Research interests"
+  list:
   - optimization
   - machine learning
   - statistics
