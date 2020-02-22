@@ -12,7 +12,7 @@ preprint:
   - Jacob D. Moorman
   - Qinyi Chen
   - Thomas K. Tu
-  - Zachary M. Boyd
+  - Xie He
   - Andrea L. Bertozzi
 - title: Adaptive Sketch-and-Project Methods for Solving Linear Systems
   venue: "Submitted Sept. 2019."
@@ -48,6 +48,9 @@ presentation:
   type: Oral
 - title: Randomized Kaczmarz with Averaging
   venue: Information Theory and Applications Workshop, La Jolla, CA, Feb. 2019.
+  type: Poster
+- title: Identifying and Tracking Multiple Underwater Acoustic Sources Using Characteristic Signatures
+  venue: SIAM Conference on Computational Science and Engineering, Salt Lake City, Utah, Mar. 2015.
   type: Poster
 
 reviewer:
