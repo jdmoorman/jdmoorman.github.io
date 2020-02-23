@@ -45,10 +45,10 @@ skills:
   - igraph
   - NumPy
   - SciPy
-  - Pandas
-  - poetry
+  - pandas
+  - Poetry
   - pytest
-  - sphinx
+  - Sphinx
 - title: "Operating systems and other tools"
   list:
   - Linux
