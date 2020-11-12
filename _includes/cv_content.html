@@ -23,14 +23,19 @@
     </div>
     <div class="col-xs-4 col-sm-4">
       <ul class="list-unstyled cv-contacts" style="text-align: right;">
-        <li></li>
-        <br>
-        <li>
+        <!-- <li></li> -->
+        <!-- <br> -->
+        {% for link in site.data.cv.links %}
+          <li>
+            <a href="{{ link.address }}">{{ link.text }}</a>
+          </li>
+        {% endfor %}
+        <!-- <li>
           <a href="mailto:{{ site.data.cv.email }}">{{ site.data.cv.email }}</a>
         </li>
         <li>
           <a href="https://{{ site.data.cv.url }}">https://{{ site.data.cv.url }}</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>
@@ -53,6 +58,7 @@
               </div>
           </div>
         {% endfor %}
+
         <div class="row">
           <div class="col-xs-9 col-sm-9">
             <i>{{ institution.school }}</i>
@@ -61,6 +67,13 @@
             <i>{{ institution.location }}</i>
           </div>
         </div>
+        {% for item in institution.summary %}
+        <div class="row">
+          <div class="col-xs-9 col-sm-9">
+            {{ item }}
+          </div>
+        </div>
+        {% endfor %}
         <br>
       {% endfor %}
     </div>
@@ -134,9 +147,9 @@
     </div>
 
     <div class="col-xs-12">
-      <!-- <div class="row">
+      <div class="row">
         <div class="col-xs-9 col-sm-9">
-          <h3>Journal Papers</h3>
+          <h3>Journal Publications</h3>
         </div>
       </div>
       <div class="row">
@@ -153,10 +166,10 @@
             {% endfor %}
           </ul>
         </div>
-      </div> -->
+      </div>
       <div class="row">
         <div class="col-xs-9 col-sm-9">
-          <h3>Conference Papers</h3>
+          <h3>Conference Publications</h3>
         </div>
       </div>
       <div class="row">

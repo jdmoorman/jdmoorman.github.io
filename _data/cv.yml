@@ -1,5 +1,12 @@
 name: Jacob Moorman
 description: Applied Math Ph.D. Candidate at UCLA
+links:
+  - address: mailto:jacob@moorman.me
+    text: jacob@moorman.me
+  - address: https://jacob.moorman.me
+    text: jacob.moorman.me
+  - address: https://github.com/jdmoorman
+    text: github.com/jdmoorman
 github: jdmoorman
 email: jacob@moorman.me
 url: jacob.moorman.me
@@ -7,18 +14,20 @@ phone:
 
 
 awards:
-  - 2018-2019 MENTOR NRT Fellowship $34,000
+  - 2018-2019 MENTOR NSF Research Traineeship $34,000
+  - 2020-2021 UCLA Dissertation Year Fellowship $20,000
 
 education:
 - degrees:
   - degree: Ph.D. in Mathematics
-    date: 2016 - Present
-  # - degree: Advanced to Candidacy in Mathematics
-  #   date: June 14, 2019
+    date: 2016 - June 2021
   - degree: M.A. in Mathematics
     date: June 2018
   school: University of California, Los Angeles (UCLA)
   location: Los Angeles, CA
+  summary:
+  - '<b>Advisors:</b> <a href="https://www.math.ucla.edu/~deanna/index.html">Deanna Needell</a> and <a href="https://www.math.ucla.edu/~bertozzi/index.html">Andrea Bertozzi</a>'
+  - '<b>Research focus:</b> stochastic optimization and subgraph matching'
 - degrees:
   - degree: B.S. in Mathematical Sciences
     date: May 2016
@@ -33,22 +42,22 @@ skills:
   - Python
   - JavaScript
   - SQL
-  - MATLAB
   - C++
   - Bash
   - LaTeX
-- title: "Python packages"
-  list:
-  - OpenCV
-  - PyTorch
-  - NetworkX
-  - igraph
-  - NumPy
-  - SciPy
-  - pandas
-  - Poetry
-  - pytest
-  - Sphinx
+# - title: "Python packages"
+#   list:
+#   - OpenCV
+#   - PyTorch
+#   - MLflow
+#   - NetworkX
+#   - NumPy
+#   - SciPy
+#   - pandas
+#   - dask
+#   - Poetry
+#   - pytest
+#   - Sphinx
 - title: "Operating systems and other tools"
   list:
   - Linux
@@ -56,7 +65,7 @@ skills:
   - Windows
   - SVN
   - Git
-- title: "Research interests"
+- title: "Research expertise"
   list:
   - optimization
   - machine learning
@@ -68,61 +77,59 @@ skills:
 
 experience:
 
-- position: Graduate Researcher and Teaching Assistant
+- position: Graduate Student Researcher
   company: University of California, Los Angeles (UCLA)
   date: Sept 2016 – Present
   location: Los Angeles, CA
   summary:
-  - Completed independent and collaborative research projects resulting in peer reviewed publications.
-  - Made novel contributions in network science, optimization, and numerical linear algebra.
-  - Communicated research results and ideas in oral and poster presentations.
-  - Implemented experiments and algorithms in Python; used git for version control and collaboration.
-  - Completed a variety of courses in numerical analysis, statistics, optimization, and machine learning.
-  - Taught undergraduate courses in probability theory, mathematics of finance, and image processing.
+  - Developed top performing subgraph matching algorithms for the <a href="https://www.darpa.mil/program/modeling-adversarial-activity">DARPA Modeling Adversarial Activity</a> program.
+  - Extended the subgraph matching algorithms to knowledge graphs and noisy/inexact data.
+  - Showed that adaptive variants of stochastic gradient descent (SGD) enjoy accelerated convergence.
+  - Created open-source Python packages for subgraph matching, optimization algorithms, and more.
+  - Led special interest groups in SGD, matrix and tensor factorization, and Python package development.
+  - Acted as assistant mentor to a team of 13 students in the 2018 UCLA CAM REU program.
+  - Completed courses in numerical analysis, statistics, optimization, and machine learning.
 
-- position: Research Intern
+- position: Computer Vision Research Intern
   company: HRL Laboratories
   date: Summer 2019
   location: Malibu, CA
   summary:
   - Created a calibration procedure for dynamic multi-sensor systems.
-  - Implemented algorithms in Python with OpenCV and PyTorch.
-  - Established benchmark tests to objectively compare calibration accuracies.
-  - Integrated my calibration procedure into a hands-off sensor system.
+  - Integrated the calibration procedure into a hands-off system to automatically calibrate sensors.
+  - Established benchmark tests to reliably measure calibration accuracy.
 
-- position: Data Science Research Intern
-  company: Neural Analytics
+- position: Artificial Intelligence Research Intern
+  company: NovaSignal (formerly, Neural Analytics)
   date: Summer 2017
   location: Los Angeles, CA
   summary:
-  - Developed search algorithms for robotically performing TCD studies previously carried out by hand.
-  - Created simulations in Python for testing search algorithms to reduce the need for physical tests.
-  - Automated routine data visualization processes using Bash and Python.
+  - Developed search algorithms for NovaGuide, an automatic cerebral ultrasound robot.
+  - Created cerebral bloodflow simulations to reduce the need to physically scan people when testing algorithms.
 
 - position: Software Engineering Intern
   company: Trillium Labs
   date: Jan 2015 – May 2016
   location: New York, NY
   summary:
-  - Built an interactive data visualization web application with HTML and JavaScript to view detailed stock data.
-  - Implemented outlier detection methods in Python and C++ to identify anomalous stocks and transactions.
-  - Combined outlier detection and data visualization tools for generating market insights.
+  - Built an interactive web application (Surveyor Web) to view full historical <a href="https://www.daytrading.com/level-ii">order book</a> market data.
+  - Surveyor Web serves as a "lite" version of Surveyor Enterprise and can be accessed at <a href="https://surveyor.trlm.com">surveyor.trlm.com</a>.
+  - Created an automatic outlier detection system to find anomalous market events for analysts to investigate.
 
 - position: Undergraduate Researcher
   company: NJIT Department of Mathematics
   date: Jan 2014 – Dec 2014
   location: Newark, NJ
   summary:
-  - Applied a particle filtering approach to identify and track acoustic sources in 2 and 3 dimensions.
-  - Wrote simulations and benchmark tests in C++ and MATLAB to evaluate performance.
+  - Developed an algorithm to simultaneously identify and track acoustic sources in passive sonar applications.
+  - Used C++ and MATLAB simulations to generate synthetic datasets as benchmarks for the algorithm.
 
 - position: Game Development Consultant
   company: Mission Critical Studios
-  date: Sept 2012 – Nov 2014
+  date: 2012 - 2013
   location: Farmingdale, NJ
   summary:
-  - Designed and prototyped levels for a 2D puzzle game published on Steam.
-  - Added custom physics mechanics to a 3D action game in Unity using C#.
+  - Designed game mechanics and prototyped levels for a video game published on Steam.
 
 teaching:
 
