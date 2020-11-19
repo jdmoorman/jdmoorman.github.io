@@ -4,9 +4,9 @@ links:
   - address: mailto:jacob@moorman.me
     text: jacob@moorman.me
   - address: https://jacob.moorman.me
-    text: jacob.moorman.me
+    text: https://jacob.moorman.me
   - address: https://github.com/jdmoorman
-    text: github.com/jdmoorman
+    text: https://github.com/jdmoorman
 github: jdmoorman
 email: jacob@moorman.me
 url: jacob.moorman.me
@@ -83,11 +83,10 @@ experience:
   location: Los Angeles, CA
   summary:
   - Developed top performing subgraph matching algorithms for the <a href="https://www.darpa.mil/program/modeling-adversarial-activity">DARPA Modeling Adversarial Activity</a> program.
-  - Extended the subgraph matching algorithms to knowledge graphs and noisy/inexact data.
+  - Extended subgraph matching algorithms to knowledge graphs and noisy/inexact data.
   - Showed that adaptive variants of stochastic gradient descent (SGD) enjoy accelerated convergence.
   - Created open-source Python packages for subgraph matching, optimization algorithms, and more.
   - Led special interest groups in SGD, matrix and tensor factorization, and Python package development.
-  - Acted as assistant mentor to a team of 13 students in the 2018 UCLA CAM REU program.
   - Completed courses in numerical analysis, statistics, optimization, and machine learning.
 
 - position: Computer Vision Research Intern
@@ -112,8 +111,7 @@ experience:
   date: Jan 2015 – May 2016
   location: New York, NY
   summary:
-  - Built an interactive web application (Surveyor Web) to view full historical <a href="https://www.daytrading.com/level-ii">order book</a> market data.
-  - Surveyor Web serves as a "lite" version of Surveyor Enterprise and can be accessed at <a href="https://surveyor.trlm.com">surveyor.trlm.com</a>.
+  - Built an interactive web application (<a href="https://surveyor.trlm.com">Surveyor Web</a>) to view full historical order book market data.
   - Created an automatic outlier detection system to find anomalous market events for analysts to investigate.
 
 - position: Undergraduate Researcher
