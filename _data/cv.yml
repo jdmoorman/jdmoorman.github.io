@@ -95,7 +95,7 @@ experience:
   location: Malibu, CA
   summary:
   - Created a calibration procedure for dynamic multi-sensor systems.
-  - Integrated the calibration procedure into a hands-off system to automatically calibrate sensors.
+  - Integrated the calibration procedure into a hands-off system of sensors.
   - Established benchmark tests to reliably measure calibration accuracy.
 
 - position: Artificial Intelligence Research Intern
@@ -112,15 +112,15 @@ experience:
   location: New York, NY
   summary:
   - Built an interactive web application (<a href="https://surveyor.trlm.com">Surveyor Web</a>) to view full historical order book market data.
-  - Created an automatic outlier detection system to find anomalous market events for analysts to investigate.
+  - Created an automatic outlier detection system to find anomalous market events.
 
 - position: Undergraduate Researcher
   company: NJIT Department of Mathematics
   date: Jan 2014 – Dec 2014
   location: Newark, NJ
   summary:
-  - Developed an algorithm to simultaneously identify and track acoustic sources in passive sonar applications.
-  - Used C++ and MATLAB simulations to generate synthetic datasets as benchmarks for the algorithm.
+  - Developed algorithms to simultaneously identify and track acoustic sources in passive sonar applications.
+  - Wrote C++ and MATLAB simulations to generate benchmark datasets for the algorithms.
 
 - position: Game Development Consultant
   company: Mission Critical Studios

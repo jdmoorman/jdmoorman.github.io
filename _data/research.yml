@@ -6,6 +6,14 @@ journal:
   - Thomas K. Tu
   - Denali Molitor
   - Deanna Needell
+- title: Subgraph Matching on Multiplex Networks
+  venue: IEEE Transactions on Network Science and Engineering, to Appear, 2021.
+  authors:
+  - Jacob D. Moorman
+  - Qinyi Chen
+  - Thomas K. Tu
+  - Xie He
+  - Andrea L. Bertozzi
 
 
 conference:
@@ -48,14 +56,6 @@ conference:
   - Andrea L. Bertozzi
 
 preprint:
-- title: The Subgraph Matching Problem on Multiplex Networks
-  venue: Submitted Feb. 2020.
-  authors:
-  - Jacob D. Moorman
-  - Qinyi Chen
-  - Thomas K. Tu
-  - Xie He
-  - Andrea L. Bertozzi
 - title: Adaptive Sketch-and-Project Methods for Solving Linear Systems
   venue: Submitted Sept. 2019.
   url: https://arxiv.org/abs/1909.03604
@@ -84,6 +84,8 @@ reviewer:
   - Elsevier Applied Mathematics and Computation
   - Elsevier Linear Algebra and its Applications
   - IEEE Big Data GTA³ 4.0 Workshop (Program Committee Member)
+  - Journal of Open Source Software
+  - Linear and Multilinear Algebra
   - SIAM Journal on Matrix Analysis and Applications
   - SIAM Journal on Scientific Computing
   - Springer Calcolo
