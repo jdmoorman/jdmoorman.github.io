@@ -37,14 +37,13 @@ education:
   location: Newark, NJ
 
 skills:
-- title: "Programming languages"
+- title: "Programming"
   list:
   - Python
-  - JavaScript
-  - SQL
   - C++
   - Bash
-  - LaTeX
+  - Git
+  - open source development
 # - title: "Python packages"
 #   list:
 #   - OpenCV
@@ -58,20 +57,20 @@ skills:
 #   - Poetry
 #   - pytest
 #   - Sphinx
-- title: "Operating systems and other tools"
+# - title: "Operating systems and other tools"
+#   list:
+#   - Linux
+#   - macOS
+#   - Windows
+#   - SVN
+#   - Git
+- title: "Research"
   list:
-  - Linux
-  - macOS
-  - Windows
-  - SVN
-  - Git
-- title: "Research expertise"
-  list:
-  - optimization
-  - machine learning
-  - statistics
+  - graph search
   - network analysis
+  - mathematical optimization
   - numerical linear algebra
+  - matrix factorization
 
 
 
