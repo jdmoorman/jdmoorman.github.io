@@ -1,24 +1,35 @@
 journal:
-- title: Randomized Kaczmarz with Averaging
-  venue: BIT Numerical Mathematics, Aug. 2020.
-  authors:
-  - Jacob D. Moorman
-  - Thomas K. Tu
-  - Denali Molitor
-  - Deanna Needell
 - title: Subgraph Matching on Multiplex Networks
-  venue: IEEE Transactions on Network Science and Engineering, to Appear, 2021.
+  venue: IEEE Transactions on Network Science and Engineering, to Appear, 2021
+  url: https://doi.org/10.1109/TNSE.2021.3056329
   authors:
   - Jacob D. Moorman
   - Qinyi Chen
   - Thomas K. Tu
   - Xie He
   - Andrea L. Bertozzi
+- title: Adaptive Sketch-and-Project Methods for Solving Linear Systems
+  venue: SIAM Journal on Matrix Analysis and Applications, to Appear, 2021
+  url: https://arxiv.org/abs/1909.03604
+  authors:
+  - Robert M. Gower
+  - Denali Molitor
+  - Jacob D. Moorman
+  - Deanna Needell
+- title: Randomized Kaczmarz with Averaging
+  venue: BIT Numerical Mathematics 61, pp. 337–359, 2021
+  url: https://doi.org/10.1007/s10543-020-00824-1
+  authors:
+  - Jacob D. Moorman
+  - Thomas K. Tu
+  - Denali Molitor
+  - Deanna Needell
 
 
 conference:
 - title: Inexact Attributed Subgraph Matching
-  venue: Proc. GTA³ 4.0 at IEEE International Conference on Big Data, Atlanta, GA, Dec. 2020.
+  venue: 2020 IEEE International Conference on Big Data (Big Data), Atlanta, GA, USA, pp. 2575-2582, 2020
+  url: https://doi.org/10.1109/BigData50022.2020.9377872
   authors:
   - Thomas K. Tu
   - Jacob D. Moorman
@@ -26,7 +37,7 @@ conference:
   - Qinyi Chen
   - Andrea L. Bertozzi
 - title: Neural Echo Simulator (NES) for Real-Time Simulation of Transcranial Doppler Ultrasound (TCD) Signal Responses of Cerebral Hemodynamics From High-Resolution 3D Imaging Head-Models
-  venue: Proc. 24th Meeting of the Euro. Soc. of Neurosonology and Cerebral Hemodynamics, Linz, Austria, Apr. 2019.
+  venue: Proc. 24th Meeting of the Euro. Soc. of Neurosonology and Cerebral Hemodynamics, Linz, Austria, Apr. 2019
   url: https://doi.org/10.1007/s10354-019-0697-8
   authors:
   - Zhaojun Nie
@@ -38,16 +49,15 @@ conference:
   - Zsolt Garami
   - Robert Hamilton
 - title: Randomized Kaczmarz with Averaging
-  venue: Proc. Information Theory and Applications Workshop, La Jolla, CA, Feb. 2019.
-  url: 2019ita.pdf
+  venue: Information Theory and Applications Workshop, La Jolla, CA, Feb. 2019
   authors:
   - Jacob D. Moorman
   - Thomas K. Tu
   - Denali Molitor
   - Deanna Needell
 - title: Filtering Methods for Subgraph Matching on Multiplex Networks
-  venue: Proc. GTA³ 2.0 at IEEE International Conference on Big Data, Seattle, WA, Dec. 2018.
-  url: https://ieeexplore.ieee.org/document/8622566
+  venue: 2018 IEEE International Conference on Big Data (Big Data), Seattle, WA, USA, pp. 3980-3985, 2018
+  url: https://doi.org/10.1109/BigData.2018.8622566
   authors:
   - Jacob D. Moorman
   - Qinyi Chen
@@ -55,29 +65,19 @@ conference:
   - Zachary M. Boyd
   - Andrea L. Bertozzi
 
-preprint:
-- title: Adaptive Sketch-and-Project Methods for Solving Linear Systems
-  venue: Submitted Sept. 2019.
-  url: https://arxiv.org/abs/1909.03604
-  authors:
-  - Robert M. Gower
-  - Denali Molitor
-  - Jacob D. Moorman
-  - Deanna Needell
-
 
 presentation:
 - title: Comparing Adaptive Sketch-and-Project Methods
-  venue: SIAM Conference on Imaging Science (IS20), Virtual, Jul. 2020.
+  venue: SIAM Conference on Imaging Science (IS20), Virtual, Jul. 2020
   type: Oral
 - title: On Comparing Adaptive Sampling Rules for Sketch-and-Project Methods
-  venue: Joint Mathematics Meeting, Denver, CO, Jan. 2020.
+  venue: Joint Mathematics Meeting, Denver, CO, Jan. 2020
   type: Oral
 - title: Randomized Kaczmarz with Averaging
-  venue: Information Theory and Applications Workshop, La Jolla, CA, Feb. 2019.
+  venue: Information Theory and Applications Workshop, La Jolla, CA, Feb. 2019
   type: Poster
 - title: Identifying and Tracking Multiple Underwater Acoustic Sources Using Characteristic Signatures
-  venue: SIAM Conference on Computational Science and Engineering, Salt Lake City, Utah, Mar. 2015.
+  venue: SIAM Conference on Computational Science and Engineering, Salt Lake City, Utah, Mar. 2015
   type: Poster
 
 reviewer:
