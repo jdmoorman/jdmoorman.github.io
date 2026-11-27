@@ -2,9 +2,9 @@
   image: /assets/images/projects/bendy-arrows.gif
   image_alt: Solving a BendyArrows level by drawing a path through every tile
   description: >-
-    A puzzle game built with Claude Code. Find a path from the arrow's tail
-    to its head, visiting every tile once. It has 100+ levels, a hint engine, 
-    a puzzle editor, and is mobile-friendly.
+    A puzzle game where you find a path from the arrow's tail to its head,
+    visiting every tile once. It has 100+ levels, a hint engine, a puzzle
+    editor, and is mobile-friendly.
   links:
     - label: Play
       url: https://jacob.moorman.me/bendy-arrows/
