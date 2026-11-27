@@ -30,7 +30,7 @@ collections:
 # paginate_path: "/blog/page:num/"
 
 pages_list:
-  - ["About", ""]
+  - ["Projects", ""]
   - ["Teaching", "teaching/"]
   # - ["Research", "research/"]
   # - ["Blog", "blog/"]

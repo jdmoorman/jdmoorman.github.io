@@ -296,6 +296,43 @@ footer {
   text-align: center;
 }
 
+.project {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 2em;
+
+  .project-image {
+    flex: 0 0 200px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+
+  .project-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  .project-links a {
+    margin-right: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .project {
+    flex-direction: column;
+  }
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
